@@ -20,6 +20,7 @@ export default function Home() {
       </Head>
       <h1>This is Test Create Branch</h1>
       <h1>Rakibul Hasan Khan.</h1>
+      <h2>We are here to care your good health and happy life and happy mind </h2>
       
       {/* for  adding animated text used to react-animated-text package */}
       <AnimatedText
