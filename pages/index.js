@@ -19,6 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>This is Test Create Branch</h1>
+      <h1>Rakibul Hasan Khan.</h1>
       
       {/* for  adding animated text used to react-animated-text package */}
       <AnimatedText
