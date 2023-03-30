@@ -23,6 +23,10 @@ export default function Home() {
       <h1>Rakibul Hasan Khan.</h1>
       <p>My country name is Bangladesh</p>
       <h1>bd</h1>
+      <h2>
+        We are here to care your good health and happy life and happy mind{" "}
+      </h2>
+      <h1>Baidyanath Kumar Hasan Khan.</h1>
       {/* for  adding animated text used to react-animated-text package */}
       <AnimatedText
         type="bounce"
