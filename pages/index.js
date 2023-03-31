@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import AnimatedText from "react-animated-text-content";
+import Service from "@/components/service";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,18 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>This is Test Create Branch</h1>
-      <h1>Rakibul Hasan Khan.</h1>
-      <h1>Rakibul Hasan Khan.</h1>
-      <p>My country name is Bangladesh</p>
-      <h1>bd</h1>
-      <h4>bbbbbbbbb</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, vel.</p>
-      <h2>
-        We are here to care your good health and happy life and happy mind{" "}
-      </h2>
-      <h1>Baidyanath Kumar Hasan Khan.</h1>
-      <h4>Whats your name</h4>
+      <Service></Service>
       {/* for  adding animated text used to react-animated-text package */}
       <AnimatedText
         type="bounce"
