@@ -24,6 +24,7 @@ export default function Home() {
       <p>My country name is Bangladesh</p>
       <h1>bd</h1>
       <h4>bbbbbbbbb</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, vel.</p>
       <h2>
         We are here to care your good health and happy life and happy mind{" "}
       </h2>
