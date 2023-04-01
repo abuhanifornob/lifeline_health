@@ -1,7 +1,12 @@
 import Footer from "@/components/Footer";
 
 import Head from "next/head";
-import { Inter } from "next/font/google";
+import { Inter } from "next/font/google"
+import Service from "@/components/service/service";
+import Questions from "@/components/questions/Questions";
+import TakeService from "@/components/TakeService";
+import ContactForm from "@/components/ContactForm";
+import Navbar from "@/components/navbar/Navbar";
 import Blogs from "@/components/blog_section/Blogs";
 import Navbar from "@/components/navbar/Navbar";
 import Questions from "@/components/questions/Questions";
@@ -24,11 +29,12 @@ export default function Home() {
       </Head>
       <Navbar></Navbar>
       <Service></Service>
-      <Blogs></Blogs>
       <Questions></Questions>
       <TakeService></TakeService>
+      <Blogs></Blogs>
       <ContactForm></ContactForm>
       <Footer></Footer>
+
 
     </>
   );

@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 body{
-  background: white;
+  background: linear-gradient( white);
   background-repeat: no-repeat;
   min-height: max-content;
 }
