@@ -1,7 +1,12 @@
+import Service from "@/components/service";
+import Footer from "@/components/Footer";
+
 import Head from "next/head";
 import { Inter } from "next/font/google";
+
 import AnimatedText from "react-animated-text-content";
-import Service from "@/components/service/service";
+import TakeService from "@/components/service/TakeService";
+import ContactForm from "@/components/ContactForm";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,6 +68,10 @@ export default function Home() {
         Build The HealthHub
       </AnimatedText>
       ;
+      <TakeService></TakeService>
+      <ContactForm></ContactForm>
+      {/* This is Foolter Section */}
+      <Footer></Footer>
     </>
   );
 }
