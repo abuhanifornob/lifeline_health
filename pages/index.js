@@ -7,7 +7,6 @@ import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/navbar/Navbar";
-import { Inter } from "next/font/google";
 import Blogs from "@/components/blog_section/Blogs";
 
 
@@ -27,11 +26,11 @@ export default function Home() {
       <Service></Service>
       <Questions></Questions>
       <TakeService></TakeService>
+      <Blogs></Blogs>
       <ContactForm></ContactForm>
       <Footer></Footer>
-     
-    
-      <Blogs></Blogs>
+
+
     </>
   );
 }
