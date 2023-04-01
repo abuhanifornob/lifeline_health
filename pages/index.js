@@ -1,12 +1,12 @@
-import Service from "@/components/service";
 import Footer from "@/components/Footer";
 
 import Head from "next/head";
 import { Inter } from "next/font/google";
 
 import AnimatedText from "react-animated-text-content";
-import TakeService from "@/components/service/TakeService";
+import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
+import Service from "@/components/service/service";
 
 const inter = Inter({ subsets: ["latin"] });
 
