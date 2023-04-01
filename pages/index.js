@@ -4,9 +4,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 
 import AnimatedText from "react-animated-text-content";
-import TakeService from "@/components/TakeService";
-import ContactForm from "@/components/ContactForm";
-import Service from "@/components/service/service";
+import Service from "@/components/service";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +22,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar></Navbar>
       <Service></Service>
       {/* for  adding animated text used to react-animated-text package */}
       <AnimatedText

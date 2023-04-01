@@ -1,0 +1,6 @@
+.customMenu li{
+    cursor: pointer;
+}
+.customMenu  li:hover{
+    color: #4791ff;
+}
