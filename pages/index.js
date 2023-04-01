@@ -8,6 +8,7 @@ import Service from "@/components/service/service";
 import Navbar from "@/components/navbar/Navbar";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
+import Questions from "@/components/questions/Questions";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function Home() {
       </Head>
       <Navbar></Navbar>
       <Service></Service>
+      <Questions></Questions>
       <TakeService></TakeService>
       <ContactForm></ContactForm>
       {/* This is Foolter Section */}

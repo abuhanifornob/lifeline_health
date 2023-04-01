@@ -7,8 +7,8 @@ import React from 'react';
 const TakeService = () => {
     return (
 <section className="text-gray-600 body-font">
-   <div className='mx-auto mx-5'>
-   <h1 className='text-center text-4xl font-bold mb-2 text-black '>How to get the service?</h1>
+   <div className='mx-auto mx-6'>
+   <h1 className='text-center text-4xl md:text-2xl font-bold mb-2 text-gray-700 '>How to get the service?</h1>
    <p className='font-bold text-center'>You can take our service very easily please follow below few steps.</p>
    </div>
   <div className="container px-5 py-24 mx-auto flex flex-wrap">
