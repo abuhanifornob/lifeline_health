@@ -8,7 +8,11 @@
   box-sizing: border-box;
 }
 body{
+<<<<<<< HEAD
   background: linear-gradient( white);
+=======
+  background: white;
+>>>>>>> 2c3931fbb92071a35f61e9fb637c112acf491c88
   background-repeat: no-repeat;
   min-height: max-content;
 }
