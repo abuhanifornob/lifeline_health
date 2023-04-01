@@ -4,7 +4,10 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 
 import AnimatedText from "react-animated-text-content";
-import Service from "@/components/service";
+import Navbar from "@/components/navbar/Navbar";
+import Service from "@/components/service/service";
+import TakeService from "@/components/TakeService";
+import ContactForm from "@/components/ContactForm";
 
 const inter = Inter({ subsets: ["latin"] });
 
