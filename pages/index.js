@@ -1,16 +1,12 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import AnimatedText from "react-animated-text-content";
+
 import Blogs from "@/components/blog_section/Blogs";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const mystyle = {
-    margin: "100px",
-    textAlign: "center",
-    fontSize: "100px",
-  };
+
   return (
     <>
       <Head>
@@ -19,7 +15,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Blogs></Blogs>
+
 
     </>
   );
