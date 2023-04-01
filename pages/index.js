@@ -1,22 +1,17 @@
 import Footer from "@/components/Footer";
 
 import Head from "next/head";
-import { Inter } from "next/font/google";
-
-import AnimatedText from "react-animated-text-content";
+import { Inter } from "next/font/google"
 import Service from "@/components/service/service";
-import Navbar from "@/components/navbar/Navbar";
+import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
+import Navbar from "@/components/navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const mystyle = {
-    margin: "100px",
-    textAlign: "center",
-    fontSize: "100px",
-  };
+ 
   return (
     <>
       <Head>
@@ -27,10 +22,12 @@ export default function Home() {
       </Head>
       <Navbar></Navbar>
       <Service></Service>
+      <Questions></Questions>
       <TakeService></TakeService>
       <ContactForm></ContactForm>
-      {/* This is Foolter Section */}
       <Footer></Footer>
+     
+    
     </>
   );
 }
