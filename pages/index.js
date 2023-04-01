@@ -25,49 +25,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Service></Service>
-      {/* for  adding animated text used to react-animated-text package */}
-      <AnimatedText
-        type="bounce"
-        animation={{
-          x: "200px",
-          y: "-20px",
-          scale: 1.1,
-          ease: "ease-in-out",
-        }}
-        animationType="float"
-        interval={0.06}
-        duration={0.8}
-        tag="p"
-        className="animated-paragraph"
-        includeWhiteSpaces
-        threshold={0.1}
-        rootMargin="20%"
-        style={mystyle}
-      >
-        Let's F**k the Next
-      </AnimatedText>
-      ;
-      <AnimatedText
-        type="bounce"
-        animation={{
-          x: "200px",
-          y: "-20px",
-          scale: 1.1,
-          ease: "ease-in-out",
-        }}
-        animationType="wave"
-        interval={0.08}
-        duration={1}
-        tag="p"
-        className="animated-paragraph"
-        includeWhiteSpaces
-        threshold={0.1}
-        rootMargin="20%"
-        style={mystyle}
-      >
-        Build The HealthHub
-      </AnimatedText>
-      ;
       <TakeService></TakeService>
       <ContactForm></ContactForm>
       {/* This is Foolter Section */}
