@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import AnimatedText from "react-animated-text-content";
 import Service from "@/components/service";
-import Navbar from "@/components/navbar/navbar";
+import Navbar from "@/components/navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +20,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Service></Service>
       <Navbar></Navbar>
+      <Service></Service>
       {/* for  adding animated text used to react-animated-text package */}
       <AnimatedText
         type="bounce"
