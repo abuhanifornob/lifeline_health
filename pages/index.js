@@ -1,12 +1,17 @@
+import Footer from "@/components/Footer";
+
 import Head from "next/head";
 import { Inter } from "next/font/google";
-
-import Blogs from "@/components/blog_section/Blogs";
+import AnimatedText from "react-animated-text-content";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
+  const mystyle = {
+    margin: "100px",
+    textAlign: "center",
+    fontSize: "100px",
+  };
   return (
     <>
       <Head>
@@ -15,10 +20,61 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Blogs></Blogs>
-
-
+      <h1>This is Test Create Branch</h1>
+      <h1>Rakibul Hasan Khan.</h1>
+      <h1>Rakibul Hasan Khan.</h1>
+      <p>My country name is Bangladesh</p>
+      <h1>bd</h1>
+      <h4>bbbbbbbbb</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, vel.</p>
+      <h2>
+        We are here to care your good health and happy life and happy mind{" "}
+      </h2>
+      <h1>Baidyanath Kumar Hasan Khan.</h1>
+      <h4>Whats your name</h4>
+      {/* for  adding animated text used to react-animated-text package */}
+      <AnimatedText
+        type="bounce"
+        animation={{
+          x: "200px",
+          y: "-20px",
+          scale: 1.1,
+          ease: "ease-in-out",
+        }}
+        animationType="float"
+        interval={0.06}
+        duration={0.8}
+        tag="p"
+        className="animated-paragraph"
+        includeWhiteSpaces
+        threshold={0.1}
+        rootMargin="20%"
+        style={mystyle}
+      >
+        Let's F**k the Next
+      </AnimatedText>
+      ;
+      <AnimatedText
+        type="bounce"
+        animation={{
+          x: "200px",
+          y: "-20px",
+          scale: 1.1,
+          ease: "ease-in-out",
+        }}
+        animationType="wave"
+        interval={0.08}
+        duration={1}
+        tag="p"
+        className="animated-paragraph"
+        includeWhiteSpaces
+        threshold={0.1}
+        rootMargin="20%"
+        style={mystyle}
+      >
+        Build The HealthHub
+      </AnimatedText>
+      ;
     </>
   );
 }
