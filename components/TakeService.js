@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
+
 import React from 'react';
 
 const TakeService = () => {
@@ -82,7 +84,7 @@ const TakeService = () => {
           </div>
         </div>
       </div>
-      <img className="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="/health-care-consultation.svg" alt="step"/>
+      <Image className="lg:w-3/5 md:w-1/2 object-cover object-center rounded-full md:mt-0 mt-12" src="/health-care-consultation.svg" alt="step" width={1200} height={800}/>
     </div>
   </div>
 </section>
