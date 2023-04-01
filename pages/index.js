@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import AnimatedText from "react-animated-text-content";
-import Service from "@/components/service";
+import Service from "@/components/service/service";
 
 const inter = Inter({ subsets: ["latin"] });
 
