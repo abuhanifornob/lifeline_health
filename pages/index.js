@@ -1,13 +1,13 @@
 import Footer from "@/components/Footer";
-
-import Head from "next/head";
-import { Inter } from "next/font/google"
 import Service from "@/components/service/service";
 import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
+import Navbar from "@/components/navbar/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+import Head from "next/head";
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const mystyle = {
@@ -29,8 +29,8 @@ export default function Home() {
       <TakeService></TakeService>
       <ContactForm></ContactForm>
       <Footer></Footer>
-     
-    
+
+
     </>
   );
 }
