@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const ServiceCard = ({service}) => {
@@ -11,7 +12,7 @@ const ServiceCard = ({service}) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{title}</p>
                 <div className="card-actions">
-                    <button className="btn bg-[#254747] ">Details</button>
+                <Link href={`/service/${name}`}><button className="btn bg-[#254747] ">Details</button></Link>
                 </div>
             </div>
         </div>
