@@ -4,6 +4,7 @@ import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/navbar/Navbar";
+import Review from "@/components/review/Review";
 
 import Head from "next/head";
 
@@ -27,6 +28,7 @@ export default function Home() {
       <Service></Service>
       <Questions></Questions>
       <TakeService></TakeService>
+      <Review></Review>
       <ContactForm></ContactForm>
       <Footer></Footer>
 
