@@ -7,6 +7,7 @@ import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/navbar/Navbar";
+import Blogs from "@/components/blog_section/Blogs";
 
 const inter = Inter({ subsets: ["latin"] });
 
