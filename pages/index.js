@@ -11,7 +11,11 @@ import Navbar from "@/components/navbar/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
- 
+  const mystyle = {
+    margin: "100px",
+    textAlign: "center",
+    fontSize: "100px",
+  };
   return (
     <>
       <Head>
