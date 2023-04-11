@@ -4,7 +4,10 @@ import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/navbar/Navbar";
+<<<<<<< HEAD
 import Review from "@/components/review/Review";
+=======
+>>>>>>> e8de045ea0ccf5e5bbada30d095b18f13cbae43a
 
 import Head from "next/head";
 
