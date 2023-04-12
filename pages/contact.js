@@ -1,8 +1,9 @@
+import React from 'react';
 
-const ContactForm = () => {
+const Contact = () => {
     return (
-    <>
-    <div className="max-w-screen-xl mx-auto m-24">
+        <>
+         <div className="max-w-screen-xl mx-auto m-24">
       <h1 className="text-4xl text-[#254747] font-bold text-center mb-12">Contact  us</h1>
      <section className="text-gray-600 body-font relative">
         <div className="container px-5  mx-auto flex sm:flex-nowrap flex-wrap">
@@ -42,11 +43,9 @@ const ContactForm = () => {
           </div>
         </div>
       </section> 
-    </div>
-    
-    </>
-        
+    </div>   
+        </>
     );
 };
 
-export default ContactForm;
+export default Contact;

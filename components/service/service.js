@@ -42,9 +42,9 @@ const Service = () => {
 
     ]
     return (
-        <div className=' max-w-screen-xl mx-auto'>
-            <h1 className='text-4xl py-5 text-center font-extrabold'>OUR SERVICES</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 '>
+        <div className=' max-w-screen-xl mx-4 xl:mx-auto '>
+            <h1 className='text-4xl mt-24 text-[#254747] mb-12 text-center font-bold'>Our Services</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14'>
                 {
                     services.map((service, id) => <ServiceCard key={id} service={service}></ServiceCard>)
                 }

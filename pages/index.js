@@ -8,6 +8,11 @@ import Service from "@/components/service/service";
 import Navbar from "@/components/navbar/Navbar";
 import TakeService from "@/components/TakeService";
 import ContactForm from "@/components/ContactForm";
+import Banner from "@/components/Banner/Banner";
+import Contact from "./contact";
+import BmiCalculator from "@/components/BmiCal/BmiCalculator";
+import HealthCheckCalculator from "@/components/HealthCal/HealthCalculator";
+import WorkoutCalculator from "@/components/WorkoutCal/WorkoutCalculator";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,12 +27,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
+      <Banner></Banner>
+      <BmiCalculator></BmiCalculator>
+      <HealthCheckCalculator></HealthCheckCalculator>
+      <WorkoutCalculator></WorkoutCalculator>
       <Service></Service>
       <TakeService></TakeService>
-      <ContactForm></ContactForm>
+      <Contact></Contact>
+      {/* <ContactForm></ContactForm> */}
       {/* This is Foolter Section */}
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 }

@@ -5,12 +5,12 @@ import React from 'react';
 
 const TakeService = () => {
     return (
-<section className="text-gray-600 body-font">
+<section className="text-gray-600 body-font max-w-screen-xl mx-auto">
    <div className='w-[500px] mx-auto'>
-   <h1 className='text-center text-4xl font-bold mb-2 text-black '>How to get the service?</h1>
-   <p className='font-bold'>You can take our service very easily please follow below few steps.</p>
+   <h1 className=' text-4xl text-[#254747] font-bold mt-24 mb-2  '>Get the service?</h1>
+   {/* <p className='font-medium md:text-xl text-[#254747]'>You can take our service by following  the few steps.</p> */}
    </div>
-  <div className="container px-5 py-24 mx-auto flex flex-wrap">
+  <div className="container px-5 mt-12 mx-auto flex flex-wrap">
     <div className="flex flex-wrap w-full">
       <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
         <div className="flex relative pb-12">
