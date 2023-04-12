@@ -29,8 +29,6 @@ export default function Home() {
       <TakeService></TakeService>
       <ContactForm></ContactForm>
       <Footer></Footer>
-
-
     </>
   );
 }
