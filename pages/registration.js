@@ -1,21 +1,18 @@
 import { AuthContext } from "@/context/AuthProvider";
-
 import { GoogleAuthProvider } from "firebase/auth";
-
 import Link from "next/link";
-
-import React, { useContext } from "react";
+import { useContext } from "react";
 const provider = new GoogleAuthProvider();
 
-const login = () => {
+const registration = () => {
   const backgroundStyle = {
     backgroundImage: `url(${"/loginBack.jpg"})`,
   };
   const { singInEmailPassword, googleLongin } = useContext(AuthContext);
-  const handleForm = (event) => {
+  const handleRegis = (event) => {
     event.preventDefault();
-
     const email = event.target.email.value;
+    const name = event.target.name.value;
     const password = event.target.password.value;
     console.log(email, password);
   };
@@ -40,9 +37,21 @@ const login = () => {
         </div>
         <div className="w-1/2">
           <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-            <h1 className="text-2xl font-bold text-center py-3">Log In</h1>
-            <form onSubmit={handleForm}>
+            <h1 className="text-2xl font-bold text-center py-3">Sign Up</h1>
+            <form onSubmit={handleRegis}>
               <div className="card-body">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Your Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="input input-bordered"
+                    name="name"
+                    required
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -73,22 +82,21 @@ const login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                  <button className="btn btn-primary">Sign Up</button>
                 </div>
               </div>
             </form>
             <label className="label text-sm flex justify-center items-center ">
               <span className="label-text text-center">
-                New to LifeLine Health ?
+                Already Have a Account
                 <Link
-                  href={"/siginsignupselect"}
-                  className="text-orange-600 hover:text-yellow-500 font-bold text-xl"
+                  href={"/"}
+                  className="text-orange-600 pl-2 hover:text-yellow-500 font-bold text-xl"
                 >
-                  Create new account
+                  Sign In !
                 </Link>
               </span>
             </label>
-
             <div className="flex flex-col w-full border-opacity-50">
               <div className="divider">OR</div>
             </div>
@@ -105,4 +113,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default registration;

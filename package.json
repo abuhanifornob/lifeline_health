@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "daisyui": "^2.51.5",
+    "firebase": "^9.19.1",
     "next": "^13.2.4",
     "react": "^18.2.0",
     "react-animated-text-content": "^1.0.1",
