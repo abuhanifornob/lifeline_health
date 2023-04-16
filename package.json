@@ -8,7 +8,12 @@
   },
   "dependencies": {
     "daisyui": "^2.51.5",
+<<<<<<< HEAD
     "firebase": "^9.19.1",
+=======
+    "dotenv": "^16.0.3",
+    "mongodb": "^5.2.0",
+>>>>>>> 69d08b7169c73a1854274163cfd32dc2cc3711e1
     "next": "^13.2.4",
     "react": "^18.2.0",
     "react-animated-text-content": "^1.0.1",
