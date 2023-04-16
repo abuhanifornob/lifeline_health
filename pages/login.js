@@ -3,8 +3,10 @@ import { AuthContext } from "@/context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 const provider = new GoogleAuthProvider();
 
 const login = () => {
@@ -12,17 +14,29 @@ const login = () => {
     backgroundImage: `url(${"/loginBack.jpg"})`,
   };
   const { singInEmailPassword, googleLongin } = useContext(AuthContext);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const router = useRouter();
   const handleForm = (event) => {
     event.preventDefault();
-
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    console.log(email, password);
+    const data = event.target;
+    const email = data.email.value;
+    const password = data.password.value;
+    singInEmailPassword(email, password)
+      .then((result) => {
+        setLoginEmail(data.email);
+        toast.success("Login Success!!");
+      })
+      .catch((error) => {
+        setLoginError(error.message);
+      });
   };
   const handleGoogleLogin = () => {
     googleLongin(provider)
       .then((result) => {
         const user = result.user;
+        console.log(user);
+        router.push("/");
 
         const userInformation = {
           name: user.displayName,

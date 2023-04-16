@@ -8,13 +8,28 @@ const registration = () => {
   const backgroundStyle = {
     backgroundImage: `url(${"/loginBack.jpg"})`,
   };
-  const { singInEmailPassword, googleLongin } = useContext(AuthContext);
+  const { googleLongin, createUser, userProfileUpdate } =
+    useContext(AuthContext);
   const handleRegis = (event) => {
     event.preventDefault();
-    const email = event.target.email.value;
-    const name = event.target.name.value;
-    const password = event.target.password.value;
-    console.log(email, password);
+    const data = event.target;
+    const email = data.email.value;
+    const name = data.name.value;
+    const password = data.password.value;
+    const userInfo = {
+      displayName: name,
+    };
+    createUser(email, password)
+      .then((result) => {
+        userProfileUpdate(userInfo)
+          .then(() => {})
+          .catch((error) => {});
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   const handleGoogleLogin = () => {
     googleLongin(provider)
@@ -76,9 +91,9 @@ const registration = () => {
                     required
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
+                    <Link href="#" className="label-text-alt link link-hover">
                       Forgot password?
-                    </a>
+                    </Link>
                   </label>
                 </div>
                 <div className="form-control mt-6">
