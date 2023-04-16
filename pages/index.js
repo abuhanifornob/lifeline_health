@@ -1,14 +1,17 @@
-import Footer from "@/components/Footer";
-
-import Head from "next/head";
-import { Inter } from "next/font/google"
 import Service from "@/components/service/service";
 import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
-import ContactForm from "@/components/ContactForm";
-import Navbar from "@/components/navbar/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+import Review from "@/components/review/Review";
+import Banner from "@/components/Banner/Banner";
+import Contact from "./contact";
+import BmiCalculator from "@/components/BmiCal/BmiCalculator";
+import HealthCheckCalculator from "@/components/HealthCal/HealthCalculator";
+import WorkoutCalculator from "@/components/WorkoutCal/WorkoutCalculator";
+
+import Head from "next/head";
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const mystyle = {
@@ -24,14 +27,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
+      <Banner></Banner>
+      <BmiCalculator></BmiCalculator>
+      <HealthCheckCalculator></HealthCheckCalculator>
+      <WorkoutCalculator></WorkoutCalculator>
       <Service></Service>
       <Questions></Questions>
       <TakeService></TakeService>
-      <ContactForm></ContactForm>
-      <Footer></Footer>
-     
-    
+      <Review></Review>
+
+      <Contact></Contact>
+      {/* <ContactForm></ContactForm> */}
+      {/* This is Foolter Section */}
+      {/* <Footer></Footer> */}
     </>
   );
 }
