@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 const ServiceDetails = () => {
     const router = useRouter()
     const [data, setData] = useState([])
+    const [expert, setExpert] = useState([])
     const [isLoading, setLoading] = useState(false)
 
     const { service } = router.query
@@ -18,6 +19,12 @@ const ServiceDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 setData(data)
+                return fetch(`/api/getExpert`)
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                setExpert(data)
+                console.log(data);
                 setLoading(false)
 
             })
