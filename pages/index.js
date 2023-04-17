@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-
 import Head from "next/head";
 import { Inter } from "next/font/google"
 import Service from "@/components/service/service";
