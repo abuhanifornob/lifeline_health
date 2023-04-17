@@ -18,14 +18,14 @@ const Service = () => {
         {
             id:'02',
             name: 'Nutrition & Diet Specialist',
-            slug: 'nutrition-&-Diet-specialist',
+            slug: 'nutrition-diet-specialist',
             icon: <IoFastFoodOutline></IoFastFoodOutline>,
             title: "developing customized nutrition plans, offering nutritional counseling, and more to promote optimal health through individualized nutrition and dietary recommendations."
         },
         {
             id:'03',
             name: 'Gym & Fitness Expert',
-            slug: 'gym-&-fitness-expert',
+            slug: 'gym-fitness-expert',
             icon: <IoIosFitness></IoIosFitness>,
             title: "Personalized workout plans, group fitness classes, fitness coaching, nutritional support, injury prevention education, and specialized training to help individuals achieve their fitness goals"
         },
