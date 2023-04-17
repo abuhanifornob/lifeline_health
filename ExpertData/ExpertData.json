@@ -1,0 +1,649 @@
+{
+    "doctors": {
+        "doctor": [
+            {
+                "id": "1",
+                "firstName": "Tom",
+                "lastName": "Cruise",
+                "slug": "doctor-consultation",
+                "service": "Doctor Consultation",
+                "photo": "https://img.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg?size=626&ext=jpg",
+                "speciality": "Cardiologists",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Dhaka Medical college",
+                        "year": "2012-2016",
+                        "result": "4 of 3.63"
+                    },
+                    {
+                        "degree_name": "Bachelor of Medicine",
+                        "university": "Dhaka Medical college",
+                        "year": "2017-2019",
+                        "result": "4 of 3.99"
+                    }
+                ],
+                "intern": {
+                    "department": "Cardiologists",
+                    "hospital": "Rajshahi Medical college",
+                    "year": "2020-2022"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Naogaon Medical",
+                        "year": "2023-2025",
+                        "surgery": "95"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Rajshahi Medical",
+                        "year": "2023-2025",
+                        "surgery": "105"
+                    }
+                ],
+                "License": "Dhaka Medical College & Hospital"
+            },
+            {
+                "id": "2",
+                "firstName": "Ali",
+                "lastName": "Ahmed",
+                "slug": "dentist",
+                "service": "Dentist",
+                "photo": "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?w=740&t=st=1680889658~exp=1680890258~hmac=d2428866e2e3d13bdc0857d4d8d1b93c4548621c3e06acba88f9964a651a1e00",
+                "speciality": "Dentist",
+                "education": [
+                    {
+                        "degree_name": "Bachelor in Dental Surgery",
+                        "university": "Dhaka Medical college",
+                        "year": "2010-2013",
+                        "result": "4 of 3.90"
+                    },
+                    {
+                        "degree_name": "Bachelor of Medicine",
+                        "university": "Dhaka Medical college",
+                        "year": "2014-2016",
+                        "result": "4 of 4"
+                    }
+                ],
+                "intern": {
+                    "department": "Dentist",
+                    "hospital": "Chitagong Medical college",
+                    "year": "2027-2020"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Bogura Medical",
+                        "year": "2021-2023",
+                        "surgery": "22"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Rajshahi Medical",
+                        "year": "2024-2026",
+                        "surgery": "20"
+                    }
+                ],
+                "License": "Dhaka Medical College & Hospital"
+            },
+            {
+                "id": "3",
+                "firstName": "Antora",
+                "lastName": "Majumder",
+                "slug": "doctor-consultation",
+                "service": "Doctor Consultation",
+                "photo": "https://img.freepik.com/premium-photo/medical-concept-indian-beautiful-female-doctor-white-coat-with-stethoscope-waist-up-medical-student-woman-hospital-worker-looking-camera-smiling-studio-blue-background_185696-621.jpg?w=740",
+                "speciality": "Gynecology, Obstetrics Specialist & Laparoscopic Surgeon",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Shaheed Suhrawardy Medical College & Hospital",
+                        "year": "2008-2011",
+                        "result": "4 of 3.80"
+                    },
+                    {
+                        "degree_name": "Laparoscopic Surgeon",
+                        "university": "Bogura Medial College and & Hospital",
+                        "year": "2012-2014",
+                        "result": "4 of 4"
+                    }
+                ],
+                "intern": {
+                    "department": "Gynecology",
+                    "hospital": "Sylhet MAG Osmani Medical College",
+                    "year": "2015-2017"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "45"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Holy Family Red Crescent Medical College",
+                        "year": "2021-2023",
+                        "surgery": "160"
+                    }
+                ],
+                "License": "Shaheed Suhrawardy Medical College &Hospital"
+            },
+            {
+                "id": "4",
+                "firstName": "Abu",
+                "lastName": "Hasnat",
+                "slug": "doctor-consultation",
+                "service": "Doctor Consultation",
+                "photo": "https://img.freepik.com/free-photo/portrait-smiling-male-doctor_171337-1532.jpg?size=626&ext=jpg&ga=GA1.1.72676431.1680886196&semt=ais",
+                "speciality": "Spine, Orthopaedic & Trauma Surgeon",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Bangabandhu Medical College",
+                        "year": "2009-2012",
+                        "result": "4 of 4"
+                    },
+                    {
+                        "degree_name": "Rthopaedic & Trauma Surgeon",
+                        "university": "Chandpur Medical College",
+                        "year": "2013-2015",
+                        "result": "4 of 3.85"
+                    }
+                ],
+                "intern": {
+                    "department": "Spine",
+                    "hospital": "Netrokona Medical College, Netrokona",
+                    "year": "2015-2016"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Rajshahi Medical College & Hospital",
+                        "year": "2017-2020",
+                        "surgery": "70"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Prime Medical College[",
+                        "year": "2021-2023",
+                        "surgery": "140"
+                    }
+                ],
+                "License": "Bangabandhu Medical College"
+            },
+            {
+                "id": "5",
+                "firstName": "Ali",
+                "lastName": "Ahmed",
+                "slug": "doctor-consultation",
+                "service": "Doctor Consultation",
+                "photo": "https://img.freepik.com/free-photo/smiling-touching-arms-crossed-room-hospital_1134-799.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "General & Neuromedicine Specialist",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Shaheed Monsur Ali Medical College",
+                        "year": "2001-2005",
+                        "result": "4 of 3.85"
+                    },
+                    {
+                        "degree_name": "Neuromedicine Specialist",
+                        "university": "Bogura Medial College and & Hospital",
+                        "year": "2006-2008",
+                        "result": "4 of 3.50"
+                    }
+                ],
+                "intern": {
+                    "department": "General & Neuromedicine Specialist",
+                    "hospital": "Northern Private Medical College",
+                    "year": "2009-2011"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Army Medical College Cumilla",
+                        "year": "2012-2017",
+                        "surgery": "450"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Monowara Sikder Medical College",
+                        "year": "2018-2020",
+                        "surgery": "160"
+                    }
+                ]
+            },
+            {
+                "id": "6",
+                "firstName": "Siddik",
+                "lastName": "Bari",
+                "slug": "doctor-consultation",
+                "service": "Doctor Consultation",
+                "photo": "https://img.freepik.com/free-photo/international-medical-student-man-blue-uniform-doctor-with-stethoscope_1157-44745.jpg?size=626&ext=jpg&ga=GA1.1.72676431.1680886196&semt=ais",
+                "speciality": "Medicine Specialist",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Rangpur Medical College",
+                        "year": "2002-2006",
+                        "result": "4 of 3.56"
+                    },
+                    {
+                        "degree_name": "Master of Surgery",
+                        "university": "Jashore Medical College",
+                        "year": "2007-2009",
+                        "result": "4 of 3.70"
+                    }
+                ],
+                "intern": {
+                    "department": "Medicine Specialist",
+                    "hospital": "Shaheed Tajuddin Ahmad Medical College",
+                    "year": "2010-2015"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Satkhira Medical College",
+                        "year": "2016-2019",
+                        "surgery": "150"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Monowara Sikder Medical College",
+                        "year": "2020-2023",
+                        "surgery": "160"
+                    }
+                ]
+            },
+            {
+                "id": "7",
+                "firstName": "Udoy",
+                "lastName": "Hazra",
+                "slug": "doctor-consultation",
+                "service": "Doctor Consultation",
+                "photo": "https://img.freepik.com/free-photo/happy-male-doctor-holding-tablet-showing-thumb-up_1262-18246.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Medicine, Chest, Asthma & Respiratory Diseases Specialist",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Shaheed Suhrawardy Medical College &Hospital",
+                        "year": "2008-2011",
+                        "result": "4 of 3.80"
+                    },
+                    {
+                        "degree_name": "Laparoscopic Surgeon",
+                        "university": "Bogura Medial College and & Hospital",
+                        "year": "2012-2014",
+                        "result": "4 of 4"
+                    }
+                ],
+                "intern": {
+                    "department": "Respiratory Diseases",
+                    "hospital": "Sylhet MAG Osmani Medical College",
+                    "year": "2015-2017"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "45"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Holy Family Red Crescent Medical College",
+                        "year": "2021-2023",
+                        "surgery": "160"
+                    }
+                ],
+                "License": "Shaheed Suhrawardy Medical College &Hospital"
+            },
+            {
+                "id": "8",
+                "firstName": "Abdul",
+                "lastName": "Kader",
+                "slug": "dentist",
+                "service": "Dentist",
+                "photo": "https://img.freepik.com/free-photo/happy-male-doctor-holding-tablet-showing-thumb-up_1262-18246.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Oral & Dental Specialist Surgeon",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "M Abdur Rahim Medical College",
+                        "year": "2008-2011",
+                        "result": "4 of 3.70"
+                    },
+                    {
+                        "degree_name": "Oral Prosthesis",
+                        "university": "Pabna Medial College and & Hospital",
+                        "year": "2012-2014",
+                        "result": "4 of 3.85"
+                    }
+                ],
+                "intern": {
+                    "department": "Respiratory Diseases",
+                    "hospital": "Sylhet MAG Osmani Medical College",
+                    "year": "2015-2017"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "80"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Holy Family Red Crescent Medical College",
+                        "year": "2021-2023",
+                        "surgery": "160"
+                    }
+                ],
+                "License": "M Abdur Rahim Medical College"
+            },
+            {
+                "id": "9",
+                "firstName": "Hridoy",
+                "lastName": "Sarker",
+                "slug": "dentist",
+                "service": "Dentist",
+                "photo": "https://img.freepik.com/free-photo/happy-male-doctor-holding-tablet-showing-thumb-up_1262-18246.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Oral & Dental Specialist Surgeon",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "M Abdur Rahim Medical College",
+                        "year": "2008-2011",
+                        "result": "4 of 3.70"
+                    },
+                    {
+                        "degree_name": "Oral Prosthesis",
+                        "university": "Pabna Medial College and & Hospital",
+                        "year": "2012-2014",
+                        "result": "4 of 3.85"
+                    }
+                ],
+                "intern": {
+                    "department": "Respiratory Diseases",
+                    "hospital": "Sylhet MAG Osmani Medical College",
+                    "year": "2015-2017"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "45"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Holy Family Red Crescent Medical College",
+                        "year": "2021-2023",
+                        "surgery": "160"
+                    }
+                ],
+                "License": "M Abdur Rahim Medical College"
+            },
+            {
+                "id": "10",
+                "firstName": "Abdul",
+                "lastName": "Hamid",
+                "slug": "nutrition-&-Diet-specialist",
+                "service": "Nutrition & Diet Specialist",
+                "photo": "https://img.freepik.com/free-photo/content-successful-general-practitioner-lab-coat-holding-hands-hips_1262-14193.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": " Nutrition & Diet Specialist",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Shaheed Suhrawardy Medical College &Hospital",
+                        "year": "2008-2011",
+                        "result": "4 of 3.80"
+                    },
+                    {
+                        "degree_name": "Laparoscopic Surgeon",
+                        "university": "Bogura Medial College and & Hospital",
+                        "year": "2012-2014",
+                        "result": "4 of 4"
+                    }
+                ],
+                "intern": {
+                    "department": "Respiratory Diseases",
+                    "hospital": "Sylhet MAG Osmani Medical College",
+                    "year": "2015-2017"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "45"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Holy Family Red Crescent Medical College",
+                        "year": "2021-2023",
+                        "surgery": "160"
+                    }
+                ],
+                "License": "Shaheed Suhrawardy Medical College & Hospital"
+            },
+            {
+                "id": "11",
+                "firstName": "Ahmed",
+                "lastName": "Sharif",
+                "slug": "nutrition-&-Diet-specialist",
+                "service": "Nutrition & Diet Specialist",
+                "photo": "https://img.freepik.com/free-photo/smiling-young-male-doctor-wearing-medical-uniform-stethoscope-around-his-neck-looking-camera-pointing-side-with-hands-isolated-red-background_141793-132745.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Nutrition & Diet Specialist",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Shahabuddin Medical College & Hospital",
+                        "year": "2008-2011",
+                        "result": "4 of 3.80"
+                    },
+                    {
+                        "degree_name": "Cardiology",
+                        "university": "Syleht Medial College and & Hospital",
+                        "year": "2012-2014",
+                        "result": "4 of 3.80"
+                    }
+                ],
+                "intern": {
+                    "department": "Cardiology & Medicine Specialist",
+                    "hospital": "Sylhet MAG Osmani Medical College",
+                    "year": "2015-2017"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "45"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "Holy Family Red Crescent Medical College",
+                        "year": "2021-2023",
+                        "surgery": "160"
+                    }
+                ],
+                "License": "Shahabuddin Medical College & Hospital"
+            },
+            {
+                "id": "12",
+                "firstName": "Usman",
+                "lastName": "Khaja",
+                "slug": "mental-helth",
+                "service": "Mental Helth",
+                "photo": "https://img.freepik.com/free-photo/happy-male-doctor-holding-tablet-showing-thumb-up_1262-18246.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Mental Helth, Consultation",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Sheikh Hasina Medical College",
+                        "year": "2010-2014",
+                        "result": "4 of 3.89"
+                    },
+                    {
+                        "degree_name": "Colorectal Surgery",
+                        "university": "Colonel Malek Medical College",
+                        "year": "2015-2017",
+                        "result": "4 of 3.70"
+                    }
+                ],
+                "intern": {
+                    "department": "Advance Laparoscopic & Colorectal Surgery",
+                    "hospital": "Ahsania Mission Medical College",
+                    "year": "2017-2018"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "25"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "South Apollo Medical College",
+                        "year": "2021-2023",
+                        "surgery": "150"
+                    }
+                ],
+                "License": "Sheikh Hasina Medical College"
+            },
+            {
+                "id": "13",
+                "firstName": "Akkas",
+                "lastName": "Hari",
+                "slug": "mental-helth",
+                "service": "Mental Helth",
+                "photo": "https://img.freepik.com/free-photo/covid-19-coronavirus-outbreak-healthcare-workers-pandemic-concept-handsome-cheerful-male-doctor-white-coat-show-thumbs-up-approval-agree-like-product-recommending_1258-57518.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Medicine, Diabetes, Gastroenterology & Liver Specialist",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Cumilla Medical College",
+                        "year": "2005-2009",
+                        "result": "4 of 3.49"
+                    },
+                    {
+                        "degree_name": "Gastroenterology & Liver",
+                        "university": "Shaheed Ziaur Rahman Medical College[",
+                        "year": "2010-2013",
+                        "result": "4 of 3.50"
+                    }
+                ],
+                "intern": {
+                    "department": "Medicine, Diabetes, Gastroenterology & Liver Specialist",
+                    "hospital": "Ahsania Mission Medical College",
+                    "year": "2014-2015"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Tairunnessa Memorial Medical College",
+                        "year": "2015-2018",
+                        "surgery": "48"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "South Apollo Medical College",
+                        "year": "2016-2023",
+                        "surgery": "850"
+                    }
+                ],
+                "License": "Cumilla Medical College"
+            },
+            {
+                "id": "14",
+                "firstName": "Hamid",
+                "lastName": "Ahmed",
+                "slug": "gym-&-fitness-expert",
+                "service": "Gym & Fitness Expert",
+                "photo": "https://img.freepik.com/free-photo/doctor-with-thumb-up-white-background_1368-5891.jpg?size=626&ext=jpg&ga=GA1.1.72676431.1680886196&semt=ais",
+                "speciality": "Gym & Fitness Expert",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Kumudini Women's Medical College",
+                        "year": "2006-2010",
+                        "result": "4 of 3.79"
+                    },
+                    {
+                        "degree_name": "Asthma & Respiratory Diseases",
+                        "university": "Shaheed Ziaur Rahman Medical College[",
+                        "year": "2010-2013",
+                        "result": "4 of 3.50"
+                    }
+                ],
+                "intern": {
+                    "department": "Medicine, Chest, Asthma & Respiratory Diseases Specialist",
+                    "hospital": "Ahsania Mission Medical College",
+                    "year": "2014-2015"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Tairunnessa Memorial Medical College",
+                        "year": "2015-2018",
+                        "surgery": "48"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "South Apollo Medical College",
+                        "year": "2016-2023",
+                        "surgery": "850"
+                    }
+                ],
+                "License": "Kumudini Women's Medical College["
+            },
+            {
+                "id": "15",
+                "firstName": "Hasan",
+                "lastName": "Ali",
+                "slug": "yoga-trainer",
+                "service": "Yoga Trainer",
+                "photo": "https://img.freepik.com/free-photo/happy-male-doctor-holding-tablet-showing-thumb-up_1262-18246.jpg?size=626&ext=jpg&ga=GA1.2.72676431.1680886196&semt=ais",
+                "speciality": "Yoga Trainer",
+                "education": [
+                    {
+                        "degree_name": "MBBS",
+                        "university": "Sheikh Hasina Medical College",
+                        "year": "2010-2014",
+                        "result": "4 of 3.89"
+                    },
+                    {
+                        "degree_name": "Colorectal Surgery",
+                        "university": "Colonel Malek Medical College",
+                        "year": "2015-2017",
+                        "result": "4 of 3.70"
+                    }
+                ],
+                "intern": {
+                    "department": "Advance Laparoscopic & Colorectal Surgery",
+                    "hospital": "Ahsania Mission Medical College",
+                    "year": "2017-2018"
+                },
+                "experience": [
+                    {
+                        "hospital_num": "01",
+                        "hospital_name": "Dhaka National Medical College",
+                        "year": "2017-2020",
+                        "surgery": "25"
+                    },
+                    {
+                        "hospital_num": "02",
+                        "hospital_name": "South Apollo Medical College",
+                        "year": "2021-2023",
+                        "surgery": "150"
+                    }
+                ],
+                "License": "Sheikh Hasina Medical College"
+            }
+        ]
+    }
+}
