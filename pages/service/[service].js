@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     const [isLoading, setLoading] = useState(false)
 
     const { service } = router.query
-
+console.log(service);
 
     useEffect(() => {
         setLoading(true)
@@ -23,12 +23,18 @@ const ServiceDetails = () => {
             })
             .then((res) => res.json())
             .then((data) => {
-                setExpert(data)
-                console.log(data);
+                const allExpert = data.doctors.doctor
+                const selectedExpert = allExpert.filter((expt) => {
+                    return expt.slug === service;
+                });
+                setExpert(selectedExpert)
+
                 setLoading(false)
 
             })
     }, [])
+
+
     if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No   data</p>
     return (
@@ -44,8 +50,8 @@ const ServiceDetails = () => {
             <h2 className='text-5xl text-center py-10 font-bold'>{data.service}</h2>
 
             <div className="flex flex-wrap">
-                <div className="w-full md:w-1/2 p-4">
-                    <div className="  h-64 md:h-auto  items-center justify-center">
+                <div className="w-full md:w-1/2 p-8 md:px-10">
+                    <div className="  md:h-auto  items-center justify-center">
                         <p>{data.description}</p>
                         {data.subDescription && (
                             data.subDescription.map((e, idx) => {
@@ -61,46 +67,51 @@ const ServiceDetails = () => {
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 p-4">
-                    <div className="  h-64 md:h-auto flex items-center justify-center">
-                        <div className="overflow-x-hidden w-full">
+                    <div className="    md:h-auto flex items-center justify-center">
+                        <div className="overflow-x-auto w-full">
                             <table className="table w-full">
                                 {/* head */}
                                 <thead>
                                     <tr>
 
+                                
                                         <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
+                                        <th>Expert</th>
                                         <th>Appionment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {/* row 1 */}
-                                    <tr>
+                                    {
+                                        expert && (
+                                            expert.map((e, idx) => {
+                                                return <tr>
 
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle w-12 h-12">
-                                                        <img src="" alt="Avatar Tailwind CSS Component" />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">Hart Hagerty</div>
-                                                    <div className="text-sm opacity-50">United States</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            Zemlak, Daniel and Leannon
-                                            <br />
-                                            <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                                        </td>
-                                        <td>Purple</td>
-                                        <th>
-                                            <button className="btn btn-ghost btn-xs">details</button>
-                                        </th>
-                                    </tr>
+                                                    <td>
+                                                        <div className="flex items-center space-x-3">
+                                                            <div className="avatar">
+                                                                <div className="mask mask-squircle  rounded w-16 h-16">
+                                                                    <img src={e.photo} alt="Avatar Tailwind CSS Component" />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div className="font-bold">{e.firstName+' '+e.lastName}</div>
+                                                                <div className="text-sm opacity-50">{e.education[0].degree_name}</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        {e.service}
+                                                        <br />
+                                                        <span className="badge badge-ghost badge-sm">{e.License}</span>
+                                                    </td>
+                                                    <th>
+                                                        <button className="btn btn-success btn-xs">Available</button>
+                                                    </th>
+                                                </tr>
+                                            })
+                                        )
+                                    }
 
 
 
