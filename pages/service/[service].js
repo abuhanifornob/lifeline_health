@@ -43,7 +43,7 @@ console.log(service);
                 <Image
                     className="object-cover w-full object-top h-56 sm:h-96"
                     src={slider}
-                    alt=""
+                    alt="slider"
                 ></Image>
                 <div className="absolute inset-0 bg-gray-900 bg-opacity-50" />
             </div>
@@ -85,7 +85,7 @@ console.log(service);
                                     {
                                         expert && (
                                             expert.map((e, idx) => {
-                                                return <tr>
+                                                return <tr key={idx}>
 
                                                     <td>
                                                         <div className="flex items-center space-x-3">

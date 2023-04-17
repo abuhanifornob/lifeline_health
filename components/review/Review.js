@@ -48,7 +48,7 @@ const Review = () => {
     return (
         <div className='max-w-screen-2xl mx-auto'>
             <div className='flex flex-col justify-center items-center'>
-                <Image src={"/review.svg"} width={200} height={200} className='p-0 m-0'></Image>
+                <Image src={"/review.svg"} width={200} height={200} alt='review' className='p-0 m-0'></Image>
                 <h1 className='text-4xl py-5 text-center font-extrabold'>People's opinions about our service</h1>
                 <h3 className='text-xl py-5 text-center font-extrabold mt-[-10px]'>All patients have given their valuable feedback to Lifeline Health</h3>
             </div>
