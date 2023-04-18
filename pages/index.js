@@ -18,18 +18,18 @@ import Head from "next/head";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 export default function Home({blogs}) {
   // console.log("bloggs",blogs)
   
-=======
+=========
 export default function Home() {
   const mystyle = {
     margin: "100px",
     textAlign: "center",
     fontSize: "100px",
   };
->>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
+>>>>>>>>> Temporary merge branch 2
   return (
     <>
       <Head>
@@ -54,7 +54,7 @@ export default function Home() {
       
       
       <Service></Service>
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 
       <TakeService></TakeService>
 
@@ -72,11 +72,11 @@ export default function Home() {
       } 
       </div>
       </div>
-=======
+=========
       <Questions></Questions>
       <TakeService></TakeService>
       <Review></Review>
->>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
+>>>>>>>>> Temporary merge branch 2
 
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}
