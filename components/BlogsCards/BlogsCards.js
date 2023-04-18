@@ -1,7 +1,7 @@
 import Image from "next/image";
 import blog1 from "../../public/blog1.png"
 
-const BlogsCards = ({ blog }) => {
+const BlogsCards = ({ blog}) => {
     const { headline, image, Author, datePublished, description } = blog
     // console.log(headline)
     return (

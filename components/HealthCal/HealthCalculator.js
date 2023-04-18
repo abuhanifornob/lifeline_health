@@ -52,45 +52,67 @@ const HealthCheckCalculator = () => {
   };
 
   return (
-    <div>
-      <h1>Health Check Calculator</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className="container mx-auto px-4 py-8 ">
+      <h1 className=" font-bold mb-4 text-center text-4xl text-[#254747]">Health Check Calculator</h1>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto border-blue-800 border-2 p-4 rounded-md bg-blue-100">
+        <div className="mb-4">
+         <label className="block text-gray-700 font-semibold mb-2">
           Age:
-          <input type="number" value={age} onChange={handleAgeChange} />
-        </label>
-        <br />
-        <label>
+        </label> 
+          <input type="number" value={age} onChange={handleAgeChange} className="w-full border-gray-300 rounded-md px-4 py-2" />
+        </div>
+        
+       
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
           Gender:
-          <select value={gender} onChange={handleGenderChange}>
+        </label> 
+          <select value={gender} onChange={handleGenderChange} className="w-full border-gray-300 rounded-md px-4 py-2">
             <option value="">-- Select Gender --</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
-        </label>
-        <br />
-        <label>
+        </div>
+       
+        
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
           Weight (kg):
-          <input type="number" value={weight} onChange={handleWeightChange} />
         </label>
-        <br />
-        <label>
+          <input type="number" value={weight} onChange={handleWeightChange} className="w-full border-gray-300 rounded-md px-4 py-2"/>
+        </div>
+        
+       
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
           Height (cm):
-          <input type="number" value={height} onChange={handleHeightChange} />
         </label>
-        <br />
-        <label>
+          <input type="number" value={height} onChange={handleHeightChange} className="w-full border-gray-300 rounded-md px-4 py-2"/>
+        </div>
+        
+       
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
           BMI:
-          <input type="number" value={bmi} onChange={handleBmiChange} />
         </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      {feedback && (
+          <input type="number" value={bmi} onChange={handleBmiChange} className="w-full border-gray-300 rounded-md px-4 py-2"/>
+        </div>
+
+        <div>
+        {feedback && (
         <p>
           <strong>Health Status:</strong> {feedback}
         </p>
       )}
+        </div>
+        
+  
+        <div className="mt-4 text-center">
+         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Calculate Health</button> 
+        </div>
+        
+      </form>
+      
     </div>
   );
 };
