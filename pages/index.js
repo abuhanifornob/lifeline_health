@@ -1,13 +1,8 @@
-import Footer from "@/components/Footer";
-
-import Head from "next/head";
-import { Inter } from "next/font/google";
-
-import AnimatedText from "react-animated-text-content";
 import Service from "@/components/service/service";
-import Navbar from "@/components/navbar/Navbar";
+import Questions from "@/components/questions/Questions";
 import TakeService from "@/components/TakeService";
-import ContactForm from "@/components/ContactForm";
+
+import Review from "@/components/review/Review";
 import Banner from "@/components/Banner/Banner";
 import Contact from "./contact";
 import BmiCalculator from "@/components/BmiCal/BmiCalculator";
@@ -19,12 +14,22 @@ import BlogsCards from "@/components/BlogsCards/BlogsCards";
 
 
 
+import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
+<<<<<<< HEAD
 export default function Home({blogs}) {
   // console.log("bloggs",blogs)
   
+=======
+export default function Home() {
+  const mystyle = {
+    margin: "100px",
+    textAlign: "center",
+    fontSize: "100px",
+  };
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
   return (
     <>
       <Head>
@@ -49,6 +54,7 @@ export default function Home({blogs}) {
       
       
       <Service></Service>
+<<<<<<< HEAD
 
       <TakeService></TakeService>
 
@@ -66,6 +72,11 @@ export default function Home({blogs}) {
       } 
       </div>
       </div>
+=======
+      <Questions></Questions>
+      <TakeService></TakeService>
+      <Review></Review>
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
 
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}

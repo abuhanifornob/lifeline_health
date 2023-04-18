@@ -1,0 +1,16 @@
+{
+    "slug":"dentist",
+    "id":"01",
+    "service":"Dentist",
+    "description":"If you are looking for the most dynamic mental health or psychological counseling service, then LifeLine Health is your one-stop center.We provide face-to-face & online Doctor counseling services. Our main target is to be readily available for everyone regardless of age. Our experienced counselors are dedicated to every patient no matter how major or minor his/her mental issue is. Our clients reviews will say it all. We are working hard to maintain quality and go beyond. We make sure that everyone can avail of our services.",
+    "subDescription" :[
+        [" Medical diagnosis","A doctor consultation can help diagnose medical conditions based on a patient's symptoms and medical history."],
+        ["Treatment planning","A doctor consultation can guide the appropriate treatment plan for a patient's medical condition"],
+        ["Prescription medication","A doctor consultation can prescribe medications to help manage a patient's medical condition."],
+        ["Lifestyle advice","The doctor can provide advice on healthy lifestyle habits, such as diet and exercise, to help patients maintain good health."],
+        ["Test Report"," If needed any kind of test doctor then the doctor will suggest the patient will test near the Diogonestic  and after submitting a report to doctor , doctor will again consult the patient"]
+    ]
+
+  
+}
+  

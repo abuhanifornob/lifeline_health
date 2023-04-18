@@ -1,40 +1,107 @@
-import Image from "next/image"
-import logo from "../../public/logo1.png"
-import styles from "../../styles/Navbar.module.css"
-import Link from "next/link"
-import AnimatedText from 'react-animated-text-content';
-import bannewrlogo from "../../public/bannerlogo1.png"
+import { AuthContext } from "@/context/AuthProvider";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { useContext } from "react";
+
+import logo from "../../public/logo1.png";
+import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
+<<<<<<< HEAD
   const user={photoUrl:""}
+=======
+  const { user, logout } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
 
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
-
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
             </label>
+<<<<<<< HEAD
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+=======
+            <ul
+              tabIndex={0}
+              className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}
+            >
+              <li>
+                <Link className="text-lg font-medium" href={"/contact"}>
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link className="text-lg font-medium" href={"/"}>
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link className="text-lg font-medium" href={"/blog"}>
+                  Blog
+                </Link>
+              </li>
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
-                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                  </svg>
                 </a>
                 <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                  <Link className="text-lg font-medium" href={'/'}><li><a>Doctor Consultation</a></li></Link>
-                  <Link className="text-lg font-medium" href={'/'}><li><a>Nutrition & Diet Specialist</a></li></Link>
-                  <Link className="text-lg font-medium" href={'/'}><li><a>Gym & Fitness Expert</a></li></Link>
-                  <Link className="text-lg font-medium" href={'/'}><li><a>Yoga Trainer</a></li></Link>
-                  <Link className="text-lg font-medium" href={'/'}><li><a>Dentist</a></li></Link>
-                  <Link className="text-lg font-medium" href={'/'}><li><a>Mental Helth
-                  </a></li></Link>
+                  <Link className="text-lg font-medium" href={"/"}>
+                    <li>Doctor Consultation</li>
+                  </Link>
+                  <Link className="text-lg font-medium" href={"/"}>
+                    <li>Nutrition & Diet Specialist</li>
+                  </Link>
+                  <Link className="text-lg font-medium" href={"/"}>
+                    <li>Gym & Fitness Expert</li>
+                  </Link>
+                  <Link className="text-lg font-medium" href={"/"}>
+                    <li>Yoga Trainer</li>
+                  </Link>
+                  <Link className="text-lg font-medium" href={"/"}>
+                    <li>Dentist</li>
+                  </Link>
+                  <Link className="text-lg font-medium" href={"/"}>
+                    <li>Mental Helth</li>
+                  </Link>
                 </ul>
               </li>
             </ul>
@@ -45,25 +112,66 @@ function Navbar() {
 
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
+<<<<<<< HEAD
           <ul className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+=======
+          <ul
+            className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}
+          >
+            <li>
+              <Link className="text-lg font-medium" href={"/contact"}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link className="text-lg font-medium" href={"/"}>
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link className="text-lg font-medium" href={"/blog"}>
+                Blog
+              </Link>
+            </li>
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
             <li tabIndex={0}>
-              <a className="text-lg font-medium">
+              <Link href={"/"} className="text-lg font-medium">
                 Services
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-              </a>
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <Link className="text-lg font-medium" href={'/'}><li><a>Doctor Consultation</a></li></Link>
-                <Link className="text-lg font-medium" href={'/'}><li><a>Nutrition & Diet Specialist</a></li></Link>
-                <Link className="text-lg font-medium" href={'/'}><li><a>Gym & Fitness Expert</a></li></Link>
-                <Link className="text-lg font-medium" href={'/'}><li><a>Yoga Trainer</a></li></Link>
-                <Link className="text-lg font-medium" href={'/'}><li><a>Dentist</a></li></Link>
-                <Link className="text-lg font-medium" href={'/'}><li><a>Mental Helth
-                </a></li></Link>
+                <Link className="text-lg font-medium" href={"/"}>
+                  <li>Doctor Consultation</li>
+                </Link>
+                <Link className="text-lg font-medium" href={"/"}>
+                  <li>Nutrition & Diet Specialist</li>
+                </Link>
+                <Link className="text-lg font-medium" href={"/"}>
+                  <li>Gym & Fitness Expert</li>
+                </Link>
+                <Link className="text-lg font-medium" href={"/"}>
+                  <li>Yoga Trainer</li>
+                </Link>
+                <Link className="text-lg font-medium" href={"/"}>
+                  <li>Dentist</li>
+                </Link>
+                <Link className="text-lg font-medium" href={"/"}>
+                  <li>Mental Helth</li>
+                </Link>
               </ul>
             </li>
+            <li tabIndex={0}></li>
           </ul>
         </div>
 
@@ -86,6 +194,7 @@ function Navbar() {
   </div> */}
 
         {/* navbar end   part  */}
+<<<<<<< HEAD
         <div className="navbar-end gap-2">
           {user?.photoUrl?<>
             <div className="form-control">
@@ -112,6 +221,45 @@ function Navbar() {
           </div>
             </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
+=======
+        <>
+          {user?.uid ? (
+            <div className="navbar-end gap-2">
+              <div className="form-control">
+                <h2 className="text-[#254747] font-medium">
+                  {user?.displayName}
+                </h2>
+              </div>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full border-2 border-blue-400">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}
+                >
+                  <li>
+                    <Link href={"/"} className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </Link>
+                  </li>
+                  <li>My Appoinment</li>
+                  <li>Settings</li>
+
+                  <li>
+                    <button onClick={handleLogOut}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <Link href={"/siginsignupselect"}>Login or Create Account</Link>
+          )}
+        </>
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
       </div>
 
       {/* <div className=" max-w-screen-xl mx-auto ">
@@ -149,9 +297,8 @@ function Navbar() {
           </div>
         </div>
       </div> */}
-
     </>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

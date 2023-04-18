@@ -4,19 +4,27 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build"
   },
   "dependencies": {
     "daisyui": "^2.51.5",
+<<<<<<< HEAD
     "mongoose": "^7.0.3",
+=======
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
+    "firebase": "^9.19.1",
+    "mongodb": "^5.2.0",
+>>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
     "next": "^13.2.4",
     "next-connect": "^0.13.0",
     "react": "^18.2.0",
     "react-animated-text-content": "^1.0.1",
+    "react-day-picker": "^8.7.1",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0"
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.8.0",
+    "vercel": "^28.18.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
