@@ -62,7 +62,7 @@ export default function Home({blogs}) {
       } 
       </div>
       </div>
-
+      <Review></Review>
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}
       {/* This is Foolter Section */}

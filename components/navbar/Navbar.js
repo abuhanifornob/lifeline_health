@@ -9,8 +9,16 @@ import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
-  const user={photoUrl:""}
+  // const user={photoUrl:""}
+  const {user,logout}=useContext(AuthContext)
 
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -141,9 +149,9 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl?<>
+          {user?.uid?<>
             <div className="form-control">
-            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
+            <h2 className="text-[#254747] font-medium">{user.displayName}</h2>
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -160,11 +168,14 @@ function Navbar() {
               </li>
               <li><a>My Appoinment</a></li>
               <li><a>Settings</a></li>
-              <li><a>Login</a></li>
-              <li><a>Logout</a></li>
+              {
+               user?.uid?<li><a onClick={handleLogOut}>Logout</a></li>:
+              <li><a>Login</a></li> 
+              }
+              
             </ul>
           </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"siginsignupselect"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"siginsignupselect"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 
