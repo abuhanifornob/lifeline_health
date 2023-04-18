@@ -6,6 +6,7 @@ import AnimatedText from 'react-animated-text-content';
 import bannewrlogo from "../../public/bannerlogo1.png"
 
 function Navbar() {
+  const user={photoUrl:""}
 
   return (
     <>
@@ -19,7 +20,7 @@ function Navbar() {
             </label>
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
-              <li><Link className="text-lg font-medium" href={'/'}>About Us</Link></li>
+              <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
@@ -39,14 +40,14 @@ function Navbar() {
             </ul>
           </div>
 
-          <Image src={logo} alt="logo" width={200}></Image>
+          <Link href={'/'}><Image src={logo} alt="logo" width={200}></Image></Link>
         </div>
 
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
           <ul className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
-            <li><Link className="text-lg font-medium" href={'/'}>About Us</Link></li>
+            <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
             <li tabIndex={0}>
               <a className="text-lg font-medium">
@@ -86,7 +87,8 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          <div className="form-control">
+          {user?.photoUrl?<>
+            <div className="form-control">
             <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
           </div>
           <div className="dropdown dropdown-end">
@@ -108,6 +110,7 @@ function Navbar() {
               <li><a>Logout</a></li>
             </ul>
           </div>
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 
