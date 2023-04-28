@@ -8,13 +8,24 @@ import Contact from "./contact";
 import BmiCalculator from "@/components/BmiCal/BmiCalculator";
 import HealthCheckCalculator from "@/components/HealthCal/HealthCalculator";
 import WorkoutCalculator from "@/components/WorkoutCal/WorkoutCalculator";
+import BlogsCards from "@/components/BlogsCards/BlogsCards";
+
+
+
+
 
 import Head from "next/head";
 
 // const inter = Inter({ subsets: ["latin"] });
 
+<<<<<<< HEAD
 export default function Home() {
 
+=======
+export default function Home({blogs}) {
+  // console.log("bloggs",blogs)
+  
+>>>>>>> 2cd2d29f4dd8151d9805dff6e4821ba475fac1b4
   return (
     <>
       <Head>
@@ -25,13 +36,37 @@ export default function Home() {
       </Head>
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
-      <BmiCalculator></BmiCalculator>
-      <HealthCheckCalculator></HealthCheckCalculator>
-      <WorkoutCalculator></WorkoutCalculator>
+      <div className="grid grid-cols-2 max-w-screen-xl mx-auto mt-24">
+        <div className="col-span-1 w-full  "><WorkoutCalculator></WorkoutCalculator></div>
+        <div className="col-span-1 w-full  ">
+          {/* <div className="grid grid-cols-4"> */}
+
+          <div className="col-span-2 w-full  "><BmiCalculator></BmiCalculator></div>
+          <div className="col-span-2 w-full  "><HealthCheckCalculator></HealthCheckCalculator></div>
+          {/* </div> */}
+        </div>
+      </div>
+      
+      
+      
       <Service></Service>
-      <Questions></Questions>
+
       <TakeService></TakeService>
-      <Review></Review>
+
+      <div>
+      <h1 className="text-center text-4xl font-bold mt-24" style={{color:"#254747"}}>Featured <span className="text-blue-500">blog</span></h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-12 mb-24 ">
+       {
+        blogs.map((blog,index)=>
+        index<3 &&
+          <BlogsCards
+          key={blog._id}
+          blog={blog}
+          ></BlogsCards>
+        )
+      } 
+      </div>
+      </div>
 
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}
@@ -39,4 +74,16 @@ export default function Home() {
       {/* <Footer></Footer> */}
     </>
   );
+}
+
+export async function getStaticProps() {
+
+  const res = await fetch('http://localhost:3000/api/blogs')
+  const blogs = await res.json()
+
+  return {
+    props: {
+      blogs,
+    },
+  }
 }

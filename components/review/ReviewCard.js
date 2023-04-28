@@ -11,6 +11,7 @@ const ReviewCard = ({ review }) => {
         src={image}
         height={150}
         width={150}
+        alt="review"
         className="rounded-full"
       ></Image>
       <div className="card-body items-center text-center">
