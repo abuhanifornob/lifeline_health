@@ -40,7 +40,7 @@ export default function Home() {
       </Head>
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
-      <div className="grid grid-cols-2 max-w-screen-xl mx-auto mt-24">
+      <div className="grid md:grid-cols-2 max-w-screen-xl mx-auto mt-24">
         <div className="col-span-1 w-full  "><WorkoutCalculator></WorkoutCalculator></div>
         <div className="col-span-1 w-full  ">
           {/* <div className="grid grid-cols-4"> */}
@@ -72,11 +72,6 @@ export default function Home() {
       } 
       </div>
       </div>
-=========
-      <Questions></Questions>
-      <TakeService></TakeService>
-      <Review></Review>
->>>>>>>>> Temporary merge branch 2
 
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}

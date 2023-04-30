@@ -1,5 +1,6 @@
 import Image from "next/image";
 import blog1 from "../../public/blog1.png"
+import Link from "next/link";
 
 const BlogsCards = ({ blog}) => {
     const { headline, image, Author, datePublished, description } = blog
@@ -15,12 +16,13 @@ const BlogsCards = ({ blog}) => {
                                     <h1 className="title-font text-lg font-medium  mb-3 text-[#4791ff]">{headline}</h1>
                                     <p className="leading-relaxed mb-3">{description.substring(0, 100)}...</p>
                                     <div className="flex items-center flex-wrap ">
-                                        <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                        <Link href={'/'} legacyBehavior>
+                                        <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"> Learn More..
                                             <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M5 12h14"></path>
                                                 <path d="M12 5l7 7-7 7"></path>
                                             </svg>
-                                        </a>
+                                        </a></Link>
                                         <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                             <svg className="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
