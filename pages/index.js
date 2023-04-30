@@ -21,7 +21,7 @@ import Head from "next/head";
 
   
 
-export default function Home() {
+export default function Home({blogs}) {
   const mystyle = {
     margin: "100px",
     textAlign: "center",
