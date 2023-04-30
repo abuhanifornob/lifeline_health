@@ -97,22 +97,22 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <Link className="text-lg font-medium" href={"/"}>
+                <Link className="text-lg font-medium" href={"/service/doctor-consultation"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/"}>
+                <Link className="text-lg font-medium" href={"/service/nutrition-diet-specialist"}>
                   <li>Nutrition & Diet Specialist</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/"}>
+                <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
                   <li>Gym & Fitness Expert</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/"}>
+                <Link className="text-lg font-medium" href={"/service/yoga-trainer"}>
                   <li>Yoga Trainer</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/"}>
+                <Link className="text-lg font-medium" href={"/service/dentist"}>
                   <li>Dentist</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/"}>
+                <Link className="text-lg font-medium" href={"/service/mental-helth"}>
                   <li>Mental Helth</li>
                 </Link>
               </ul>
