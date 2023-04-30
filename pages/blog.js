@@ -2,8 +2,7 @@
 import BlogsCards from "@/components/BlogsCards/BlogsCards";
 import Link from "next/link";
 
-const Blog = ({blogs}) => {
-   
+const Blog = ({ blogs }) => {
 
     return (
         <>
@@ -24,15 +23,22 @@ const Blog = ({blogs}) => {
 };
 export async function getStaticProps() {
 
-    const res = await fetch('http://localhost:3000/api/blogs')
-    const blogs = await res.json()
-  
-
+  try {
+    const res = await fetch('http://localhost:3000/api/blogs');
+    const blogs = await res.json();
     return {
       props: {
         blogs,
       },
-    }
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        blogs: [],
+      },
+    };
   }
+}
 
 export default Blog;
