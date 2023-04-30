@@ -18,18 +18,16 @@ import Head from "next/head";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-<<<<<<<<< Temporary merge branch 1
-export default function Home({blogs}) {
-  // console.log("bloggs",blogs)
+
   
-=========
+
 export default function Home() {
   const mystyle = {
     margin: "100px",
     textAlign: "center",
     fontSize: "100px",
   };
->>>>>>>>> Temporary merge branch 2
+
   return (
     <>
       <Head>
@@ -54,7 +52,7 @@ export default function Home() {
       
       
       <Service></Service>
-<<<<<<<<< Temporary merge branch 1
+
 
       <TakeService></TakeService>
 
