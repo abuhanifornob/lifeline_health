@@ -31,7 +31,7 @@ export default function Home({blogs}) {
       </Head>
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
-      <div className="grid grid-cols-2 max-w-screen-xl mx-auto mt-24">
+      <div className="grid md:grid-cols-2 max-w-screen-xl mx-auto mt-24">
         <div className="col-span-1 w-full  "><WorkoutCalculator></WorkoutCalculator></div>
         <div className="col-span-1 w-full  ">
           {/* <div className="grid grid-cols-4"> */}
