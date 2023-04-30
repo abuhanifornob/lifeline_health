@@ -1,41 +1,21 @@
 {
   "name": "lifeline_health",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "next.config.js",
+  "devDependencies": {},
   "scripts": {
-    "dev": "next dev",
-    "build": "next build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "daisyui": "^2.51.5",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "mongoose": "^7.0.3",
-=======
-=======
->>>>>>> 2cd2d29f4dd8151d9805dff6e4821ba475fac1b4
-    "date-fns": "^2.29.3",
-    "dotenv": "^16.0.3",
-    "firebase": "^9.19.1",
-    "mongodb": "^5.2.0",
-<<<<<<< HEAD
->>>>>>> ef0803bdd785172dac01d80350d58ad6c9acdb3c
-=======
-    "mongoose": "^7.0.3",
->>>>>>> 2cd2d29f4dd8151d9805dff6e4821ba475fac1b4
-    "next": "^13.2.4",
-    "next-connect": "^0.13.0",
-    "react": "^18.2.0",
-    "react-animated-text-content": "^1.0.1",
-    "react-day-picker": "^8.7.1",
-    "react-dom": "^18.2.0",
-    "react-hot-toast": "^2.4.0",
-    "react-icons": "^4.8.0",
-    "vercel": "^28.18.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abuhanifornob/lifeline_health.git"
   },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.0"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abuhanifornob/lifeline_health/issues"
+  },
+  "homepage": "https://github.com/abuhanifornob/lifeline_health#readme"
 }
