@@ -33,11 +33,7 @@ export async function getServerSideProps() {
     };
   } catch (error) {
     console.error(error);
-    return {
-      props: {
-        blogs: [],
-      },
-    };
+  
   }
 }
 
