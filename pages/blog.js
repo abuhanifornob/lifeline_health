@@ -21,7 +21,7 @@ const Blog = ({ blogs }) => {
         </>
     );
 };
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   try {
     const res = await fetch('http://localhost:3000/api/blogs');
