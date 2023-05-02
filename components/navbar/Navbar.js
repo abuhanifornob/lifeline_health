@@ -1,45 +1,22 @@
-import { AuthContext } from "@/context/AuthProvider";
-
-import Image from "next/image";
-import Link from "next/link";
-
-import { useContext } from "react";
-
-import logo from "../../public/logo1.png";
-import styles from "../../styles/Navbar.module.css";
+import Image from "next/image"
+import logo from "../../public/logo1.png"
+import styles from "../../styles/Navbar.module.css"
+import Link from "next/link"
+import AnimatedText from 'react-animated-text-content';
+import bannewrlogo from "../../public/bannerlogo1.png"
 
 function Navbar() {
-  // const user={photoUrl:""}
-  const {user,logout}=useContext(AuthContext)
+  const user={photoUrl:""}
 
-  const handleLogOut = () => {
-    logout()
-      .then(() => {})
-      .catch((error) => {
-        console.error(error);
-      });
-  };
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
+
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
@@ -48,35 +25,16 @@ function Navbar() {
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                  </svg>
+                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                 </a>
                 <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Doctor Consultation</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Nutrition & Diet Specialist</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Gym & Fitness Expert</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Yoga Trainer</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Dentist</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Mental Helth</li>
-                  </Link>
+                  <Link className="text-lg font-medium" href={'/'}><li><a>Doctor Consultation</a></li></Link>
+                  <Link className="text-lg font-medium" href={'/'}><li><a>Nutrition & Diet Specialist</a></li></Link>
+                  <Link className="text-lg font-medium" href={'/'}><li><a>Gym & Fitness Expert</a></li></Link>
+                  <Link className="text-lg font-medium" href={'/'}><li><a>Yoga Trainer</a></li></Link>
+                  <Link className="text-lg font-medium" href={'/'}><li><a>Dentist</a></li></Link>
+                  <Link className="text-lg font-medium" href={'/'}><li><a>Mental Helth
+                  </a></li></Link>
                 </ul>
               </li>
             </ul>
@@ -92,40 +50,20 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
             <li tabIndex={0}>
-              <Link href={"/"} className="text-lg font-medium">
+              <a className="text-lg font-medium">
                 Services
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </Link>
+                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+              </a>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <Link className="text-lg font-medium" href={"/"}>
-                  <li>Doctor Consultation</li>
-                </Link>
-                <Link className="text-lg font-medium" href={"/"}>
-                  <li>Nutrition & Diet Specialist</li>
-                </Link>
-                <Link className="text-lg font-medium" href={"/"}>
-                  <li>Gym & Fitness Expert</li>
-                </Link>
-                <Link className="text-lg font-medium" href={"/"}>
-                  <li>Yoga Trainer</li>
-                </Link>
-                <Link className="text-lg font-medium" href={"/"}>
-                  <li>Dentist</li>
-                </Link>
-                <Link className="text-lg font-medium" href={"/"}>
-                  <li>Mental Helth</li>
-                </Link>
+                <Link className="text-lg font-medium" href={'/'}><li><a>Doctor Consultation</a></li></Link>
+                <Link className="text-lg font-medium" href={'/'}><li><a>Nutrition & Diet Specialist</a></li></Link>
+                <Link className="text-lg font-medium" href={'/'}><li><a>Gym & Fitness Expert</a></li></Link>
+                <Link className="text-lg font-medium" href={'/'}><li><a>Yoga Trainer</a></li></Link>
+                <Link className="text-lg font-medium" href={'/'}><li><a>Dentist</a></li></Link>
+                <Link className="text-lg font-medium" href={'/'}><li><a>Mental Helth
+                </a></li></Link>
               </ul>
             </li>
-            <li tabIndex={0}></li>
           </ul>
         </div>
 
@@ -149,9 +87,9 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.uid?<>
+          {user?.photoUrl?<>
             <div className="form-control">
-            <h2 className="text-[#254747] font-medium">{user.displayName}</h2>
+            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -168,14 +106,11 @@ function Navbar() {
               </li>
               <li><a>My Appoinment</a></li>
               <li><a>Settings</a></li>
-              {
-               user?.uid?<li><a onClick={handleLogOut}>Logout</a></li>:
-              <li><a>Login</a></li> 
-              }
-              
+              <li><a>Login</a></li>
+              <li><a>Logout</a></li>
             </ul>
           </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"siginsignupselect"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"siginsignupselect"} className="text-lg font-medium">Register</Link></li></ul>}
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 
@@ -214,8 +149,9 @@ function Navbar() {
           </div>
         </div>
       </div> */}
+
     </>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
