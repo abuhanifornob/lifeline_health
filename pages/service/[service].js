@@ -139,8 +139,8 @@ const ServiceDetails = () => {
                 <h2 className='text-center text-3xl font-semibold'>Book Appointment</h2>
 
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4">
                     <div className='flex justify-center' >
                         <DayPicker
                             mode='single'
@@ -150,30 +150,30 @@ const ServiceDetails = () => {
                     </div>
                     <p className='text-center font-bold text-primary'>Available Appointments on {format(selectedDate, 'PP')}</p>
                 </div>
-                <div class="bg-gray-300 p-4">
+                <div className="bg-gray-300 p-4">
                     <form>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2" for="name">
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
                                 Name
                             </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe"></input>
+                            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe"></input>
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2" for="service">
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="service">
                                 Service
                             </label>
-                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service">
+                            <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service">
                                 <option>Select a service</option>
                                 <option>Service 1</option>
                                 <option>Service 2</option>
                                 <option>Service 3</option>
                             </select>
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2" for="time">
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="time">
                                 Time Slot
                             </label>
-                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time">
+                            <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time">
                                 <option>Select a time slot</option>
                                 <option>9:00 AM - 10:00 AM</option>
                                 <option>10:00 AM - 11:00 AM</option>
@@ -183,7 +183,7 @@ const ServiceDetails = () => {
                                 <option>3:00 PM - 4:00 PM</option>
                             </select>
                         </div>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             Book Now
                         </button>
                     </form>
