@@ -7,29 +7,44 @@ import { useRouter } from "next/router";
 
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
+import { FaGoogle } from "react-icons/fa";
+
 const provider = new GoogleAuthProvider();
 
 const login = () => {
   const backgroundStyle = {
     backgroundImage: `url(${"/loginBack.jpg"})`,
   };
+
   const { singInEmailPassword, googleLongin } = useContext(AuthContext);
   const [loginEmail, setLoginEmail] = useState("");
   const [loginError, setLoginError] = useState("");
   const router = useRouter();
-  const handleForm = (event) => {
+
+  const handleLoginForm = (event) => {
     event.preventDefault();
+    setLoginError("");
+
     const data = event.target;
     const email = data.email.value;
     const password = data.password.value;
     singInEmailPassword(email, password)
       .then((result) => {
-        setLoginEmail(data.email);
+        router.push("/");
         toast.success("Login Success!!");
+        console.log(result.user);
       })
       .catch((error) => {
         setLoginError(error.message);
+        console.error(error);
       });
+  };
+
+  const handleOnBluerEmail = (event) => {
+    setLoginEmail("");
+    const email = event.target.value;
+    console.log(email);
+    setLoginEmail(email);
   };
   const handleGoogleLogin = () => {
     googleLongin(provider)
@@ -48,14 +63,14 @@ const login = () => {
   };
   return (
     <div className="hero bg-base-200 " style={backgroundStyle}>
-      <div className="hero-content p-10 flex-col lg:flex-row">
-        <div className="w-1/2 p-5">
-          <img src="/login.jpg" className=" rounded-lg shadow-2xl" />
+      <div className="hero-content p-0 lg:p-10 my-11 flex-col lg:flex-row">
+        <div className="p-0 lg:r-20">
+          <img src="/login.jpg" className=" rounded-lg shadow-2xl h-full" />
         </div>
-        <div className="w-1/2">
-          <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-            <h1 className="text-2xl font-bold text-center py-3">Log In</h1>
-            <form onSubmit={handleForm}>
+        <div className="w-full lg:w-3/5">
+          <h1 className="text-5xl font-bold text-center">Log In</h1>
+          <div className="card shadow-2xl">
+            <form onSubmit={handleLoginForm}>
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -66,6 +81,7 @@ const login = () => {
                     placeholder="email"
                     className="input input-bordered"
                     name="email"
+                    onBlur={handleOnBluerEmail}
                     required
                   />
                 </div>
@@ -86,17 +102,19 @@ const login = () => {
                     </a>
                   </label>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                <div className="form-control">
+                  <button className="btn btn-primary" type="submit">
+                    Login
+                  </button>
                 </div>
               </div>
             </form>
-            <label className="label text-sm flex justify-center items-center ">
+            <label className="label text-sm flex justify-center">
               <span className="label-text text-center">
                 New to LifeLine Health ?
                 <Link
                   href={"/siginsignupselect"}
-                  className="text-orange-600 hover:text-yellow-500 font-bold text-xl"
+                  className="text-orange-600 hover:text-yellow-500 font-bold text-xl cursor-pointer"
                 >
                   Create new account
                 </Link>
@@ -110,6 +128,9 @@ const login = () => {
               onClick={handleGoogleLogin}
               className="btn btn-outline btn-ghost my-2 mx-2"
             >
+              <span>
+                <FaGoogle className="text-4xl mx-4 " />
+              </span>{" "}
               CONTINUE WITH GOOGLE
             </button>
           </div>
