@@ -18,9 +18,16 @@ import Head from "next/head";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({blogs}) {
-  // console.log("bloggs",blogs)
+
   
+
+export default function Home({blogs}) {
+  const mystyle = {
+    margin: "100px",
+    textAlign: "center",
+    fontSize: "100px",
+  };
+
   return (
     <>
       <Head>
@@ -31,7 +38,7 @@ export default function Home({blogs}) {
       </Head>
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
-      <div className="grid grid-cols-2 max-w-screen-xl mx-auto mt-24">
+      <div className="grid md:grid-cols-2 max-w-screen-xl mx-auto mt-24">
         <div className="col-span-1 w-full  "><WorkoutCalculator></WorkoutCalculator></div>
         <div className="col-span-1 w-full  ">
           {/* <div className="grid grid-cols-4"> */}
@@ -45,6 +52,7 @@ export default function Home({blogs}) {
       
       
       <Service></Service>
+
 
       <TakeService></TakeService>
 
@@ -62,7 +70,7 @@ export default function Home({blogs}) {
       } 
       </div>
       </div>
-      <Review></Review>
+
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}
       {/* This is Foolter Section */}
@@ -71,7 +79,7 @@ export default function Home({blogs}) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   const res = await fetch('http://localhost:3000/api/blogs')
   const blogs = await res.json()

@@ -140,8 +140,8 @@ const ServiceDetails = () => {
                 <h2 className='text-center text-3xl font-semibold'>Book Appointment</h2>
 
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4">
                     <div className='flex justify-center' >
                         <DayPicker
                             mode='single'
@@ -151,47 +151,27 @@ const ServiceDetails = () => {
                     </div>
                     <p className='text-center font-bold text-primary'>Available Appointments on {format(selectedDate, 'PP')}</p>
                 </div>
-                <div class=" p-4">
+                <div class="bg-gray-300 p-4">
                     <form>
-                        <div className="mb-4 ">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="name">
                                 Name
                             </label>
-                            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" value={user?.name ? user.name : 'Name'}></input>
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor='email'  >
-                                Email
-                            </label>
-                            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" value={user?.email ? user.email : 'user@email.com'}></input>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe"></input>
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 font-bold mb-2" htmlFor="service">
                                 Service
                             </label>
-                            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service" type="text" value={service}></input>
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor="doctor">
-                                Doctor
-                            </label>
-                            <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="doctor">
-                                <option value={''}>Select A Doctor</option>
-                                {expert && (
-                                    expert.map((e, idx) => {
-                                        return <option value={e.firstName + ' ' + e.lastName}>{e.firstName + ' ' + e.lastName}</option>
-                                    })
-                                )}
+                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service">
+                                <option>Select a service</option>
+                                <option>Service 1</option>
+                                <option>Service 2</option>
+                                <option>Service 3</option>
                             </select>
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
-                                Date
-                            </label>
-                            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" type="text" value={date}></input>
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor="time">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="time">
                                 Time Slot
                             </label>
                             <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time">
@@ -204,8 +184,6 @@ const ServiceDetails = () => {
                                 <option>3:00 PM - 4:00 PM</option>
                             </select>
                         </div>
-
-
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             Book Now
                         </button>
