@@ -5,7 +5,7 @@
                 "id": "1",
                 "firstName": "Tom",
                 "lastName": "Cruise",
-                "slug": "doctor-consultation",
+                "slug": "medicine",
                 "service": "Doctor Consultation",
                 "photo": "https://img.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg?size=626&ext=jpg",
                 "speciality": "Cardiologists",
@@ -33,13 +33,15 @@
                         "hospital_num": "01",
                         "hospital_name": "Naogaon Medical",
                         "year": "2023-2025",
-                        "surgery": "95"
+                        "surgery": "95",
+                        "experience":"23"
                     },
                     {
                         "hospital_num": "02",
                         "hospital_name": "Rajshahi Medical",
                         "year": "2023-2025",
-                        "surgery": "105"
+                        "surgery": "105",
+                        "experience":"13"
                     }
                 ],
                 "License": "Dhaka Medical College & Hospital"
@@ -76,13 +78,15 @@
                         "hospital_num": "01",
                         "hospital_name": "Bogura Medical",
                         "year": "2021-2023",
-                        "surgery": "22"
+                        "surgery": "22",
+                        "experience":"3"
                     },
                     {
                         "hospital_num": "02",
                         "hospital_name": "Rajshahi Medical",
                         "year": "2024-2026",
-                        "surgery": "20"
+                        "surgery": "20",
+                        "experience":"13"
                     }
                 ],
                 "License": "Dhaka Medical College & Hospital"
@@ -119,13 +123,15 @@
                         "hospital_num": "01",
                         "hospital_name": "Dhaka National Medical College",
                         "year": "2017-2020",
-                        "surgery": "45"
+                        "surgery": "45",
+                        "experience":"25"
                     },
                     {
                         "hospital_num": "02",
                         "hospital_name": "Holy Family Red Crescent Medical College",
                         "year": "2021-2023",
-                        "surgery": "160"
+                        "surgery": "160",
+                        "experience":"3"
                     }
                 ],
                 "License": "Shaheed Suhrawardy Medical College &Hospital"
@@ -134,7 +140,7 @@
                 "id": "4",
                 "firstName": "Abu",
                 "lastName": "Hasnat",
-                "slug": "doctor-consultation",
+                "slug": "medicine",
                 "service": "Doctor Consultation",
                 "photo": "https://img.freepik.com/free-photo/portrait-smiling-male-doctor_171337-1532.jpg?size=626&ext=jpg&ga=GA1.1.72676431.1680886196&semt=ais",
                 "speciality": "Spine, Orthopaedic & Trauma Surgeon",
