@@ -2,14 +2,21 @@ import { AuthContext } from "@/context/AuthProvider";
 
 import Image from "next/image";
 import Link from "next/link";
-
+import { useRouter } from 'next/navigation'
 import { useContext } from "react";
 
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
-  const user={photoUrl:""}
+  const {user,logout}=useContext(AuthContext);
+  const router = useRouter();
+  const handleLogOut = () => {
+    logout()
+        .then(() => { })
+        .catch(error => console.error(error))
+        router.push('/')
+}
 
   return (
     <>
@@ -34,9 +41,11 @@ function Navbar() {
               </svg>
             </label>
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
+              <li><Link className="text-lg font-medium" href={'/'}>Home</Link></li>
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+              <li><Link className="text-lg font-medium" href={'/blog'}>For Doctors</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
@@ -55,20 +64,9 @@ function Navbar() {
                     <li>Doctor Consultation</li>
                   </Link>
                   <Link className="text-lg font-medium" href={"/"}>
-                    <li>Nutrition & Diet Specialist</li>
+                    <li>Fitness Expert</li>
                   </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Gym & Fitness Expert</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Yoga Trainer</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Dentist</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Mental Helth</li>
-                  </Link>
+                  
                 </ul>
               </li>
             </ul>
@@ -80,11 +78,13 @@ function Navbar() {
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
           <ul className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+            <li><Link className="text-lg font-medium" href={'/'}>Home</Link></li>
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg font-medium" href={'/blog'}>For Doctors</Link></li>
             <li tabIndex={0}>
-              <Link href={"/"} className="text-lg font-medium">
+              <Link href={""} className="text-lg font-medium">
                 Services
                 <svg
                   className="fill-current"
@@ -101,9 +101,9 @@ function Navbar() {
                   <li>Doctor Consultation</li>
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/nutrition-diet-specialist"}>
-                  <li>Nutrition & Diet Specialist</li>
+                  <li>Fitness expert</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
+                {/* <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
                   <li>Gym & Fitness Expert</li>
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/yoga-trainer"}>
@@ -114,7 +114,7 @@ function Navbar() {
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/mental-helth"}>
                   <li>Mental Helth</li>
-                </Link>
+                </Link> */}
               </ul>
             </li>
             <li tabIndex={0}></li>
@@ -141,7 +141,7 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl?<>
+          {user?.uid?<>
             <div className="form-control">
             <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
           </div>
@@ -160,11 +160,11 @@ function Navbar() {
               </li>
               <li><a>My Appoinment</a></li>
               <li><a>Settings</a></li>
-              <li><a>Login</a></li>
-              <li><a>Logout</a></li>
+              {user?.uid?<li><a onClick={handleLogOut}>Logout</a></li>:
+              <li><Link><a>Login</a></Link></li>}
             </ul>
           </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 
