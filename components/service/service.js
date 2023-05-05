@@ -1,7 +1,7 @@
 import React from "react";
-import ServiceCard from "./service-card";
 import { GiStethoscope } from "react-icons/gi";
 import { MdHealthAndSafety } from "react-icons/md";
+import ServicesHome from "./service-home";
 
 const Service = () => {
     const services = [
@@ -15,7 +15,7 @@ const Service = () => {
         {
             id:'02',
             name: 'Health Plane',
-            slug: 'health plane',
+            slug: 'health-plane',
             icon: <MdHealthAndSafety></MdHealthAndSafety>,
             title: "24/7 qualified doctor's consultation facility for your family. Also big save on diagnostic tests,medicine and healthcare product purchases with life & health insurance coverage"
         },
@@ -31,7 +31,7 @@ const Service = () => {
             <h1 className='text-4xl py-5 text-center font-extrabold'>OUR SERVICES</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 justify-items-center '>
                 {
-                    services.map((service, id) => <ServiceCard key={id} service={service}></ServiceCard>)
+                    services.map((service, id) => <ServicesHome key={id} service={service}></ServicesHome>)
                 }
             </div>
         </div>
