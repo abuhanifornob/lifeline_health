@@ -57,9 +57,9 @@ function creatChatUser() {
   axios.post(
     "https://api.chatengine.io/users/",
     {
-      username: user.displayName,
-      secret: user.uid,
-      email: user.email,
+      username: user?.displayName,
+      secret: user?.uid,
+      email: user?.email,
     },
     { headers: { "Private-Key": "88609bd9-d0dd-43ac-b081-100b98ce5aea" } }
   );

@@ -1,13 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 import { useContext } from "react";
 
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
+import { AuthContext } from "@/context/AuthProvider";
 
 function Navbar() {
-  const user={photoUrl:""}
+  const {user,logout}=useContext(AuthContext)
+  const { push } = useRouter();
+  const handleLogOut = () => {
+    logout()
+        .then(() => { })
+        .catch(error => console.error(error))
+        push('/login')
+}
 
   return (
     <>
@@ -131,7 +140,7 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl?<>
+          {user?.uid?<>
             <div className="form-control">
             <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
           </div>
@@ -143,15 +152,16 @@ function Navbar() {
             </label>
             <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
               <li>
-                <a className="justify-between">
+                <Link href={`/profile/${user.uid}`} className="justify-between">
                   Profile
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
               <li><a>My Appoinment</a></li>
               <li><a>Settings</a></li>
-              <li><a>Login</a></li>
-              <li><a>Logout</a></li>
+              {user?.uid&&<li onClick={handleLogOut}><a>Logout</a></li>}
+              {/* <li><a>Login</a></li> */}
+              
             </ul>
           </div>
             </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
