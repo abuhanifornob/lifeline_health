@@ -45,7 +45,7 @@ function Navbar() {
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
-              <li><Link className="text-lg font-medium" href={'/blog'}>For Doctors</Link></li>
+              <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
@@ -82,7 +82,7 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
-            <li><Link className="text-lg font-medium" href={'/blog'}>For Doctors</Link></li>
+            <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
