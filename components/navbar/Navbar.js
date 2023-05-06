@@ -60,10 +60,10 @@ function Navbar() {
                   </svg>
                 </a>
                 <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                  <Link className="text-lg font-medium" href={"/"}>
+                  <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                     <li>Doctor Consultation</li>
                   </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
+                  <Link className="text-lg font-medium" href={"/service/health-plane"}>
                     <li>Fitness Expert</li>
                   </Link>
                   
@@ -97,10 +97,10 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <Link className="text-lg font-medium" href={"/service/doctor-consultation"}>
+                <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/nutrition-diet-specialist"}>
+                <Link className="text-lg font-medium" href={"/service/health-plane"}>
                   <li>Fitness expert</li>
                 </Link>
                 {/* <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
@@ -153,10 +153,13 @@ function Navbar() {
             </label>
             <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
               <li>
-                <a className="justify-between">
+                
+                <Link className="justify-between" href={`/profile/${user.uid}`}>
+                
                   Profile
                   <span className="badge">New</span>
-                </a>
+                
+                </Link>
               </li>
               <li><a>My Appoinment</a></li>
               <li><a>Settings</a></li>
