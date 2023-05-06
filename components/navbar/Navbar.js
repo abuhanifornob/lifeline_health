@@ -34,9 +34,9 @@ function Navbar() {
               </svg>
             </label>
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
-              <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+              <li><Link className="text-lg font-medium" href={'/chatpage'}>Live chat</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
@@ -83,6 +83,7 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg font-medium" href={'/chatpage'}>Live chat</Link></li>
             <li tabIndex={0}>
               <Link href={"/"} className="text-lg font-medium">
                 Services
