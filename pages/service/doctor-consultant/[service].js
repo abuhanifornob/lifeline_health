@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 // import slider from '../../../public/service-img/slider.jpg'
 import Image from 'next/image';
 import { useEffect } from 'react';
-import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import DoctorCard from '@/components/service/doctor-card';
 
@@ -14,14 +12,13 @@ const ServiceDetails = () => {
     const [data, setData] = useState([])
     const [expert, setExpert] = useState([])
     const [isLoading, setLoading] = useState(false)
-    const [selectedDate, setSelectedDate] = useState(new Date())
     const user = {}
 
 
 
     const { service } = router.query
-    const date = format(selectedDate, 'PP')
-    console.log(date);
+  
+    // console.log(date);
 
     // console.log(service);
 
@@ -67,13 +64,12 @@ const ServiceDetails = () => {
                 <DoctorCard info={info}></DoctorCard>
             </div>
 
-            <div className="flex flex-wrap justify-center">
+            {/* <div className="flex flex-wrap justify-center">
 
                 <div className="w-9/12   p-10">
                     <div className="      flex items-center justify-center">
                         <div className=" overflow-x-auto w-full  ">
                             <table className="table w-full ">
-                                {/* head */}
                                 <thead>
                                     <tr>
 
@@ -84,7 +80,6 @@ const ServiceDetails = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* row 1 */}
                                     {
                                         expert && (
                                             expert.map((e, idx) => {
@@ -125,35 +120,15 @@ const ServiceDetails = () => {
 
                     </div>
                 </div>
-            </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 bg-red-600'>
-                <div>
-                    1
-                </div>
-                <div>
-                    2
-                </div>
-                <div>
-                    3
-                </div>
-
-            </div>
+            </div> */}
+           
 
             <div  >
                 <h2 className='text-center text-3xl font-semibold'>Book Appointment</h2>
 
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4">
-                    <div className='flex justify-center' >
-                        <DayPicker
-                            mode='single'
-                            selected={selectedDate}
-                            onSelect={setSelectedDate}
-                        ></DayPicker>
-                    </div>
-                    <p className='text-center font-bold text-primary'>Available Appointments on {format(selectedDate, 'PP')}</p>
-                </div>
+                
                 <div class="bg-gray-300 p-4">
                     <form>
                         <div class="mb-4">
