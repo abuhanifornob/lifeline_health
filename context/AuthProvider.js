@@ -1,6 +1,7 @@
 import app from "@/firebase/firebase.config";
-
-import React, { Children, createContext, useEffect, useState } from "react";
+import React, {createContext, useEffect, useState } from "react";
+//creat chat engine user 
+const axios = require("axios");
 
 import {
   createUserWithEmailAndPassword,
@@ -24,16 +25,21 @@ const AuthProvider = ({ children }) => {
   };
   const singInEmailPassword = (email, password) => {
     setLoading(true);
+    creatChatUser() ;
     return signInWithEmailAndPassword(auth, email, password);
   };
   const userProfileUpdate = (userInfo) => {
     return updateProfile(auth.currentUser, userInfo);
   };
+
+
+
   const logout = () => {
     setLoading(true);
     return signOut(auth);
   };
   const googleLongin = (provider) => {
+    creatChatUser() ;
     return signInWithPopup(auth, provider);
   };
 
@@ -44,6 +50,23 @@ const AuthProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+  //
+
+  //create chat engine user 
+function creatChatUser() {
+  axios.post(
+    "https://api.chatengine.io/users/",
+    {
+      username: user?.displayName,
+      secret: user?.uid,
+      email: user?.email,
+    },
+    { headers: { "Private-Key": "88609bd9-d0dd-43ac-b081-100b98ce5aea" } }
+  );
+}
+
+
+
   const authInfo = {
     createUser,
     singInEmailPassword,
