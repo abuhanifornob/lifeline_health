@@ -22,26 +22,6 @@ const ServiceDetails = () => {
 
     // console.log(service);
 
-    useEffect(() => {
-        setLoading(true)
-        fetch(`/api/get-services?slug=${service}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data)
-                return fetch(`/api/getExpert`)
-            })
-            .then((res) => res.json())
-            .then((data) => {
-                const allExpert = data.doctors.doctor
-                const selectedExpert = allExpert.filter((expt) => {
-                    return expt.slug === service;
-                });
-                setExpert(selectedExpert)
-
-                setLoading(false)
-
-            })
-    }, [router])
 
 
     const info = { image: 'image', name: 'name', title: 'title', specialty: 'speciality', experience: 'exp', rating: 'rating', numberOfRatings: 'num', fees: '200' }
@@ -179,3 +159,17 @@ const ServiceDetails = () => {
 
 
 export default ServiceDetails;
+
+
+export async function  getServerSideProps() {
+    const res = await fetch(`/api/getExpert`);
+    const data = await res.json();
+    const allExpert = data.doctors.doctor;
+    const selectedExpert = allExpert.filter((expt) => expt.slug === service);
+  
+    return {
+      props: {
+        expert: selectedExpert,
+      },
+    };
+  }
