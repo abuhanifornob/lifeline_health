@@ -1,16 +1,24 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { BeatLoader } from "react-spinners";
-import { toast } from "react-toastify";
 import Head from "next/head";
 import { AuthContext } from "@/context/AuthProvider";
 const AuthPage = (props) => {
   const [redirectLoading, setRedirectLoading] = useState(false);
   const { user } = useContext(AuthContext);
+
   const onSubmit = (e) => {
     e.preventDefault();
     setRedirectLoading(true);
     const { value } = e.target[0];
+    //check account user name 
+    if(user.displayName !== value){
+      setRedirectLoading(false) ;
+     alert("Your account name not matched please try again !!") ;
+     return ;
+    } 
+    //end check account user name 
+
     axios
       .post(" https://scholar-net-subrota.vercel.app/authenticate", { username: value })
       .then((r) => {
@@ -59,19 +67,22 @@ const AuthPage = (props) => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
             <form onSubmit={onSubmit} >
-            <h2 className="text-3xl text-center text-info font-semibold mt-3"> Get started by your username 👋 </h2>
+              <h2 className="text-3xl text-center text-info font-semibold mt-3">Get start by your account name 👋 </h2>
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Username</span>
+                    <span className="label-text">Name</span>
                   </label>
-                  <input type="text" placeholder="Enter your username"
+                  <input type="text" placeholder="Enter your account name"
                     name="username"
                     required={true}
                     className="input input-bordered auth-input w-full" />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary w-full" type="submit">Press enter</button>
+                  <button className="btn btn-primary w-full" type="submit"> {
+
+                    redirectLoading ? <BeatLoader color="white"></BeatLoader> : "Press enter"
+                  }</button>
                 </div>
               </div>
             </form>

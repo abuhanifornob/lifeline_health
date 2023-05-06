@@ -1,15 +1,10 @@
-import { AuthContext } from "@/context/AuthProvider";
-
 import Image from "next/image";
 import Link from "next/link";
-
-import { useContext } from "react";
-
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
-  const user={photoUrl:""}
+  const user = { photoUrl: "" }
 
   return (
     <>
@@ -84,6 +79,18 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
             <li><Link className="text-lg font-medium" href={'/chatpage'}>Live chat</Link></li>
+            <li><Link className="text-lg font-medium" href={'/'}>
+            {
+              user && user.uid &&
+              <div className="avatar">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={user.photoUrl} />
+                </div>
+              </div>
+
+            }
+            </Link></li>
+
             <li tabIndex={0}>
               <Link href={"/"} className="text-lg font-medium">
                 Services
@@ -142,30 +149,43 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl?<>
+          {user && user.uid  &&  <>
             <div className="form-control">
-            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
-          </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full border-2 border-blue-400">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li><a>My Appoinment</a></li>
-              <li><a>Settings</a></li>
-              <li><a>Login</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
+              <h2 className="text-[#254747] font-medium">{user?.displayName}</h2>
+            </div>
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full border-2 border-blue-400">
+                  <img src={user.photoURL} />
+                </div>
+              </label>
+              <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li><a>My Appoinment</a></li>
+                <li><a>Settings</a></li>
+                <li><a>Login</a></li>
+                <li><a>Logout</a></li>
+              </ul>
+            </div>
+          </> 
+}
+          
+        {
+          user === "" && <> 
+          
+          <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> 
+          
+          <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>
+
+          </>
+        }
+
+
         </div>
       </div>
 

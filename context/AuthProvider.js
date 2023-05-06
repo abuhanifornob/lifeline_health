@@ -1,14 +1,7 @@
 import app from "@/firebase/firebase.config";
-
-import React, { Children, createContext, useEffect, useState } from "react";
-// import * as functions from "firebase-functions";
+import React, {createContext, useEffect, useState } from "react";
 //creat chat engine user 
 const axios = require("axios");
-// const [email , setEmail] = useState("") ;
-// const [name , setName] = useState("") ;
-// exports.createChatEngineUser = functions.auth.user().onCreate((user) => {
-
-// });
 
 import {
   createUserWithEmailAndPassword,
@@ -39,15 +32,6 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, userInfo);
   };
 
-// //
-//  updateProfile()
-//  .then((data) => setName(data?.user?.displayName))
-//  .catch(error => console.log(error)) ;
-// //
-// singInEmailPassword()
-// .then((data) => setName(data?.user?.email))
-// .catch(error => console.log(error)) ;
-// //
 
 
   const logout = () => {
@@ -76,23 +60,11 @@ function creatChatUser() {
       username: user.displayName,
       secret: user.uid,
       email: user.email,
-      first_name: user.displayName,
     },
     { headers: { "Private-Key": "88609bd9-d0dd-43ac-b081-100b98ce5aea" } }
   );
 }
 
-//delete chat engine user 
-
-// exports.deleteChatEngineUser = functions.auth.user().onDelete((user) => {
-//   axios.delete("https://api.chatengine.io/users/me/", {
-//     headers: {
-//       "Project-ID": "a2548ef5-a2c5-49ff-97fa-4dabf2aba40b",
-//       "User-Name": user.email,
-//       "User-Secret": user.uid,
-//     },
-//   });
-// });
 
 
   const authInfo = {

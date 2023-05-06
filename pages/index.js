@@ -10,9 +10,6 @@ import BlogsCards from "@/components/BlogsCards/BlogsCards";
 import Head from "next/head";
 import Contact from "./contact";
 import Script from 'next/script';
-import MainPage from "@/components/ChatHome/MainPage";
-// const inter = Inter({ subsets: ["latin"] });
-
 export default function Home({ blogs }) {
   const mystyle = {
     margin: "100px",
@@ -69,8 +66,6 @@ export default function Home({ blogs }) {
       {/* <ContactForm></ContactForm> */}
       {/* This is Foolter Section */}
       {/* <Footer></Footer> */}
-
-      <MainPage></MainPage>
       {/* chat support messenger  */}
       <Script src="/chat_support/chat_support.js" strategy="lazyOnload"/>
     </>
