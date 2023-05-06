@@ -1,22 +1,13 @@
-import { AuthContext } from "@/context/AuthProvider";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/navigation'
+
 import { useContext } from "react";
 
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
-  const {user,logout}=useContext(AuthContext);
-  const router = useRouter();
-  const handleLogOut = () => {
-    logout()
-        .then(() => { })
-        .catch(error => console.error(error))
-        router.push('/')
-}
+  const user={photoUrl:""}
 
   return (
     <>
@@ -41,7 +32,6 @@ function Navbar() {
               </svg>
             </label>
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
-              <li><Link className="text-lg font-medium" href={'/'}>Home</Link></li>
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
@@ -141,7 +131,7 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.uid?<>
+          {user?.photoUrl?<>
             <div className="form-control">
             <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
           </div>
@@ -153,21 +143,18 @@ function Navbar() {
             </label>
             <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
               <li>
-                
-                <Link className="justify-between" href={`/profile/${user.uid}`}>
-                
+                <a className="justify-between">
                   Profile
                   <span className="badge">New</span>
-                
-                </Link>
+                </a>
               </li>
               <li><a>My Appoinment</a></li>
               <li><a>Settings</a></li>
-              {user?.uid?<li><a onClick={handleLogOut}>Logout</a></li>:
-              <li><Link><a>Login</a></Link></li>}
+              <li><a>Login</a></li>
+              <li><a>Logout</a></li>
             </ul>
           </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>}
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 
