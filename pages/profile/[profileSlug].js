@@ -2,14 +2,18 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 
 import profile from "../../public/profiiledemo.png";
+import { AuthContext } from "@/context/AuthProvider";
+import { useContext } from "react";
 
 const ProfileSlug = () => {
   const router = useRouter();
   const { profileSlug } = router.query;
+  const {user}=useContext(AuthContext)
+  console.log("user",user)
 
   return (
     <>
-      <div className="mx-auto max-w-screen-xl bg-blue-200 py-10 mt-12 rounded-md shadow-md">
+      <div className="mx-auto max-w-screen-xl bg-blue-200 py-10 my-24 rounded-md shadow-md">
         <div className=" flex justify-center ">
           <div className="avatar online">
             <div className="w-64 rounded-full border-2 border-[#4791ff]">
@@ -19,19 +23,19 @@ const ProfileSlug = () => {
         </div>
         <div className="text-center mt-12">
           <h3 className="text-[#4791ff] text-2xl mb-3 font-medium">
-            Md Azizul Khan
+            {user?.displayName}
           </h3>
           <h3 className="text-[#254747] text-2xl mb-3">
-            azizul.khan.251@gmail.com
+            {user.email}
           </h3>
-          <h3 className="text-[#254747] text-2xl mb-3">
+          {/* <h3 className="text-[#254747] text-2xl mb-3">
             {" "}
             <span className="font-medium">Date of Birth:</span> 13.09.1999
-          </h3>
+          </h3> */}
           <h3 className="text-[#254747] text-2xl mb-3 font-medium">
-            Login as a <span className="text-[#4791ff]">User</span>{" "}
+            Login as a <span className="text-[#4791ff]">User</span>
           </h3>
-          <h1>slug: {profileSlug}</h1>
+          <h1>User ID: {profileSlug}</h1>
         </div>
       </div>
     </>

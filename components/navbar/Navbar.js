@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import { useContext } from "react";
+
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
-  const user = { photoUrl: "" }
+  const user={photoUrl:""}
 
   return (
     <>
@@ -29,9 +32,9 @@ function Navbar() {
               </svg>
             </label>
             <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${styles.customMenu}`}>
+              <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
-              <li><Link className="text-lg font-medium" href={'/chatpage'}>Live chat</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
@@ -46,24 +49,13 @@ function Navbar() {
                   </svg>
                 </a>
                 <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                  <Link className="text-lg font-medium" href={"/"}>
+                  <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                     <li>Doctor Consultation</li>
                   </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Nutrition & Diet Specialist</li>
+                  <Link className="text-lg font-medium" href={"/service/health-plane"}>
+                    <li>Fitness Expert</li>
                   </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Gym & Fitness Expert</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Yoga Trainer</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Dentist</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Mental Helth</li>
-                  </Link>
+                  
                 </ul>
               </li>
             </ul>
@@ -75,24 +67,12 @@ function Navbar() {
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
           <ul className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+            <li><Link className="text-lg font-medium" href={'/'}>Home</Link></li>
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
-            <li><Link className="text-lg font-medium" href={'/chatpage'}>Live chat</Link></li>
-            <li><Link className="text-lg font-medium" href={'/'}>
-            {
-              user && user.uid &&
-              <div className="avatar">
-                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={user.photoUrl} />
-                </div>
-              </div>
-
-            }
-            </Link></li>
-
             <li tabIndex={0}>
-              <Link href={"/"} className="text-lg font-medium">
+              <Link href={""} className="text-lg font-medium">
                 Services
                 <svg
                   className="fill-current"
@@ -105,13 +85,13 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <Link className="text-lg font-medium" href={"/service/doctor-consultation"}>
+                <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/nutrition-diet-specialist"}>
-                  <li>Nutrition & Diet Specialist</li>
+                <Link className="text-lg font-medium" href={"/service/health-plane"}>
+                  <li>Fitness expert</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
+                {/* <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
                   <li>Gym & Fitness Expert</li>
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/yoga-trainer"}>
@@ -122,7 +102,7 @@ function Navbar() {
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/mental-helth"}>
                   <li>Mental Helth</li>
-                </Link>
+                </Link> */}
               </ul>
             </li>
             <li tabIndex={0}></li>
@@ -149,43 +129,30 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user && user.uid  &&  <>
+          {user?.photoUrl?<>
             <div className="form-control">
-              <h2 className="text-[#254747] font-medium">{user?.displayName}</h2>
-            </div>
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full border-2 border-blue-400">
-                  <img src={user.photoURL} />
-                </div>
-              </label>
-              <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li><a>My Appoinment</a></li>
-                <li><a>Settings</a></li>
-                <li><a>Login</a></li>
-                <li><a>Logout</a></li>
-              </ul>
-            </div>
-          </> 
-}
-          
-        {
-          user === "" && <> 
-          
-          <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> 
-          
-          <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>
-
-          </>
-        }
-
-
+            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
+          </div>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full border-2 border-blue-400">
+                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+            </label>
+            <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li><a>My Appoinment</a></li>
+              <li><a>Settings</a></li>
+              <li><a>Login</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 

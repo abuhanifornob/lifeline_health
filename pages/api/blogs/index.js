@@ -11,6 +11,7 @@ const handler = nc()
     try {
         const blogs = await Blogmodel.find({}) ;
         res.send(blogs)
+        // res.status(200).json(JSON.parse(blogs))
     } catch (error) {
         
     }
