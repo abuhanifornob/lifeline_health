@@ -23,7 +23,7 @@ const ProfileSlug = () => {
         </div>
         <div className="text-center mt-12">
           <h3 className="text-[#4791ff] text-2xl mb-3 font-medium">
-            {user.displayName}
+            {user?.displayName}
           </h3>
           <h3 className="text-[#254747] text-2xl mb-3">
             {user.email}

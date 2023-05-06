@@ -54,20 +54,30 @@ const Blog = ({ blogs }) => {
         </>
     );
 };
+// export async function getServerSideProps() {
+
+//   try {
+//     const res = await fetch('http://localhost:3000/api/blogs');
+//     const blogs = await res.json();
+//     return {
+//       props: {
+//         blogs,
+//       },
+//     };
+//   } catch (error) {
+//     console.error(error);
+  
+//   }
+// }
 export async function getServerSideProps() {
 
-  try {
-    const res = await fetch('http://localhost:3000/api/blogs');
-    const blogs = await res.json();
-    return {
-      props: {
-        blogs,
-      },
-    };
-  } catch (error) {
-    console.error(error);
-  
-  }
-}
+  const res = await fetch('https://lifeline-health-neon.vercel.app/api/blogs')
+  const blogs = await res.json()
 
+  return {
+    props: {
+      blogs
+    },
+  };
+}
 export default Blog;

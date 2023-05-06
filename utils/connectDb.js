@@ -6,7 +6,8 @@ async function connectDb(){
         // const blogsCollection = client.db('lifeline').collection('blogs');
         await mongoose.connect(MONGO_URI,{
             useUnifiedTopology: true,
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useFindAndModify: false
         })
         console.log("connection succcess")
     } catch (error) {
