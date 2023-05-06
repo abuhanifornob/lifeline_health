@@ -26,7 +26,7 @@ export default function SpecialityAppoinment() {
         speciality,
         education: [
           {
-            degreeName,
+            degreeName:degreeName,
             university,
             degreeYear,
             degreeResult,
