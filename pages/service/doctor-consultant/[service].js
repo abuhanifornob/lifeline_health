@@ -47,7 +47,7 @@ const ServiceDetails = () => {
     }, [router])
 
 
-    const info = { image:'image', name:'name', title:'title', specialty:'speciality', experience:'exp', rating:'rating', numberOfRatings:'num', fees:'200' }
+    const info = { image: 'image', name: 'name', title: 'title', specialty: 'speciality', experience: 'exp', rating: 'rating', numberOfRatings: 'num', fees: '200' }
 
     if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No   data</p>
@@ -68,7 +68,7 @@ const ServiceDetails = () => {
             </div>
 
             <div className="flex flex-wrap justify-center">
-                 
+
                 <div className="w-9/12   p-10">
                     <div className="      flex items-center justify-center">
                         <div className=" overflow-x-auto w-full  ">
@@ -126,6 +126,19 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 bg-red-600'>
+                <div>
+                    1
+                </div>
+                <div>
+                    2
+                </div>
+                <div>
+                    3
+                </div>
+
+            </div>
+
             <div  >
                 <h2 className='text-center text-3xl font-semibold'>Book Appointment</h2>
 

@@ -1,19 +1,21 @@
 import React from 'react';
+import AppointmentModal from '../booking/AppiontmentModal';
 
 const DoctorCard = ({ image, name, title, specialty, experience, rating, numberOfRatings, fees }) => {
     return (
-        <div className="   rounded-lg shadow-md p-4 lg:p-0 bg-blue-100">
-            <div className="flex">
-                <div className="lg:w-1/3 p-4 lg:p-8 flex gap-3 items-center">
+        <div className="   rounded-lg  p-4 lg:p-0 grid justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:w-[1100px] justify-center justify-items-center  bg-blue-100  border-2 border-gray-300 shadow-md">
+                <div className=" p-4 lg:p-8 flex gap-3 items-center">
                     <img src='https://doctime-core-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/persons/73771/profile_photos/dlRSNss3ELcRYe4O0n7GzOXquTjw9DWtTyF1QAnY.jpg' alt={name} className="rounded-full h-32 w-32 mx-auto lg:mx-0 lg:float-left mr-6" />
                     <div className="text-center lg:text-left  ">
-                        <h2 className="text-2xl font-semibold">{name} Name of Doctor</h2>
-                        <p className="text-gray-600">{title}Hospital name</p>
-                        <p className="text-gray-600">{specialty}Medicine</p>
+                        <h2 className="text-xl font-semibold">{name} Name of Doctor</h2>
+                        <p className="text-gray-600">{title}MBBS</p>
+                        <p className="text-gray-600"> specialist</p>
+                        <p className="text-black font-semibold">{specialty}Medicine</p>
                     </div>
                 </div>
-                <div className="lg:w-1/3 p-4 lg:p-8">
-                    <h2 className="text-2xl font-semibold">Current Hospitsal</h2>
+                <div className="  p-4 lg:p-8">
+                    <h2 className="text-xl font-semibold">Current Hospitsal</h2>
                     <p className="text-gray-600">{experience}4 years</p>
                     <h2 className="text-2xl font-semibold mt-4">Rating</h2>
                     <div className="flex items-center mt-2">
@@ -23,10 +25,12 @@ const DoctorCard = ({ image, name, title, specialty, experience, rating, numberO
                         <p className="text-gray-600 ml-2">{rating} ({numberOfRatings} ratings)</p>
                     </div>
                 </div>
-                <div className="lg:w-1/3 p-4 lg:p-8">
-                    <h2 className="text-2xl font-semibold">Consulting Fees</h2>
-                    <p className="text-gray-600">{fees}</p>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mt-4">Book Appointment</button>
+                <div className=" p-4 lg:p-8">
+                    <h2 className="text-2xl font-semibold">$300</h2>
+                    <p className="text-gray-600 mb-4">{fees}</p>
+                    <label htmlFor="booking" className="bg-blue-500 text-white rounded-lg px-4 py-2  ">Appointment</label>
+
+                <AppointmentModal></AppointmentModal>
                 </div>
             </div>
         </div>
