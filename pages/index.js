@@ -78,14 +78,9 @@ export default function Home({ blogs }) {
 }
 
 export async function getServerSideProps() {
-<<<<<<< HEAD
-  const res = await fetch("http://localhost:3000/api/blogs");
-  const blogs = await res.json();
-=======
 
   const res = await fetch('https://lifeline-health-neon.vercel.app/api/blogs')
   const blogs = await res.json()
->>>>>>> ff8693a17f8bb31a9b5eb063751d6a1527973ed7
 
   return {
     props: {

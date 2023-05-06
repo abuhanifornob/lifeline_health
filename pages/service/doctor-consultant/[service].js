@@ -24,11 +24,11 @@ const ServiceDetails = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`https://lifeline-health-neon.vercel.app/api/get-services?slug=${service}`)
+        fetch(`/api/get-services?slug=${service}`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data)
-                return fetch(`https://lifeline-health-neon.vercel.app/api/getExpert`)
+                return fetch(`/api/getExpert`)
             })
             .then((res) => res.json())
             .then((data) => {
