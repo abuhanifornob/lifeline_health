@@ -1,11 +1,10 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import slider from '../../public/service-img/slider.jpg'
+// import slider from '../../../public/service-img/slider.jpg'
 import Image from 'next/image';
 import { useEffect } from 'react';
-import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+import DoctorCard from '@/components/service/doctor-card';
 
 
 const ServiceDetails = () => {
@@ -13,12 +12,12 @@ const ServiceDetails = () => {
     const [data, setData] = useState([])
     const [expert, setExpert] = useState([])
     const [isLoading, setLoading] = useState(false)
-    const [selectedDate, setSelectedDate] = useState(new Date())
+    const user = {}
 
 
 
     const { service } = router.query
-    const date = format(selectedDate, 'PP')
+  
     // console.log(date);
 
     // console.log(service);
@@ -45,44 +44,32 @@ const ServiceDetails = () => {
     }, [router])
 
 
-
+    const info = { image: 'image', name: 'name', title: 'title', specialty: 'speciality', experience: 'exp', rating: 'rating', numberOfRatings: 'num', fees: '200' }
 
     if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No   data</p>
     return (
         <div>
             <div className="relative">
-                <Image
+                {/* <Image
                     className="object-cover w-full object-top h-56 sm:h-96"
                     src={slider}
                     alt="slider"
-                ></Image>
+                ></Image> */}
                 <div className="absolute inset-0 bg-gray-900 bg-opacity-50" />
             </div>
             <h2 className='text-5xl text-center py-10 font-bold'>{data.service}</h2>
 
-            <div className="flex flex-wrap justify-center">
-                <div className="w-9/12  p-10  ">
-                    <div className="  md:h-auto  items-center justify-center">
-                        <p>{data.description}</p>
-                        {data.subDescription && (
-                            data.subDescription.map((e, idx) => {
-                                return (
-                                    <div className='py-3' key={idx}>
-                                        <h2 className='text-2xl font-bold'>{e[0]}</h2>
-                                        <p>{e[1]}</p>
-                                    </div>
-                                )
-                            })
-                        )}
+            <div>
+                <DoctorCard info={info}></DoctorCard>
+            </div>
 
-                    </div>
-                </div>
+            {/* <div className="flex flex-wrap justify-center">
+
                 <div className="w-9/12   p-10">
                     <div className="      flex items-center justify-center">
-                        <div className="  w-full ">
-                            <table className="table w-full">
-                                {/* head */}
+                        <div className=" overflow-x-auto w-full  ">
+                            <table className="table w-full ">
                                 <thead>
                                     <tr>
 
@@ -93,7 +80,6 @@ const ServiceDetails = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* row 1 */}
                                     {
                                         expert && (
                                             expert.map((e, idx) => {
@@ -134,43 +120,36 @@ const ServiceDetails = () => {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
+           
+
             <div  >
                 <h2 className='text-center text-3xl font-semibold'>Book Appointment</h2>
 
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4">
-                    <div className='flex justify-center' >
-                        <DayPicker
-                            mode='single'
-                            selected={selectedDate}
-                            onSelect={setSelectedDate}
-                        ></DayPicker>
-                    </div>
-                    <p className='text-center font-bold text-primary'>Available Appointments on {format(selectedDate, 'PP')}</p>
-                </div>
-                <div className="bg-gray-300 p-4">
+                
+                <div class="bg-gray-300 p-4">
                     <form>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="name">
                                 Name
                             </label>
-                            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe"></input>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe"></input>
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 font-bold mb-2" htmlFor="service">
                                 Service
                             </label>
-                            <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service">
+                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service">
                                 <option>Select a service</option>
                                 <option>Service 1</option>
                                 <option>Service 2</option>
                                 <option>Service 3</option>
                             </select>
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-bold mb-2" htmlFor="time">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="time">
                                 Time Slot
                             </label>
                             <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time">
@@ -183,12 +162,13 @@ const ServiceDetails = () => {
                                 <option>3:00 PM - 4:00 PM</option>
                             </select>
                         </div>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             Book Now
                         </button>
                     </form>
                 </div>
             </div>
+
 
 
 

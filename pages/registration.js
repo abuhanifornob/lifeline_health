@@ -1,7 +1,11 @@
 import { AuthContext } from "@/context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import Link from "next/link";
-import { useContext } from "react";
+import { useRouter } from "next/router";
+import { use, useContext } from "react";
+// import { toast } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const provider = new GoogleAuthProvider();
 
 const registration = () => {
@@ -10,6 +14,7 @@ const registration = () => {
   };
   const { googleLongin, createUser, userProfileUpdate } =
     useContext(AuthContext);
+  const router = useRouter();
   const handleRegis = (event) => {
     event.preventDefault();
     const data = event.target;
@@ -22,10 +27,16 @@ const registration = () => {
     createUser(email, password)
       .then((result) => {
         userProfileUpdate(userInfo)
-          .then(() => {})
+          .then(() => {
+            router.push("/");
+            toast("Registration Successfull");
+            const user = result.user;
+            console.log(user);
+            event.target.reset();
+          })
           .catch((error) => {});
-        const user = result.user;
-        console.log(user);
+
+        // router.push("/");
       })
       .catch((error) => {
         console.error(error);
@@ -46,13 +57,14 @@ const registration = () => {
   };
   return (
     <div className="hero bg-base-200 " style={backgroundStyle}>
+      <ToastContainer />
       <div className="hero-content p-10 flex-col lg:flex-row">
-        <div className="w-1/2 p-5">
-          <img src="/login.jpg" className=" rounded-lg shadow-2xl" />
+        <div className="p-0 lg:r-20">
+          <img src="/login.jpg" className="  rounded-lg shadow-2xl h-full" />
         </div>
-        <div className="w-1/2">
-          <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-            <h1 className="text-2xl font-bold text-center py-3">Sign Up</h1>
+        <div className="w-full lg:w-3/5">
+          <h1 className="text-5xl font-bold text-center">Sign Up</h1>
+          <div className="card shadow-2xl">
             <form onSubmit={handleRegis}>
               <div className="card-body">
                 <div className="form-control">
@@ -96,9 +108,11 @@ const registration = () => {
                     </Link>
                   </label>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Sign Up</button>
-                </div>
+                <input
+                  className="btn btn-secondary w-full mt-2"
+                  type="submit"
+                  value="Sign Up"
+                />
               </div>
             </form>
             <label className="label text-sm flex justify-center items-center ">
