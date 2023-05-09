@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const ServiceDetails = ({ experts }) => {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
-    const [expert, setExpert] = useState([])
+    const [expert, setExpert] = useState(null)
     const user = {};
     console.log(expert);
 
@@ -17,8 +17,8 @@ const ServiceDetails = ({ experts }) => {
     console.log(service);
 
     useEffect(() => {
-        
-        const expertData = experts.find((expt) => expt.doctors.doctor[0].slug === service);
+
+        const expertData = experts.filter((expt) => expt.doctors.doctor[0].slug === service);
         setExpert(expertData)
         console.log(expert);
     }, [router])
@@ -44,13 +44,12 @@ const ServiceDetails = ({ experts }) => {
 
                 <div className="absolute inset-0 bg-gray-900 bg-opacity-50" />
             </div>
-            <h2 className="text-5xl text-center py-10 font-bold">{expert.name}</h2>
+            <h2 className="text-5xl text-center py-10 font-bold">{service}</h2>
 
-            <div>{
-                expert.map((info,idx)=>{<DoctorCard key={idx} info={info}></DoctorCard>
-                })
-            }
-                
+            <div>{expert && expert.map((info, idx) => (
+                <DoctorCard key={idx} info={info}></DoctorCard>
+            ))}
+
             </div>
         </div>
     );
