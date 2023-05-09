@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AppointmentModal from '../booking/AppiontmentModal';
 
-const DoctorCard = ({ image, name, title, specialty, experience, rating, numberOfRatings, fees }) => {
+const DoctorCard = ({service},{ image, name, title, specialty, experience, rating, numberOfRatings, fees },) => {
+    // console.log(service);
+    // console.log(DocInfo);
     return (
         <div className="   rounded-lg  my-4 p-4 lg:p-0 grid justify-center">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:w-[1100px] justify-center justify-items-center  bg-blue-100  border-2 border-gray-300 shadow-md">
@@ -30,7 +32,7 @@ const DoctorCard = ({ image, name, title, specialty, experience, rating, numberO
                     <p className="text-gray-600 mb-4">{fees}</p>
                     <label htmlFor="booking" className="bg-blue-500 text-white rounded-lg px-4 py-2  ">Appointment</label>
 
-                <AppointmentModal></AppointmentModal>
+                <AppointmentModal service={service} doctor={{name,fees}}></AppointmentModal>
                 </div>
             </div>
         </div>

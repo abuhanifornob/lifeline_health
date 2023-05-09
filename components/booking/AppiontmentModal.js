@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '@/context/AuthProvider';
 
 
 
 
-const AppointmentModal = () => {
+const AppointmentModal = ({service}) => {
     const [selectedDate, setSelectedDate] = useState(new Date())
     const { register, handleSubmit } = useForm();
     const date = format(selectedDate, 'PP')
 
+  const { user } = useContext(AuthContext);
+
+
     const onSubmit = (data) => {
         console.log(data);
+
+        const booking = {
+            data,
+            user,
+        }
     };
+    
     const today = new Date();
     const disabledDays = {
         before: today,
@@ -53,7 +63,7 @@ const AppointmentModal = () => {
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="name"
                                         type="text"
-                                        placeholder="John Doe"
+                                        placeholder={user? user.name: "Name"}
                                         {...register('name', { required: true })}
                                     />
                                 </div>
@@ -64,16 +74,14 @@ const AppointmentModal = () => {
                                     >
                                         Service
                                     </label>
-                                    <select
+                                    <input
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="service"
+                                        value={service}
                                         {...register('service', { required: true })}
-                                    >
-                                        <option>Select a service</option>
-                                        <option>Service 1</option>
-                                        <option>Service 2</option>
-                                        <option>Service 3</option>
-                                    </select>
+                                    
+                                        
+                                    />
                                 </div>
                                 <div className="mb-4">
                                     <label

@@ -29,6 +29,7 @@ const DoctorRegistrationForm = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const onSubmit = async (data) => {
         console.log(data);
+        console.log(data.availability);
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
@@ -194,7 +195,8 @@ const DoctorRegistrationForm = () => {
                         id="availability"
                         className={`appearance-none border-2 ${errors.availability ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
-                        type="text"
+                        type="time"
+                        step="3600"
                         placeholder="Enter your available time for appointment"
                         {...register("availability", { required: true })}
                     />

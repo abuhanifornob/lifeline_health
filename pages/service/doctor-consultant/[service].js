@@ -25,16 +25,7 @@ const ServiceDetails = ({ experts }) => {
 
 
 
-    // const info = {
-    //     image: "",
-    //     name: expert.name,
-    //     title: expert.title,
-    //     specialty: expert.speciality,
-    //     experience: expert.exp,
-    //     rating: expert.rating,
-    //     numberOfRatings: expert.num,
-    //     fees: expert.fees,
-    // };
+   
 
     if (isLoading) return <p>Loading...</p>;
     if (!expert) return <p>No data</p>;
@@ -46,8 +37,8 @@ const ServiceDetails = ({ experts }) => {
             </div>
             <h2 className="text-5xl text-center py-10 font-bold">{service}</h2>
 
-            <div>{expert && expert.map((info, idx) => (
-                <DoctorCard key={idx} info={info}></DoctorCard>
+            <div>{expert && expert.map((DocInfo, idx) => (
+                <DoctorCard service={service} key={idx} info={DocInfo}></DoctorCard>
             ))}
 
             </div>
