@@ -33,24 +33,53 @@ const DoctorRegistrationForm = () => {
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
+        const formData = new FormData();
+        const img = data.img[0]
+        formData.append('image', img);
+        const url = `https://api.imgbb.com/1/upload?key=fa48313b438b840b4b3a809ce90982e6`
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData=>{
+                console.log(imgData);
+                if(imgData.success){
+                    const imgUrl = imgData.data.url
+                    
+                    const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
+
+        const doctor = {
+            name: data.name,
+            email:email,
+            timeSlot:timeSlot,
+            imgUrl:imgUrl,
+            phone:data.phone,
+            studyingInstitute:data.studyingInstitute,
+            degree:data.degree,
+            specialization:data.specialization,
+            service:data.service,
+            workplace:data.workplace,
+            about:data.about,
+            experience:data.experience
+
+        }
+                }
+            })
 
         function createTimeSlots(startTime, endTime, interval) {
             const timeSlots = [];
             let currentTime = startTime;
-          
-            while (currentTime < endTime) {
-              timeSlots.push(new Date(currentTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
-              currentTime += interval;
-            }
-          
-            return timeSlots;
-          }
-        const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
 
-        const doctor={
-            name:data.name,
-            
+            while (currentTime < endTime) {
+                timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+                currentTime += interval;
+            }
+
+            return timeSlots;
         }
+        
 
         // Send data to server and handle success/failure
         // try {
@@ -122,8 +151,18 @@ const DoctorRegistrationForm = () => {
                     )}
                 </div>
                 <div className="mb-4">
+                    
+                        <label  htmlFor="img" className="block font-bold mb-2">
+                             Your Photo 
+                        </label>
+                        <input type="file" {...register('img', { required: 'file is requird' })} className={`appearance-none border-2 ${errors.img ? "border-red-500" : "border-gray-200"
+                            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`} />
+                        {errors.img && <p className="text-error">{errors.img?.message}</p>}
+                </div>
+
+                <div className="mb-4">
                     <label htmlFor="phone" className="block font-bold mb-2">Phone</label>
-                    <input id="phone" type="text" className={`appearance-none border-2 ${errors.experience ? "border-red-500" : "border-gray-200"
+                    <input id="phone" type="text" className={`appearance-none border-2 ${errors.phone ? "border-red-500" : "border-gray-200"
                         } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`} {...register('phone', { required: true })} />
                     {errors.phone && <p className="mt-1 text-sm text-red-500">Please enter your phone number</p>}
                 </div>
@@ -177,14 +216,14 @@ const DoctorRegistrationForm = () => {
                     )}
                 </div>
                 <div>
-                    <label htmlFor="Service" className="block font-bold mb-2">
+                    <label htmlFor="service" className="block font-bold mb-2">
                         Service
                     </label>
                     <select
-                        id="Service"
-                        name="Service"
+                        id="service"
+                        name="service"
 
-                        {...register("Service", { required: true })}
+                        {...register("service", { required: true })}
 
                         className={`appearance-none border-2 ${errors.experience ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
@@ -234,11 +273,11 @@ const DoctorRegistrationForm = () => {
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
                     <label className="block font-bold mb-2" htmlFor="availabilityTo">
-                        Available time slot appointment to   
+                        Available time slot appointment to
                     </label>
                     <input
                         id="availabilityTo"
-                        className={`appearance-none border-2 ${errors.availabilityTo? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.availabilityTo ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
@@ -251,7 +290,7 @@ const DoctorRegistrationForm = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block font-bold mb-2" htmlFor="about">
-                    About You
+                        About You
                     </label>
                     <textarea
                         id="about"
