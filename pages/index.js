@@ -10,6 +10,10 @@ import BlogsCards from "@/components/BlogsCards/BlogsCards";
 import Head from "next/head";
 import Contact from "./contact";
 import Script from 'next/script';
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthProvider";
+import CarouselSlider from "@/components/Banner/Carousal";
+import Carousal from "@/components/Banner/Carousal";
 export default function Home({ blogs }) {
   const mystyle = {
     margin: "100px",
@@ -26,25 +30,11 @@ export default function Home({ blogs }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Navbar></Navbar> */}
-      <Banner></Banner>
-      <div className="grid md:grid-cols-2 max-w-screen-xl mx-auto mt-24">
-        <div className="col-span-1 w-full  ">
-          <WorkoutCalculator></WorkoutCalculator>
-        </div>
-        <div className="col-span-1 w-full  ">
-          {/* <div className="grid grid-cols-4"> */}
-
-          <div className="col-span-2 w-full  ">
-            <BmiCalculator></BmiCalculator>
-          </div>
-          <div className="col-span-2 w-full  ">
-            <HealthCheckCalculator></HealthCheckCalculator>
-          </div>
-          {/* </div> */}
-        </div>
-      </div>
-
+      {/* <Banner></Banner> */}
+      <Carousal></Carousal>
+      
       <Service></Service>
+     
       <TakeService></TakeService>
 
       <div>
@@ -62,6 +52,7 @@ export default function Home({ blogs }) {
         </div>
       </div>
 
+      <Review></Review>
       <Contact></Contact>
       {/* <ContactForm></ContactForm> */}
       {/* This is Foolter Section */}

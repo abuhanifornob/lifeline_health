@@ -17,7 +17,7 @@ function Navbar() {
         .catch(error => console.error(error))
         push('/login')
 }
-
+  console.log('poooot',user?.photoURL)
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -44,6 +44,8 @@ function Navbar() {
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+              <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculatr</Link></li>
+              <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
               <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
@@ -81,6 +83,8 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculator</Link></li>
+            <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
             <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
@@ -142,12 +146,12 @@ function Navbar() {
         <div className="navbar-end gap-2">
           {user?.uid?<>
             <div className="form-control">
-            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
+            <h2 className="text-[#254747] font-medium">{user?.displayName}</h2>
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full border-2 border-blue-400">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={user?.photoURL} />
               </div>
             </label>
             <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
