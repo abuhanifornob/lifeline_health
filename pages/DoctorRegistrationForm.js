@@ -2,15 +2,118 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const service = [
-    "Cardiology",
-    "Dermatology",
-    "Endocrinology",
-    "Gastroenterology",
-    "Neurology",
-    "Oncology",
-    "Orthopedics",
-    "Psychiatry",
-];
+    {
+        id: '01',
+        name: 'Medicine / General Physician',
+        slug: 'medicine',
+    },
+    {
+        id: '02',
+        name: 'Gynecology',
+        slug: 'gynecology',
+
+    },
+    {
+        id: '03',
+        name: 'Child Care / Pediatrics',
+        slug: 'child-care',
+    },
+    {
+        id: '04',
+        name: ' Skin / Dermatology',
+        slug: 'skin',
+    },
+    {
+        id: '05',
+        name: 'dentist',
+        slug: 'dentist',
+    },
+    {
+        id: '06',
+        name: 'Mental Helth',
+        slug: 'mental-helth',
+    },
+    {
+        id: '07',
+        name: 'Nutrition & Diet Specialist',
+        slug: 'nutrition-diet-specialist',
+    },
+    {
+        id: '08',
+        name: 'Eye / Ophthalmology',
+        slug: 'ophthalmology',
+    },
+    {
+        id: '09',
+        name: 'Complementary and Alternative Medicine',
+        slug: 'alternative-medicine',
+    },
+    {
+        id: '10',
+        name: 'Brain / Neurology',
+        slug: 'neurology',
+    },
+    {
+        id: '11',
+        name: 'Orthopedics',
+        slug: 'orthopedics',
+    },
+    {
+        id: '12',
+        name: 'Gastroenterology',
+        slug: 'gastroenterology',
+    },
+    {
+        id: '13',
+        name: 'Diabetes / Endocrinology',
+        slug: 'endocrinology',
+    }
+    ,
+    {
+        id: '14',
+        name: 'Heart / Cardiology',
+        slug: 'cardiology',
+    }
+    ,
+    {
+        id: '15',
+        name: 'Ear, Nose and Throat / ENT',
+        slug: 'ent',
+    }
+    ,
+    {
+        id: '16',
+        name: 'Urology',
+        slug: 'urology',
+    },
+    {
+        id: '17',
+        name: 'Lungs / Pulmonology',
+        slug: 'pulmonology',
+    },
+    {
+        id: '18',
+        name: 'Cancer / Oncology',
+        slug: 'oncology',
+    },
+    {
+        id: '19',
+        name: 'Kidney / Nephrology',
+        slug: 'nephrology',
+    },
+    {
+        id: '20',
+        name: 'Family Medicine',
+        slug: 'family-medicine',
+    },
+    {
+        id: '21',
+        name: 'Physical Medicine & Rehabilitation',
+        slug: 'rehabilitation',
+    },
+
+
+]
 
 const degrees = [
     "MD",
@@ -49,17 +152,18 @@ const DoctorRegistrationForm = () => {
                     const imgUrl = imgData.data.url
                     
                     const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
+                 const serviceDatails =   service.find(sName=> sName.slug===data.service)
 
         const doctor = {
             name: data.name,
-            email:email,
+            email:data.email,
             timeSlot:timeSlot,
             imgUrl:imgUrl,
             phone:data.phone,
             studyingInstitute:data.studyingInstitute,
             degree:data.degree,
             specialization:data.specialization,
-            service:data.service,
+            serviceDatails:serviceDatails,
             workplace:data.workplace,
             about:data.about,
             experience:data.experience
@@ -230,8 +334,8 @@ const DoctorRegistrationForm = () => {
                     >
                         <option value="">Select a specialty</option>
                         {service.map((specialty) => (
-                            <option value={specialty} key={specialty}>
-                                {specialty}
+                            <option value={specialty.slug} key={specialty}>
+                                {specialty.name}
                             </option>
                         ))}
                     </select>
