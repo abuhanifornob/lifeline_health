@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { AuthContext } from "@/context/AuthProvider";
+import { useRouter } from "next/router";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const service = [
     {
@@ -126,10 +129,12 @@ const degrees = [
     "PharmD",
 ];
 const DoctorRegistrationForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
+    const { register, handleSubmit, formState: { errors },reset } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const { googleLongin, createUser, userProfileUpdate, user } = useContext(AuthContext);
     const onSubmit = async (data) => {
         console.log(data);
         console.log(data.availability);
@@ -139,6 +144,8 @@ const DoctorRegistrationForm = () => {
         const formData = new FormData();
         const img = data.img[0]
         formData.append('image', img);
+        const password=data.password;
+        const email=data.email;
         const url = `https://api.imgbb.com/1/upload?key=fa48313b438b840b4b3a809ce90982e6`
 
         fetch(url, {
@@ -154,6 +161,33 @@ const DoctorRegistrationForm = () => {
                     const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
                  const serviceDatails =   service.find(sName=> sName.slug===data.service)
 
+                //  firebase auth
+                const userInfo = {
+                    displayName: data.name,
+                    photoURL: imgUrl,
+                    phoneNumber: data.phone
+                  };
+                  console.log('doctor',userInfo)
+                createUser(email, password)
+                    .then((result) => {
+        
+                      userProfileUpdate(userInfo)
+                        .then(() => {
+                          toast("Registration Successfull");
+                          router.push("/");
+                          const user = result.user;
+                          console.log("jkdshjuhsdfguih", user);
+                          reset();
+                        })
+                        .catch((error) => console.error(error));
+        
+                      router.push("/");
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
+                //  firebase auth
+
         const doctor = {
             name: data.name,
             email:data.email,
@@ -166,7 +200,8 @@ const DoctorRegistrationForm = () => {
             serviceDatails:serviceDatails,
             workplace:data.workplace,
             about:data.about,
-            experience:data.experience
+            experience:data.experience,
+            fees:"300"
 
         }
                 }
@@ -183,6 +218,7 @@ const DoctorRegistrationForm = () => {
 
             return timeSlots;
         }
+
         
 
         // Send data to server and handle success/failure
@@ -334,7 +370,7 @@ const DoctorRegistrationForm = () => {
                     >
                         <option value="">Select a specialty</option>
                         {service.map((specialty) => (
-                            <option value={specialty.slug} key={specialty}>
+                            <option value={specialty.slug} key={specialty.id}>
                                 {specialty.name}
                             </option>
                         ))}

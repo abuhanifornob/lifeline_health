@@ -110,7 +110,7 @@ const registration = () => {
               {/* <option disabled selected>Select you Role</option> */}
               <option>Signup as a User</option>
               <option>Signup as a Doctor</option>
-              <option>Signup as a Fitness expert</option>
+              {/* <option>Signup as a Fitness expert</option> */}
             </select>
           </div>
           <div className="card shadow-2xl">
