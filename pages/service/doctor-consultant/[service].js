@@ -6,7 +6,7 @@ import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-const ServiceDetails = ({ experts }) => {
+const ServiceDetails = ({ doctors }) => {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
     const [expert, setExpert] = useState(null)
@@ -51,21 +51,21 @@ export default ServiceDetails;
 export async function getServerSideProps() {
     try {
         const response = await axios.get(
-            'https://lifeline-health-rakibul181.vercel.app/api/expert'
+            'https://lifeline-health-rakibul181.vercel.app/api/doctors'
         );
-        const experts = response.data;
-        console.log(experts);
+        const doctors = response.data;
+        console.log(doctors);
 
         return {
             props: {
-                experts,
+                doctors,
             },
         };
     } catch (error) {
         console.error(error);
         return {
             props: {
-                experts: [],
+                doctors: [],
             },
         };
     }
