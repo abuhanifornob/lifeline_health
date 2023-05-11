@@ -9,7 +9,7 @@ import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
-  const user={photoUrl:""}
+  const user = { photoUrl: "" }
 
   return (
     <>
@@ -141,30 +141,30 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl?<>
+          {user?.photoUrl ? <>
             <div className="form-control">
-            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
-          </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full border-2 border-blue-400">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li><a>My Appoinment</a></li>
-              <li><a>Settings</a></li>
-              <li><a>Login</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
+              <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
+            </div>
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full border-2 border-blue-400">
+                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
+              </label>
+              <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li><a>My Appoinment</a></li>
+                <li><a>Settings</a></li>
+                <li><a>Login</a></li>
+                <li><a>Logout</a></li>
+              </ul>
+            </div>
+          </> : <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>}
         </div>
       </div>
 
