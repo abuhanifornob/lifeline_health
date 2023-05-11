@@ -1,4 +1,5 @@
 import { AuthContext } from "@/context/AuthProvider";
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -141,13 +142,14 @@ const DoctorRegistrationForm = () => {
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
-        const formData = new FormData();
         const img = data.img[0]
-        formData.append('image', img);
         const password=data.password;
         const email=data.email;
+        // const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
+        // const serviceDatails =   service.find(sName=> sName.slug===data.service)
+        const formData = new FormData();
+        formData.append('image', img);
         const url = `https://api.imgbb.com/1/upload?key=fa48313b438b840b4b3a809ce90982e6`
-
         fetch(url, {
             method: 'POST',
             body: formData
@@ -158,66 +160,101 @@ const DoctorRegistrationForm = () => {
                 if(imgData.success){
                     const imgUrl = imgData.data.url
                     
-                    const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
-                 const serviceDatails =   service.find(sName=> sName.slug===data.service)
 
                 //  firebase auth
-                const userInfo = {
-                    displayName: data.name,
-                    photoURL: imgUrl,
-                    phoneNumber: data.phone
-                  };
-                  console.log('doctor',userInfo)
-                createUser(email, password)
-                    .then((result) => {
+                // const userInfo = {
+                //     displayName: data.name,
+                //     photoURL: imgUrl,
+                //     phoneNumber: data.phone
+                //   };
+                //   console.log('doctor',userInfo)
+                // createUser(email, password)
+                //     .then((result) => {
         
-                      userProfileUpdate(userInfo)
-                        .then(() => {
-                          toast("Registration Successfull");
-                          router.push("/");
-                          const user = result.user;
-                          console.log("jkdshjuhsdfguih", user);
-                          reset();
-                        })
-                        .catch((error) => console.error(error));
+                //       userProfileUpdate(userInfo)
+                //         .then(() => {
+                //           toast("Registration Successfull");
+                //         //   router.push("/");
+                //           const user = result.user;
+                //           console.log("jkdshjuhsdfguih", user);
+                //           reset();
+                //         })
+                //         .catch((error) => console.error(error));
         
-                      router.push("/");
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
+                //     //   router.push("/");
+                //     })
+                //     .catch((error) => {
+                //       console.error(error);
+                //     });
                 //  firebase auth
 
         const doctor = {
             name: data.name,
             email:data.email,
-            timeSlot:timeSlot,
+            timeSlot:[],
             imgUrl:imgUrl,
             phone:data.phone,
             studyingInstitute:data.studyingInstitute,
             degree:data.degree,
             specialization:data.specialization,
-            serviceDatails:serviceDatails,
+            serviceDatails:{},
             workplace:data.workplace,
             about:data.about,
             experience:data.experience,
             fees:"300"
 
         }
+        console.log('doctorsss',JSON.stringify(doctor))
+
+        // post request doctor data
+        // axios
+        // .post('http://localhost:3000/api/doctors', JSON.stringify(doctor) )
+        // .then((response) => {
+        //   // Assuming the API response contains the saved comment
+        //   const savedComment = response.data;
+        //     console.log('ddddd',savedComment)
+          
+        // })
+        // .catch((error) => {
+        //   console.error('Error submitting comment:', error);
+        // });
+        fetch('http://localhost:3000/api/doctors', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(doctor)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            if (data.acknowledged) {
+                                setSuccessMessage("Registration successful!");
+                                console.log(data)
+                            }
+                            else{
+                                setErrorMessage("Registration failed. Please try again.");  
+                            }
+
+
+
+                        })
+                        .catch(error => console.error(error));
+        // post request doctor data
                 }
             })
 
-        function createTimeSlots(startTime, endTime, interval) {
-            const timeSlots = [];
-            let currentTime = startTime;
+        // function createTimeSlots(startTime, endTime, interval) {
+        //     const timeSlots = [];
+        //     let currentTime = startTime;
 
-            while (currentTime < endTime) {
-                timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-                currentTime += interval;
-            }
+        //     while (currentTime < endTime) {
+        //         timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+        //         currentTime += interval;
+        //     }
 
-            return timeSlots;
-        }
+        //     return timeSlots;
+        // }
 
         
 
@@ -228,7 +265,7 @@ const DoctorRegistrationForm = () => {
         //         headers: {
         //             "Content-Type": "application/json",
         //         },
-        //         body: JSON.stringify(data),
+        //         body: JSON.stringify(doctor),
         //     });
 
         //     if (response.ok) {
@@ -243,9 +280,9 @@ const DoctorRegistrationForm = () => {
         setIsLoading(false);
     };
     return (
-        <div >
-            <div className="m-4">
-                <h1 className="text-center text-4xl font-bold ">Registr As A Doctor</h1>
+        <div className="my-24">
+            <div className="m-4 mt-8">
+                <h1 className="text-center text-4xl font-bold ">Register As A Doctor</h1>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto bg-base-100 shadow-xl p-6 ">
                 <div className="mb-4">
