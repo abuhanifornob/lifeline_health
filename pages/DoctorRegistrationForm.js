@@ -129,21 +129,16 @@ const degrees = [
     "DVM",
     "PharmD",
 ];
+const allTimeSlot = ['12:00 AM', '12:20 AM', '12:40 AM', '1:00 AM', '1:20 AM', '2:40 AM', '3:00 AM', '3:20 AM', '3:40 AM', '4:00 AM', '4:20 AM', '4:40 AM', '5:00 AM', '5:20 AM', '5:40 AM', '6:00 AM', '6:20 AM', '6:40 AM', , '7:00 AM', '7:20 AM', '7:40 AM', '8:00 AM', '8:20 AM', '8:40 AM', '09:00 AM', '09:20 AM ', '09:40 AM ', '10:00 AM', '10:20 AM', '10:40 AM', '11:00 AM', '11:20 AM', '11:40 AM', '12:00 PM', '12:20 PM', '12:40 PM', '1:00 PM', '1:20 PM', '2:40 PM', '3:00 PM', '3:20 PM', '3:40 PM', '4:00 PM', '4:20 PM', '4:40 PM', '5:00 PM', '5:20 PM', '5:40 PM', '6:00 PM', '6:20 PM', '6:40 PM', , '7:00 PM', '7:20 PM', '7:40 PM', '8:00 PM', '8:20 PM', '8:40 PM', '09:00 PM', '09:20 PM ', '09:40 PM ', '10:00 PM', '10:20 PM', '10:40 PM', '11:00 PM', '11:20 PM', '11:40 PM',]
 const DoctorRegistrationForm = () => {
     const router = useRouter();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const { googleLongin, createUser, userProfileUpdate, user } = useContext(AuthContext);
+    const { createUser, userProfileUpdate, user } = useContext(AuthContext);
 
-    // function createTimeSlots(startTime, endTime, interval) {
-    //     const timeSlots = [];
-    //     for (let currentTime = startTime; currentTime < endTime; currentTime += interval) {
-    //         timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    //     }
-    //     return timeSlots;
-    // }
+     
 
     const onSubmit = async (data) => {
         console.log(data);
@@ -151,11 +146,13 @@ const DoctorRegistrationForm = () => {
         setSuccessMessage("");
         setErrorMessage("");
         const img = data.img[0]
-        // console.log(data.availabilityfrom, data.availabilityto);
+        const indexFrom = allTimeSlot.indexOf(data.availabilityfrom)
+        const indexTo = allTimeSlot.indexOf(data.availabilityto)
+        const timeSlot = allTimeSlot.slice(indexFrom,indexTo)
+        // console.log(data.availabilityfrom, data.availabilityto, timeSlot);
         const password = data.password;
         const email = data.email;
-        const timeSlot = createTimeSlots(data.availabilityfrom, data.availabilityto, 20)
-        console.log(timeSlot);
+        // console.log(timeSlot);
         const serviceDatails = service.find(sName => sName.slug === data.service)
         const formData = new FormData();
         formData.append('image', img);
@@ -201,7 +198,7 @@ const DoctorRegistrationForm = () => {
                     const doctor = {
                         name: data.name,
                         email: data.email,
-                        timeSlot: [],
+                        timeSlot: timeSlot,
                         imgUrl: imgUrl,
                         phone: data.phone,
                         studyingInstitute: data.studyingInstitute,
@@ -405,22 +402,30 @@ const DoctorRegistrationForm = () => {
                     <label className="block font-bold mb-2" htmlFor="availabilityFrom">
                         Available time slot for appointment from
                     </label>
-                    <input
-                        id="availabilityFrom"
-                        className={`appearance-none border-2 ${errors.availabilityFrom ? "border-red-500" : "border-gray-200"
+                    <select
+                        id="availabilityfrom"
+                        className={`appearance-none border-2 ${errors.availabilityfrom ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
                         {...register("availabilityfrom", { required: true })}
-                    />
-                    {errors.availabilityFrom && (
+                    >
+                        <option value="">Select a time</option>
+                        {allTimeSlot.map((time, i) => (
+                            
+                            <option value={time} key={i}>
+                                {time}
+                            </option>
+                        ))}
+                    </select>
+                    {errors.availabilityfrom && (
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
                     <label className="block font-bold mb-2" htmlFor="availabilityto">
                         Available time slot appointment to
                     </label>
-                    <input
+                    <select
                         id="availabilityTo"
                         className={`appearance-none border-2 ${errors.availabilityto ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
@@ -428,7 +433,14 @@ const DoctorRegistrationForm = () => {
                         step="3600"
                         placeholder="Enter your available time for appointment"
                         {...register("availabilityto", { required: true })}
-                    />
+                    >
+                        <option value="">Select a time</option>
+                        {allTimeSlot.map((time, i) => (
+                            <option value={time} key={i}>
+                                {time}
+                            </option>
+                        ))}
+                    </select>
                     {errors.availabilityto && (
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
