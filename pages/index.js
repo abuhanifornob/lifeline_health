@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/context/AuthProvider";
 import CarouselSlider from "@/components/Banner/Carousal";
 import Carousal from "@/components/Banner/Carousal";
+import Review from "@/components/review/Review";
 export default function Home({ blogs }) {
   const mystyle = {
     margin: "100px",

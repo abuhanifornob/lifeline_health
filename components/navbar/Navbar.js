@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthProvider";
+import { useRouter } from "next/router";
 // import DarkModeToggle from "../DarkMode/DarkModeToggle";
 
 function Navbar() {
-<<<<<<< HEAD
-  const user={photoUrl:""}
-=======
   const {user,logout}=useContext(AuthContext)
   const { push } = useRouter();
   const handleLogOut = () => {
@@ -17,7 +17,6 @@ function Navbar() {
         push('/login')
 }
   console.log('poooot',user?.photoURL)
->>>>>>> dc59814fd6a01c1715ee91ef8685de510b3e130b
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -83,14 +82,11 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
-<<<<<<< HEAD
             <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
         
-=======
             <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculator</Link></li>
             <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
             <li><Link className="text-lg font-medium" href={'/doctorRegistrationForm'}>For Doctors</Link></li>
->>>>>>> dc59814fd6a01c1715ee91ef8685de510b3e130b
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
@@ -175,7 +171,6 @@ function Navbar() {
               
             </ul>
           </div>
-<<<<<<< HEAD
             </>}
           {
             user==="" && <>
@@ -185,9 +180,7 @@ function Navbar() {
 
             </>
           }
-=======
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>}
->>>>>>> dc59814fd6a01c1715ee91ef8685de510b3e130b
+           
         </div>
       </div>
 
