@@ -1,23 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
-
-import { useContext } from "react";
-
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
-import { AuthContext } from "@/context/AuthProvider";
+// import DarkModeToggle from "../DarkMode/DarkModeToggle";
 
 function Navbar() {
-  const {user,logout}=useContext(AuthContext)
-  const { push } = useRouter();
-  const handleLogOut = () => {
-    logout()
-        .then(() => { })
-        .catch(error => console.error(error))
-        push('/login')
-}
-
+  const user={photoUrl:""}
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -81,7 +69,8 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
-            <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
+            <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+        
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
@@ -116,7 +105,9 @@ function Navbar() {
                 </Link> */}
               </ul>
             </li>
-            <li tabIndex={0}></li>
+            <li> <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white float-right">Live video call</a> </li>
+           
+            {/* <li tabIndex={5}> <DarkModeToggle></DarkModeToggle> </li> */}
           </ul>
         </div>
 
@@ -140,9 +131,9 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.uid?<>
+          {user?.photoUrl&&<>
             <div className="form-control">
-            <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
+            <h2 className="text-[#254747] font-medium">{user?.displayName}</h2>
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -164,7 +155,15 @@ function Navbar() {
               
             </ul>
           </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
+            </>}
+          {
+            user==="" && <>
+                     <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+              
+              <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>
+
+            </>
+          }
         </div>
       </div>
 
