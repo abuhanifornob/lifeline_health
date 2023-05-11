@@ -29,6 +29,7 @@ const blogSchema=new mongoose.Schema({
         comments: {
             type: Array
         }
+        
 
 })
 

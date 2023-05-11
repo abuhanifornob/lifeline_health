@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const expertSchema = mongoose.Schema({
+const expertSchema =new  mongoose.Schema({
 
     doctors:{type:Object}   
 })

@@ -5,7 +5,19 @@ import styles from "../../styles/Navbar.module.css";
 // import DarkModeToggle from "../DarkMode/DarkModeToggle";
 
 function Navbar() {
+<<<<<<< HEAD
   const user={photoUrl:""}
+=======
+  const {user,logout}=useContext(AuthContext)
+  const { push } = useRouter();
+  const handleLogOut = () => {
+    logout()
+        .then(() => { })
+        .catch(error => console.error(error))
+        push('/login')
+}
+  console.log('poooot',user?.photoURL)
+>>>>>>> dc59814fd6a01c1715ee91ef8685de510b3e130b
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -32,6 +44,8 @@ function Navbar() {
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+              <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculatr</Link></li>
+              <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
               <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
@@ -69,8 +83,14 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+<<<<<<< HEAD
             <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
         
+=======
+            <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculator</Link></li>
+            <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
+            <li><Link className="text-lg font-medium" href={'/doctorRegistrationForm'}>For Doctors</Link></li>
+>>>>>>> dc59814fd6a01c1715ee91ef8685de510b3e130b
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
@@ -138,7 +158,7 @@ function Navbar() {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full border-2 border-blue-400">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={user?.photoURL} />
               </div>
             </label>
             <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
@@ -155,6 +175,7 @@ function Navbar() {
               
             </ul>
           </div>
+<<<<<<< HEAD
             </>}
           {
             user==="" && <>
@@ -164,6 +185,9 @@ function Navbar() {
 
             </>
           }
+=======
+            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>}
+>>>>>>> dc59814fd6a01c1715ee91ef8685de510b3e130b
         </div>
       </div>
 
