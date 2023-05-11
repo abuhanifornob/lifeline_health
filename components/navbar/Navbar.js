@@ -1,16 +1,22 @@
-import { AuthContext } from "@/context/AuthProvider";
-
 import Image from "next/image";
 import Link from "next/link";
-
-import { useContext } from "react";
-
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthProvider";
+import { useRouter } from "next/router";
+// import DarkModeToggle from "../DarkMode/DarkModeToggle";
 
 function Navbar() {
-  const user = { photoUrl: "" }
-
+  const { user, logout } = useContext(AuthContext)
+  const { push } = useRouter();
+  const handleLogOut = () => {
+    logout()
+      .then(() => { })
+      .catch(error => console.error(error))
+    push('/login')
+  }
+  console.log('poooot', user?.photoURL)
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -37,6 +43,9 @@ function Navbar() {
               <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
               <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
               <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+              <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculatr</Link></li>
+              <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
+              <li><Link className="text-lg font-medium" href={'/DoctorRegistrationForm'}>For Doctors</Link></li>
               <li tabIndex={0}>
                 <a className="text-lg font-medium">
                   Services
@@ -51,24 +60,13 @@ function Navbar() {
                   </svg>
                 </a>
                 <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                  <Link className="text-lg font-medium" href={"/"}>
+                  <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                     <li>Doctor Consultation</li>
                   </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Nutrition & Diet Specialist</li>
+                  <Link className="text-lg font-medium" href={"/service/health-plane"}>
+                    <li>Fitness Expert</li>
                   </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Gym & Fitness Expert</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Yoga Trainer</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Dentist</li>
-                  </Link>
-                  <Link className="text-lg font-medium" href={"/"}>
-                    <li>Mental Helth</li>
-                  </Link>
+
                 </ul>
               </li>
             </ul>
@@ -80,11 +78,17 @@ function Navbar() {
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
           <ul className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+            <li><Link className="text-lg font-medium" href={'/'}>Home</Link></li>
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+
+            <li><Link className="text-lg font-medium" href={'/calculator'}>Health Calculator</Link></li>
+            <li><Link className="text-lg font-medium" href={'/healthplans'}>Health Plans</Link></li>
+            <li><Link className="text-lg font-medium" href={'/doctorRegistrationForm'}>For Doctors</Link></li>
             <li tabIndex={0}>
-              <Link href={"/"} className="text-lg font-medium">
+              <Link href={""} className="text-lg font-medium">
                 Services
                 <svg
                   className="fill-current"
@@ -97,13 +101,13 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <Link className="text-lg font-medium" href={"/service/doctor-consultation"}>
+                <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/nutrition-diet-specialist"}>
-                  <li>Nutrition & Diet Specialist</li>
+                <Link className="text-lg font-medium" href={"/service/health-plane"}>
+                  <li>Fitness expert</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
+                {/* <Link className="text-lg font-medium" href={"/service/gym-fitness-expert"}>
                   <li>Gym & Fitness Expert</li>
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/yoga-trainer"}>
@@ -114,10 +118,12 @@ function Navbar() {
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/mental-helth"}>
                   <li>Mental Helth</li>
-                </Link>
+                </Link> */}
               </ul>
             </li>
-            <li tabIndex={0}></li>
+            <li> <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white float-right">Live video call</a> </li>
+
+            {/* <li tabIndex={5}> <DarkModeToggle></DarkModeToggle> </li> */}
           </ul>
         </div>
 
@@ -141,30 +147,40 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl ? <>
+          {user?.photoUrl && <>
             <div className="form-control">
-              <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
+              <h2 className="text-[#254747] font-medium">{user?.displayName}</h2>
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full border-2 border-blue-400">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img src={user?.photoURL} />
                 </div>
               </label>
               <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
                 <li>
-                  <a className="justify-between">
+                  <Link href={`/profile/${user.uid}`} className="justify-between">
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
                 <li><a>My Appoinment</a></li>
                 <li><a>Settings</a></li>
-                <li><a>Login</a></li>
-                <li><a>Logout</a></li>
+                {user?.uid && <li onClick={handleLogOut}><a>Logout</a></li>}
+                {/* <li><a>Login</a></li> */}
+
               </ul>
             </div>
-          </> : <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"registration"} className="text-lg font-medium">Register</Link></li></ul>}
+          </>}
+          {
+            user === "" && <>
+              <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+
+                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>
+
+            </>
+          }
+
         </div>
       </div>
 

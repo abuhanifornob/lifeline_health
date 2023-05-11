@@ -1,4 +1,5 @@
 
+
 import Blogmodel from "@/models/Blogmodel";
 import connectDb from "@/utils/connectDb";
 import nc from "next-connect";
@@ -8,8 +9,9 @@ const handler = nc()
 
   .get(async(req, res) => {
     try {
-        const blogs = await Blogmodel.find({})
+        const blogs = await Blogmodel.find({}) ;
         res.send(blogs)
+        // res.status(200).json(JSON.parse(blogs))
     } catch (error) {
         
     }

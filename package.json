@@ -7,6 +7,12 @@
     "build": "next build"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.52.1",
+    "@zegocloud/zego-uikit-prebuilt": "^1.8.1",
+    "agora-react-uikit": "^1.2.0",
+    "agora-rtc-sdk-ng": "^4.17.2",
+    "axios": "^1.4.0",
     "daisyui": "^2.51.5",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
@@ -18,10 +24,20 @@
     "next": "^13.2.4",
     "next-connect": "^0.13.0",
     "react": "^18.2.0",
+    "react-awesome-slider": "^4.1.0",
+    "react-chat-engine-pretty": "^0.1.8",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-day-picker": "^8.7.1",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.8.0",
+    "react-router-dom": "^6.11.1",
+    "react-spinners": "^0.13.8",
+    "react-toastify": "^9.1.2",
+    "stripe": "^12.4.0",
+    "sweetalert2": "^11.7.5",
+    "use-dark-mode": "^2.3.1",
     "vercel": "^28.18.3"
   },
   "devDependencies": {
