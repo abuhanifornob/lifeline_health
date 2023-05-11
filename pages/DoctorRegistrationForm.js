@@ -146,7 +146,7 @@ const DoctorRegistrationForm = () => {
         const password=data.password;
         const email=data.email;
         // const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
-        // const serviceDatails =   service.find(sName=> sName.slug===data.service)
+        const serviceDatails =   service.find(sName=> sName.slug===data.service)
         const formData = new FormData();
         formData.append('image', img);
         const url = `https://api.imgbb.com/1/upload?key=fa48313b438b840b4b3a809ce90982e6`
@@ -162,30 +162,30 @@ const DoctorRegistrationForm = () => {
                     
 
                 //  firebase auth
-                // const userInfo = {
-                //     displayName: data.name,
-                //     photoURL: imgUrl,
-                //     phoneNumber: data.phone
-                //   };
-                //   console.log('doctor',userInfo)
-                // createUser(email, password)
-                //     .then((result) => {
+                const userInfo = {
+                    displayName: data.name,
+                    photoURL: imgUrl,
+                    phoneNumber: data.phone
+                  };
+                  console.log('doctor',userInfo)
+                createUser(email, password)
+                    .then((result) => {
         
-                //       userProfileUpdate(userInfo)
-                //         .then(() => {
-                //           toast("Registration Successfull");
-                //         //   router.push("/");
-                //           const user = result.user;
-                //           console.log("jkdshjuhsdfguih", user);
-                //           reset();
-                //         })
-                //         .catch((error) => console.error(error));
+                      userProfileUpdate(userInfo)
+                        .then(() => {
+                          toast("Registration Successfull");
+                        //   router.push("/");
+                          const user = result.user;
+                          console.log("jkdshjuhsdfguih", user);
+                          reset();
+                        })
+                        .catch((error) => console.error(error));
         
-                //     //   router.push("/");
-                //     })
-                //     .catch((error) => {
-                //       console.error(error);
-                //     });
+                    //   router.push("/");
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
                 //  firebase auth
 
         const doctor = {
@@ -197,7 +197,7 @@ const DoctorRegistrationForm = () => {
             studyingInstitute:data.studyingInstitute,
             degree:data.degree,
             specialization:data.specialization,
-            serviceDatails:{},
+            serviceDatails:serviceDatails,
             workplace:data.workplace,
             about:data.about,
             experience:data.experience,
