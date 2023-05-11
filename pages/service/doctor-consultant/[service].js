@@ -1,16 +1,18 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Image from 'next/image';
 import 'react-day-picker/dist/style.css';
 import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { AuthContext } from '@/context/AuthProvider';
 
 const ServiceDetails = ({ doctors }) => {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
     const [expert, setExpert] = useState(null)
-    const user = {};
+    const { user } = useContext(AuthContext);
+
     console.log(expert);
 
     const { service } = router.query;
@@ -18,7 +20,7 @@ const ServiceDetails = ({ doctors }) => {
 
     useEffect(() => {
 
-        const expertData = doctors.filter((expt) => expt.doctors.doctor[0].slug === service);
+        const expertData = doctors.filter((expt) => expt.serviceDatails.slug === service);
         setExpert(expertData)
         console.log(expert);
     }, [router])

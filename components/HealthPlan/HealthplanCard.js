@@ -24,7 +24,7 @@ const HealthplanCard = ({data}) => {
               <figure>
                 <img
                   className="w-12"
-                  src="https://doctime-core-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/images/subscription/icon/IFgOaFB9Blr8MlO0W4o9LKOLiVh5qEMN2RH5xWLX.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZUG2TYIWLXBZGRKF%2F20230505%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20230505T131229Z&X-Amz-SignedHeaders=host&X-Amz-Expires=900&X-Amz-Signature=d5c42ac906a90af61e3f6712bef4a7c8edcb74e499d544cc441c256679e711da"
+                  src="https://doctime-core-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/images/subscription/icon/hm671mmbNtX4Fj9qH2R3WH2FdYpLezvrmflGjv2f.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZUG2TYIWLXBZGRKF%2F20230511%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20230511T065442Z&X-Amz-SignedHeaders=host&X-Amz-Expires=900&X-Amz-Signature=3ca7b11fea3c3651f5e7b9862fae06bc7f08b5f6de706c2e226446e78c5f993c"
                   alt="icon"
                 />
               </figure>
