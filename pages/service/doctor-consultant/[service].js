@@ -18,7 +18,7 @@ const ServiceDetails = ({ doctors }) => {
 
     useEffect(() => {
 
-        const expertData = experts.filter((expt) => expt.doctors.doctor[0].slug === service);
+        const expertData = doctors.filter((expt) => expt.doctors.doctor[0].slug === service);
         setExpert(expertData)
         console.log(expert);
     }, [router])

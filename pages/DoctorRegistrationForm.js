@@ -131,22 +131,32 @@ const degrees = [
 ];
 const DoctorRegistrationForm = () => {
     const router = useRouter();
-    const { register, handleSubmit, formState: { errors },reset } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const { googleLongin, createUser, userProfileUpdate, user } = useContext(AuthContext);
+
+    // function createTimeSlots(startTime, endTime, interval) {
+    //     const timeSlots = [];
+    //     for (let currentTime = startTime; currentTime < endTime; currentTime += interval) {
+    //         timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    //     }
+    //     return timeSlots;
+    // }
+
     const onSubmit = async (data) => {
         console.log(data);
-        console.log(data.availability);
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
         const img = data.img[0]
-        const password=data.password;
-        const email=data.email;
-        const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
-        const serviceDatails =   service.find(sName=> sName.slug===data.service)
+        // console.log(data.availabilityfrom, data.availabilityto);
+        const password = data.password;
+        const email = data.email;
+        const timeSlot = createTimeSlots(data.availabilityfrom, data.availabilityto, 20)
+        console.log(timeSlot);
+        const serviceDatails = service.find(sName => sName.slug === data.service)
         const formData = new FormData();
         formData.append('image', img);
         const url = `https://api.imgbb.com/1/upload?key=fa48313b438b840b4b3a809ce90982e6`
@@ -155,59 +165,59 @@ const DoctorRegistrationForm = () => {
             body: formData
         })
             .then(res => res.json())
-            .then(imgData=>{
+            .then(imgData => {
                 console.log(imgData);
-                if(imgData.success){
+                if (imgData.success) {
                     const imgUrl = imgData.data.url
-                    
 
-                //  firebase auth
-                const userInfo = {
-                    displayName: data.name,
-                    photoURL: imgUrl,
-                    phoneNumber: data.phone
-                  };
-                  console.log('doctor',userInfo)
-                createUser(email, password)
-                    .then((result) => {
-        
-                      userProfileUpdate(userInfo)
-                        .then(() => {
-                          toast("Registration Successfull");
-                        //   router.push("/");
-                          const user = result.user;
-                          console.log("jkdshjuhsdfguih", user);
-                          reset();
+
+                    //  firebase auth
+                    const userInfo = {
+                        displayName: data.name,
+                        photoURL: imgUrl,
+                        phoneNumber: data.phone
+                    };
+                    console.log('doctor', userInfo)
+                    createUser(email, password)
+                        .then((result) => {
+
+                            userProfileUpdate(userInfo)
+                                .then(() => {
+                                    toast("Registration Successfull");
+                                    //   router.push("/");
+                                    const user = result.user;
+                                    console.log("jkdshjuhsdfguih", user);
+                                    reset();
+                                })
+                                .catch((error) => console.error(error));
+
+                            //   router.push("/");
                         })
-                        .catch((error) => console.error(error));
-        
-                    //   router.push("/");
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                //  firebase auth
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                    //  firebase auth
 
-        const doctor = {
-            name: data.name,
-            email:data.email,
-            timeSlot:timeSlot,
-            imgUrl:imgUrl,
-            phone:data.phone,
-            studyingInstitute:data.studyingInstitute,
-            degree:data.degree,
-            specialization:data.specialization,
-            serviceDatails:serviceDatails,
-            workplace:data.workplace,
-            about:data.about,
-            experience:data.experience,
-            fees:"300"
+                    const doctor = {
+                        name: data.name,
+                        email: data.email,
+                        timeSlot: [],
+                        imgUrl: imgUrl,
+                        phone: data.phone,
+                        studyingInstitute: data.studyingInstitute,
+                        degree: data.degree,
+                        specialization: data.specialization,
+                        serviceDatails: serviceDatails,
+                        workplace: data.workplace,
+                        about: data.about,
+                        experience: data.experience,
+                        fees: "300"
 
-        }
-        console.log('doctorsss',JSON.stringify(doctor))
+                    }
+                    console.log('doctorsss', JSON.stringify(doctor))
 
-        
-        fetch('http://localhost:3000/api/doctors', {
+
+                    fetch('http://localhost:3000/api/doctors', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -221,30 +231,19 @@ const DoctorRegistrationForm = () => {
                                 setSuccessMessage("Registration successful!");
                                 console.log(data)
                             }
-                            else{
-                                setErrorMessage("Registration failed. Please try again.");  
+                            else {
+                                setErrorMessage("Registration failed. Please try again.");
                             }
 
 
 
                         })
                         .catch(error => console.error(error));
-        // post request doctor data
+                    // post request doctor data
                 }
             })
 
-            function createTimeSlots(startTime, endTime, interval) {
-                const timeSlots = [];
-                for (let currentTime = startTime; currentTime < endTime; currentTime += interval) {
-                  timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-                }
-                return timeSlots;
-              }
-              
 
-        
-
-         
 
         setIsLoading(false);
     };
@@ -297,13 +296,13 @@ const DoctorRegistrationForm = () => {
                     )}
                 </div>
                 <div className="mb-4">
-                    
-                        <label  htmlFor="img" className="block font-bold mb-2">
-                             Your Photo 
-                        </label>
-                        <input type="file" {...register('img', { required: 'file is requird' })} className={`appearance-none border-2 ${errors.img ? "border-red-500" : "border-gray-200"
-                            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`} />
-                        {errors.img && <p className="text-error">{errors.img?.message}</p>}
+
+                    <label htmlFor="img" className="block font-bold mb-2">
+                        Your Photo
+                    </label>
+                    <input type="file" {...register('img', { required: 'file is requird' })} className={`appearance-none border-2 ${errors.img ? "border-red-500" : "border-gray-200"
+                        } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`} />
+                    {errors.img && <p className="text-error">{errors.img?.message}</p>}
                 </div>
 
                 <div className="mb-4">
@@ -413,24 +412,24 @@ const DoctorRegistrationForm = () => {
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
-                        {...register("availabilityFrom", { required: true })}
+                        {...register("availabilityfrom", { required: true })}
                     />
                     {errors.availabilityFrom && (
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
-                    <label className="block font-bold mb-2" htmlFor="availabilityTo">
+                    <label className="block font-bold mb-2" htmlFor="availabilityto">
                         Available time slot appointment to
                     </label>
                     <input
                         id="availabilityTo"
-                        className={`appearance-none border-2 ${errors.availabilityTo ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.availabilityto ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
-                        {...register("availabilityTo", { required: true })}
+                        {...register("availabilityto", { required: true })}
                     />
-                    {errors.availabilityTo && (
+                    {errors.availabilityto && (
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
                 </div>
