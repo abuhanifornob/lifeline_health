@@ -1,4 +1,5 @@
 import { AuthContext } from '@/context/AuthProvider';
+import Head from 'next/head';
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useContext, useState } from 'react';
@@ -47,7 +48,9 @@ const BlogSlug = ({ blogs }) => {
   //                       })
   //                       .catch(error => console.error(error));
   return <>
-
+<Head>
+<link rel="stylesheet" href="/css/theme.css" />
+</Head>
     <div className="grid grid-cols-1  gap-4 md:w-1/2 mx-auto mt-12 mb-24 ">
 
       <div className="p-4 ">

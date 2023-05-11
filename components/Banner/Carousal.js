@@ -31,7 +31,7 @@ const Carousal = () => {
         };
     }, [index]);
     return (
-        <div className={`${ss.slideshow} w-3/4 h-[40%]`}>
+        <div className={`${ss.slideshow} w-full h-86 mt-3`}>
             <div
                 className={ss.slideshowSlider}
                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
@@ -41,8 +41,8 @@ const Carousal = () => {
                         className={`${ss.slide} `}
                         key={index}
                         src={ backgroundColor }
-                        height={1300}
-                        width={1000}
+                        height={"200px"}
+                        width={"100%"}
                     ></Image>
                 ))}
             </div>

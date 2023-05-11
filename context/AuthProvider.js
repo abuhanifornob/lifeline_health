@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-  const logout = () => {
+  const logoutUser = () => {
     setLoading(true);
     return signOut(auth);
   };
@@ -72,7 +72,7 @@ function creatChatUser() {
     createUser,
     singInEmailPassword,
     user,
-    logout,
+    logoutUser,
     userProfileUpdate,
     loading,
     googleLongin,
