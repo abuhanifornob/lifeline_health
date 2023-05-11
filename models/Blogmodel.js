@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const blogSchema= mongoose.Schema({
+const blogSchema=new mongoose.Schema({
        
         userpostInfo:{
             type: Object
@@ -29,6 +29,8 @@ const blogSchema= mongoose.Schema({
         comments: {
             type: Array
         }
+        
 
 })
+
 export default mongoose.models.blog || mongoose.model("blog",  blogSchema);

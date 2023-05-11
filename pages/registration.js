@@ -1,59 +1,120 @@
 import { AuthContext } from "@/context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
-const provider = new GoogleAuthProvider();
+import { useRouter } from "next/router";
+import { use, useContext, useState } from "react";
+// import { toast } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const registration = () => {
-  const backgroundStyle = {
-    backgroundImage: `url(${"/loginBack.jpg"})`,
-  };
-  const { googleLongin, createUser, userProfileUpdate } =
-    useContext(AuthContext);
+  const provider = new GoogleAuthProvider();
+  const [role, setRole] = useState("Signup as a User");
+  // const backgroundStyle = {
+  //   backgroundImage: `url(${"/loginBack.jpg"})`,
+  //   opacity: .6,
+  //   minHeight:screen
+  // };
+  const { googleLongin, createUser, userProfileUpdate, user } = useContext(AuthContext);
+  const router = useRouter();
+  // const [state, setstate] = useState();
   const handleRegis = (event) => {
     event.preventDefault();
     const data = event.target;
     const email = data.email.value;
     const name = data.name.value;
     const password = data.password.value;
-    const userInfo = {
-      displayName: name,
-    };
-    createUser(email, password)
-      .then((result) => {
-        userProfileUpdate(userInfo)
-          .then(() => {})
-          .catch((error) => {});
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-  const handleGoogleLogin = () => {
-    googleLongin(provider)
-      .then((result) => {
-        const user = result.user;
+    const photour = data.photourl.files[0];
+    const number = data.number.value;
+    // ------------
+    const formData = new FormData();
+    formData.append('image', photour)
+    const url = `https://api.imgbb.com/1/upload?key=f77eb96236dd667b11b2d66bc4d9cf88`
+    fetch(url, {
+      method: 'POST',
+      body: formData
+    })
+      .then(res => res.json())
+      .then(imgData => {
 
-        const userInformation = {
-          name: user.displayName,
-          email: user.email,
-        };
-        // googleLoginUserData(userInformation);
+        if (imgData.success) {
+
+          const picture = imgData.data.url
+          console.log('image', picture)
+          const userInfo = {
+            displayName: name,
+            photoURL: picture,
+            phoneNumber: number
+          };
+          console.log("ff", userInfo)
+          createUser(email, password)
+            .then((result) => {
+
+              userProfileUpdate(userInfo)
+                .then(() => {
+                  toast("Registration Successfull");
+                  router.push("/");
+                  const user = result.user;
+                  console.log("jkdshjuhsdfguih", user);
+                  event.target.reset();
+                })
+                .catch((error) => console.error(error));
+
+              // router.push("/");
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
       })
-      .catch((error) => console.error(error));
+    // ------------
+
+
+
   };
+
+
+  // const handleGoogleLogin = () => {
+  //   googleLongin(provider)
+  //     .then((result) => {
+  //       const user = result.user;
+
+  //       const userInformation = {
+  //         name: user.displayName,
+  //         email: user.email,
+  //       };
+  //       // googleLoginUserData(userInformation);
+  //     })
+  //     .catch((error) => console.error(error));
+  // };
+  const handleselect = (event) => {
+    // event.preventDefault();
+    setRole(event.target.value);
+    console.log("role", role)
+  }
   return (
-    <div className="hero bg-base-200 " style={backgroundStyle}>
+    <div className="hero  z-50 min-h-screen" >
+      <ToastContainer />
       <div className="hero-content p-10 flex-col lg:flex-row">
-        <div className="w-1/2 p-5">
-          <img src="/login.jpg" className=" rounded-lg shadow-2xl" />
+        <div className="p-0 lg:r-20 mr-20">
+          <img src="/login.jpg" className="  rounded-lg shadow-xl h-full" />
         </div>
-        <div className="w-1/2">
-          <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-            <h1 className="text-2xl font-bold text-center py-3">Sign Up</h1>
-            <form onSubmit={handleRegis}>
+        <div className="w-full lg:w-3/5">
+          <h1 className="text-5xl font-bold text-center mb-12 text-[#4791ff]">Sign Up Now</h1>
+          <div>
+            <label className="label">
+              <span className="label-text text-xl text-[#4791ff] font-bold">Select your Role</span>
+            </label>
+            <select value={role} onChange={handleselect} className=" select select-info w-full ">
+              {/* <option disabled selected>Select you Role</option> */}
+              <option>Signup as a User</option>
+              <option>Signup as a Doctor</option>
+              {/* <option>Signup as a Fitness expert</option> */}
+            </select>
+          </div>
+          <div className="card shadow-2xl">
+            {role === "Signup as a User" && <form onSubmit={handleRegis}>
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -64,7 +125,7 @@ const registration = () => {
                     placeholder="Your Name"
                     className="input input-bordered"
                     name="name"
-                    required
+                  // required
                   />
                 </div>
                 <div className="form-control">
@@ -76,9 +137,29 @@ const registration = () => {
                     placeholder="email"
                     className="input input-bordered"
                     name="email"
-                    required
+                  // required
                   />
                 </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Phone Number</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Number"
+                    className="input input-bordered"
+                    name="number"
+                  // required
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Choose your photo</span>
+                  </label>
+                  <input type="file" name="photourl" className="file-input file-input-bordered file-input-info w-full " />
+                </div>
+
+
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Password</span>
@@ -88,7 +169,7 @@ const registration = () => {
                     placeholder="password"
                     className="input input-bordered"
                     name="password"
-                    required
+                  // required
                   />
                   <label className="label">
                     <Link href="#" className="label-text-alt link link-hover">
@@ -96,17 +177,19 @@ const registration = () => {
                     </Link>
                   </label>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Sign Up</button>
-                </div>
+                <input
+                  className="btn bg-[#4791ff] w-full mt-2"
+                  type="submit"
+                  value="Sign Up"
+                />
               </div>
-            </form>
+            </form>}
             <label className="label text-sm flex justify-center items-center ">
               <span className="label-text text-center">
                 Already Have a Account
                 <Link
                   href={"/"}
-                  className="text-orange-600 pl-2 hover:text-yellow-500 font-bold text-xl"
+                  className="text-[#4791ff] pl-2 hover:text-yellow-500 font-bold text-xl"
                 >
                   Sign In !
                 </Link>
@@ -115,12 +198,7 @@ const registration = () => {
             <div className="flex flex-col w-full border-opacity-50">
               <div className="divider">OR</div>
             </div>
-            <button
-              onClick={handleGoogleLogin}
-              className="btn btn-outline btn-ghost my-2 mx-2"
-            >
-              CONTINUE WITH GOOGLE
-            </button>
+
           </div>
         </div>
       </div>

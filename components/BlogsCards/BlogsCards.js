@@ -3,10 +3,12 @@ import blog1 from "../../public/blog1.png"
 import Link from "next/link";
 
 const BlogsCards = ({ blog}) => {
-    const { headline, image, Author, datePublished, description } = blog
+    const { headline, image, Author, datePublished, description,_id,postId } = blog
     // console.log(headline)
     return (
-        <div className="">
+        <div>
+            
+         <div className="">
         
                         <div className="p-4 ">
                             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
@@ -16,7 +18,7 @@ const BlogsCards = ({ blog}) => {
                                     <h1 className="title-font text-lg font-medium  mb-3 text-[#4791ff]">{headline}</h1>
                                     <p className="leading-relaxed mb-3">{description.substring(0, 100)}...</p>
                                     <div className="flex items-center flex-wrap ">
-                                        <Link href={'/'} legacyBehavior>
+                                        <Link href={`/blogs/${_id}`} legacyBehavior>
                                         <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"> Learn More..
                                             <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path d="M5 12h14"></path>
@@ -38,7 +40,9 @@ const BlogsCards = ({ blog}) => {
                                 </div>
                             </div>
                         </div>           
+        </div>   
         </div>
+        
     );
 };
 

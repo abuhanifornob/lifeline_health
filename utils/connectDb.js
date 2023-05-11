@@ -1,4 +1,4 @@
-const mongoose =require("mongoose")
+const mongoose = require("mongoose");
 
 async function connectDb(){
     try {
@@ -6,11 +6,11 @@ async function connectDb(){
         // const blogsCollection = client.db('lifeline').collection('blogs');
         await mongoose.connect(MONGO_URI,{
             useUnifiedTopology: true,
-            useNewUrlParser: true
+            useNewUrlParser: true,
         })
         console.log("connection succcess")
     } catch (error) {
         console.log(error)
     }
 }
-module.exports=connectDb;
+module.exports = connectDb;
