@@ -155,6 +155,7 @@ function Navbar() {
                 <li onClick={() => handleLogOut()}><a>Logout</a></li>
               </ul>
             </div>
+            {/* navbar change  */}
           </>}
           {
             !user && <>
