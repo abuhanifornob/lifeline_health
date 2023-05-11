@@ -1,8 +1,8 @@
 import app from "@/firebase/firebase.config";
 import React, { createContext, useEffect, useState } from "react";
-import axios from 'axios';
+// import axios from 'axios';
 //creat chat engine user 
-// const axios = require("axios");
+const axios = require("axios");
 
 import {
   createUserWithEmailAndPassword,
