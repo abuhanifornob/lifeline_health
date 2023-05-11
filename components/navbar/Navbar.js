@@ -1,14 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-
-import { useContext } from "react";
-
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
+// import DarkModeToggle from "../DarkMode/DarkModeToggle";
 
 function Navbar() {
   const user={photoUrl:""}
-
   return (
     <>
       <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
@@ -71,6 +68,8 @@ function Navbar() {
             <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
             <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+        
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
@@ -105,7 +104,9 @@ function Navbar() {
                 </Link> */}
               </ul>
             </li>
-            <li tabIndex={0}></li>
+            <li> <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white float-right">Live video call</a> </li>
+           
+            {/* <li tabIndex={5}> <DarkModeToggle></DarkModeToggle> </li> */}
           </ul>
         </div>
 
@@ -129,7 +130,7 @@ function Navbar() {
 
         {/* navbar end   part  */}
         <div className="navbar-end gap-2">
-          {user?.photoUrl?<>
+          {user?.photoUrl&&<>
             <div className="form-control">
             <h2 className="text-[#254747] font-medium">Azizul Khan</h2>
           </div>
@@ -152,7 +153,15 @@ function Navbar() {
               <li><a>Logout</a></li>
             </ul>
           </div>
-            </>:<ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}><li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>}
+            </>}
+          {
+            user==="" && <>
+                     <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+              
+              <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>
+
+            </>
+          }
         </div>
       </div>
 
