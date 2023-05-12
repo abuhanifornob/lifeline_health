@@ -5,6 +5,7 @@ import 'react-day-picker/dist/style.css';
 import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
+import withAuth from '@/pages/withAuth/withAuth';
 
 const ServiceDetails = ({ experts }) => {
     const router = useRouter();
@@ -46,7 +47,7 @@ const ServiceDetails = ({ experts }) => {
     );
 };
 
-export default ServiceDetails;
+export default withAuth(ServiceDetails);
 
 export async function getServerSideProps() {
     try {

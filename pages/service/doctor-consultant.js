@@ -8,6 +8,7 @@ import { BiAccessibility } from "react-icons/bi";
 import { BsHeartPulseFill, BsLungsFill } from "react-icons/bs";
 import { RiMentalHealthLine } from "react-icons/ri";
 import ServiceCard from '@/components/service/service-card';
+import withAuth from '../withAuth/withAuth';
 
 const Services = () => {
     const services = [
@@ -177,4 +178,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default withAuth(Services);

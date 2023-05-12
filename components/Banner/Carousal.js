@@ -41,8 +41,8 @@ const Carousal = () => {
                         className={`${ss.slide} `}
                         key={index}
                         src={ backgroundColor }
-                        height={"200px"}
-                        width={"100%"}
+                        height={200}
+                        width={800}
                     ></Image>
                 ))}
             </div>

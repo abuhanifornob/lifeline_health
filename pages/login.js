@@ -1,16 +1,11 @@
 import { AuthContext } from "@/context/AuthProvider";
-
-import { GoogleAuthProvider } from "firebase/auth";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
-
-const provider = new GoogleAuthProvider();
-
+import { Navigate, useNavigate } from "react-router-dom";
 const login = () => {
   const backgroundStyle = {
     backgroundImage: `url(${"/loginBack.jpg"})`,
@@ -20,6 +15,7 @@ const login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginError, setLoginError] = useState("");
   const router = useRouter();
+  const navigate = useNavigate
 
   const handleLoginForm = (event) => {
     event.preventDefault();
@@ -30,13 +26,15 @@ const login = () => {
     const password = data.password.value;
     singInEmailPassword(email, password)
       .then((result) => {
-        router.push("/");
+       <Navigate to="/"></Navigate>
         toast.success("Login Success!!");
         console.log(result.user);
       })
       .catch((error) => {
         setLoginError(error.message);
+        toast.error(error.message) ;
         console.error(error);
+        return ;
       });
   };
 
@@ -47,7 +45,7 @@ const login = () => {
     setLoginEmail(email);
   };
   const handleGoogleLogin = () => {
-    googleLongin(provider)
+    googleLongin()
       .then((result) => {
         const user = result.user;
         console.log(user);

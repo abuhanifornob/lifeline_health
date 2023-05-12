@@ -1,4 +1,5 @@
 import React from 'react';
+import withAuth from '../withAuth/withAuth';
 
 const DoctorList = () => {
     return (
@@ -125,4 +126,4 @@ const DoctorList = () => {
     );
 };
 
-export default DoctorList;
+export default withAuth(DoctorList);

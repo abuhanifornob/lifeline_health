@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import Head from "next/head";
 import { AuthContext } from "@/context/AuthProvider";
+import { toast } from "react-hot-toast";
 const AuthPage = (props) => {
   const [redirectLoading, setRedirectLoading] = useState(false);
   const { user } = useContext(AuthContext);
@@ -14,32 +15,17 @@ const AuthPage = (props) => {
     //check account user name 
     if(user.displayName !== value){
       setRedirectLoading(false) ;
-     alert("Your account name not matched please try again !!") ;
+     toast.error("Your account name not matched please try again !!") ;
      return ;
     } 
     //end check account user name 
 
     axios
-      .post(" https://scholar-net-subrota.vercel.app/authenticate", { username: value })
+      .post("/api/chat_user", { username: value })
       .then((r) => {
         setRedirectLoading(false);
         return props.onAuth({ ...r.data, secret: value });
       })
-      .catch((e) => {
-        setRedirectLoading(false);
-        return console.log("Auth Error", e)
-      });
-    axios
-      .post(" https://scholar-net-subrota.vercel.app/chat-users", { username: value, email: user?.email })
-      .then((res) => {
-        if (res.data.message === "welcome") {
-          return toast.success("Welcome to back");
-        } else {
-          toast.success("Welcome to chat board");
-          return res.data;
-        }
-      }
-      )
       .catch((e) => {
         setRedirectLoading(false);
         return console.log("Auth Error", e)

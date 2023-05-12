@@ -5,15 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCTwCeT8ra9zoF5vOuEcVGqyruDqXPK_68",
-  authDomain: "lifeline-health.firebaseapp.com",
-  projectId: "lifeline-health",
-  storageBucket: "lifeline-health.appspot.com",
-  messagingSenderId: "559007620032",
-  appId: "1:559007620032:web:bea23a563512cf6ba84625",
+  apiKey: process.env.NEXT_PUBLIC_apiKey,
+  authDomain:  process.env.NEXT_PUBLIC_authDomain,
+  projectId:  process.env.NEXT_PUBLIC_projectId,
+  storageBucket:  process.env.NEXT_PUBLIC_storageBucket,
+  messagingSenderId:  process.env.NEXT_PUBLIC_messagingSenderId,
+  appId:  process.env.NEXT_PUBLIC_appId
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app;
+export default  app ; 

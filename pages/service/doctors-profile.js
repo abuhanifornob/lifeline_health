@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import withAuth from '../withAuth/withAuth';
 
 function DoctorProfile({ doctor }) {
   return (
@@ -76,4 +77,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default DoctorProfile;
+export default withAuth(DoctorProfile);

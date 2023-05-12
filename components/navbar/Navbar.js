@@ -6,15 +6,16 @@ import DarkModeToggle from "../DarkMode/DarkModeToggle";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthProvider";
 import { toast } from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import ThemeSwitch from "../ThemeSwitch/ThemeSwitich";
 
 function Navbar() {
   const { user , logoutUser} = useContext(AuthContext);
   function handleLogOut() {
     logoutUser()
    .then(() =>{
-    toast.success("Your profile log out successfully !!");
-    <Navigate to=""></Navigate>
+    toast.success("Your profile log out successfully !!");;
+    <Navigate to="/login"></Navigate>
    } )
   }
   return (
@@ -120,9 +121,13 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <li>  <a href="https://life-line-health.netlify.app/videoCall.html" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
-                <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+             {
+              user.uid !== "" && <>
+              <li>  <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
+              <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
 
+              </>
+             }
               </ul>
             </li>
 
@@ -130,7 +135,7 @@ function Navbar() {
       }
 
 
-            <li tabIndex={5}> <DarkModeToggle></DarkModeToggle> </li>
+            <li tabIndex={5}> <ThemeSwitch></ThemeSwitch> </li>
           </ul>
         </div>
 

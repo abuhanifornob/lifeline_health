@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import withAuth from '../withAuth/withAuth';
 
 function Checkout() {
     const [paymentMethod, setPaymentMethod] = useState('credit-card');
@@ -159,4 +160,4 @@ function Checkout() {
     );
 }
 
-export default Checkout;
+export default withAuth(Checkout);

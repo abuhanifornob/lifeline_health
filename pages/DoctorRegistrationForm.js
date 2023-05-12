@@ -135,10 +135,18 @@ const DoctorRegistrationForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [availabilityFrom , setAvailabilityFrom] = useState("") ;
+    const [availabilityTo , setAvailabilityTo] = useState("") ;
+    //
+
+
+    const availabilityFromLocalDate = availabilityFrom.toLocaleString();
+
+    const availabilityToLocalDate = availabilityFrom.toLocaleString();
+
     const { googleLongin, createUser, userProfileUpdate, user } = useContext(AuthContext);
     const onSubmit = async (data) => {
-        console.log(data);
-        console.log(data.availability);
+        console.log("data => " , );
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
@@ -191,7 +199,10 @@ const DoctorRegistrationForm = () => {
         const doctor = {
             name: data.name,
             email:data.email,
-            timeSlot:[],
+            timeSlot:[{
+                availabilityFrom : availabilityFromLocalDate ,
+                availabilityTo : availabilityToLocalDate, 
+            }],
             imgUrl:imgUrl,
             phone:data.phone,
             studyingInstitute:data.studyingInstitute,
@@ -439,12 +450,12 @@ const DoctorRegistrationForm = () => {
                     </label>
                     <input
                         id="availabilityFrom"
-                        className={`appearance-none border-2 ${errors.availabilityFrom ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.availabilityfrom ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
-                        {...register("availabilityFrom", { required: true })}
+                        onChange={(e) => setAvailabilityFrom(e.target.value)}
                     />
                     {errors.availabilityFrom && (
                         <span className="text-red-500 text-sm">This field is required</span>
@@ -454,12 +465,12 @@ const DoctorRegistrationForm = () => {
                     </label>
                     <input
                         id="availabilityTo"
-                        className={`appearance-none border-2 ${errors.availabilityTo ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.availabilityto ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
-                        {...register("availabilityTo", { required: true })}
+                       onChange={(e) => setAvailabilityTo(e.target.value)}
                     />
                     {errors.availabilityTo && (
                         <span className="text-red-500 text-sm">This field is required</span>

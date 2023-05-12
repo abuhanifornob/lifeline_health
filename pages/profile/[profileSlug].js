@@ -4,6 +4,7 @@ import Image from "next/image";
 import profile from "../../public/profiiledemo.png";
 import { AuthContext } from "@/context/AuthProvider";
 import { useContext } from "react";
+import withAuth from "../withAuth/withAuth";
 
 const ProfileSlug = () => {
   const router = useRouter();
@@ -42,4 +43,4 @@ const ProfileSlug = () => {
   );
 };
 
-export default ProfileSlug;
+export default withAuth(ProfileSlug);

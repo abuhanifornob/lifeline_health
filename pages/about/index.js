@@ -1,3 +1,4 @@
+import withAuth from "../withAuth/withAuth";
 
 
 const AboutUs = () => {
@@ -41,4 +42,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default withAuth(AboutUs);

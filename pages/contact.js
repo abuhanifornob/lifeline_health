@@ -1,6 +1,7 @@
 
 
 import React from 'react';
+import withAuth from './withAuth/withAuth';
 
 
 const Contact = () => {
@@ -113,4 +114,4 @@ const Contact = () => {
 
 };
 
-export default Contact;
+export default withAuth(Contact);
