@@ -74,11 +74,10 @@ function Navbar() {
 
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
-          <ul className={`menu menu-horizontal flex gap-3 px-1 ${styles.customMenu}`}>
+          <ul className={`menu menu-horizontal flex gap-1 px-1 ${styles.customMenu}`}>
             <li><Link className="text-lg  " href={'/'}>Home</Link></li>
-    
-
-            <li tabIndex={1}>
+            <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
+            <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
                 <svg
@@ -95,11 +94,16 @@ function Navbar() {
                 <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/health-plane"}>
-                  <li>Fitness expert</li>
+                <Link className="text-lg font-medium" href={"/healthplans"}>
+                  <li>health Plane</li>
                 </Link>
               </ul>
             </li>
+            <li><Link className="text-lg  " href={'/calculator'}>HealthCheck</Link></li>
+            <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
+            <li><Link className="text-lg  " href={'/DoctorRegistrationForm'}>For Doctor</Link></li>
+            
 
 
             {
@@ -141,11 +145,8 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
-                <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
-                <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
-                <li><Link className="text-lg  " href={'/healthplans'}>Health Plan</Link></li>
-                <li><Link className="text-lg  " href={'/doctorRegistrationForm'}>For Doctor</Link></li>
+                <li>  <a href="https://life-line-health-conference.firebaseapp.com" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
+                <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
 
               </ul>
             </li>
@@ -163,8 +164,9 @@ function Navbar() {
           {user && <>
             <div className="form-control">
             </div>
-            <div className="dropdown dropdown-end">
-              <label tabIndex={5} className="btn btn-ghost btn-circle avatar">
+            <div className="flex dropdown dropdown-end">
+              {/* <h1 className="mt-3 mr-2 font-semibold">{user.displayName}</h1> */}
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full border-2 border-blue-400">
                   <img src={user?.photoURL} width={100} height={100} alt="dfdfd" />
                 </div>
@@ -173,7 +175,7 @@ function Navbar() {
               <ul tabIndex={6} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
                 <li><a>{user?.displayName ? user?.displayName : "username"}</a></li>
                 <li><a>My Appoinment</a></li>
-                <li><a>Settings</a></li>
+                <li><Link href={"Settings/ChangedPassword"}>Settings</Link></li>
                 <li onClick={() => handleLogOut()}><a>Logout</a></li>
               </ul>
             </div>
