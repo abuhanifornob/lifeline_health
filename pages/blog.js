@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAxios } from 'use-axios-client';
 import Link from "next/link";
 import { useContext } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -92,6 +92,8 @@ const Blog = ({ blogs }) => {
         .then((response) => {
           // Assuming the API response contains the saved comment
           setDatas([blogInfo, ...datas])
+          event.target.reset();
+          ToastContainer("Post created Successfull")
           const savedComment = response;
             console.log('ddddd',savedComment)
             
@@ -170,7 +172,7 @@ if(loading){
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-12 mb-24 ">
     
                { 
-               datas.map((blog,index)=><BlogsCards
+               datas.sort((a, b) => b-a).map((blog,index)=><BlogsCards
                 key={blog._id}
                 blog={blog}
                 ></BlogsCards>)  

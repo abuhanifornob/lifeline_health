@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useContext, useState } from 'react';
 
 const BlogSlug = ({ blogs }) => {
-  const {user}= useContext(AuthContext)
+  const {user,loading}= useContext(AuthContext)
   const [comment, setComment] = useState('');
   const [commentsList, setCommentsList] = useState([]);
   const [isCommentBoxVisible, setIsCommentBoxVisible] = useState(false);
@@ -14,7 +14,11 @@ const BlogSlug = ({ blogs }) => {
   const blog = blogs.find((blog) => {
     return blog._id = blogSlug
   })
-  console.log("bloooog", blog)
+  const comments=blog.comments[0].comment;
+  // if(loading){
+
+  //   setCommentsList([...comments])
+  // }
   const handleCommentChange = (e) => {
     setComment(e.target.value);
   };
@@ -55,7 +59,7 @@ const BlogSlug = ({ blogs }) => {
 
       <div className="p-4 ">
         <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-          <Image className="lg:h-2/3 md:h-36  w-full  object-cover object-center" width={600} height={1000} src={"https://familydoctor.org/wp-content/uploads/2018/02/41808433_l.jpg"} alt="blog" />
+          <Image className="lg:h-2/3 md:h-36  w-full  object-cover object-center" width={600} height={1000} src={blog.image} alt="blog" />
           <div className="p-6">
             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{blog.datePublished}</h2>
             <h1 className="title-font text-lg font-medium  mb-3 text-[#4791ff]">{blog.headline}</h1>
@@ -78,10 +82,13 @@ const BlogSlug = ({ blogs }) => {
         </div>
       </div>
       <div className=' mx-auto'>
+        <div>
+        <p > <span className='text-blue-400 font-bold text-xl mr-4'>{user?.displayName}-</span> {comments}</p>
+        </div>
       {commentsList.length > 0 && (
         <div className="comments-list">
           {commentsList.map((comment, index) => (
-            <p key={index}> <span className='text-blue-400 font-bold text-xl mr-4'>{user?.displayName}-</span> {blog.comments[0].comment}</p>
+            <p key={index}> <span className='text-blue-400 font-bold text-xl mr-4'>{user?.displayName}-</span> {comment}</p>
           ))}
         </div>
       )}

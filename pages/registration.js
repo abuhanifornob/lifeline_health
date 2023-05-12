@@ -55,8 +55,34 @@ const registration = () => {
                 .then(() => {
                   toast("Registration Successfull");
                   router.push("/");
-                  const user = result.user;
-                  console.log("jkdshjuhsdfguih", user);
+                  // const user = result.user;
+                  const userInfo={
+                    userName:name,
+                    userID:user?.uid,
+                    userImg:picture,
+                    userPhone:number,
+                    userEmail:email
+                  }
+                  console.log("jkdshjuhsdfguih", JSON.stringify(userInfo));
+                  fetch(' /api/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data) {
+                            // setSuccessMessage("Registration successful!");
+                            console.log(data)
+                        }
+                        else {
+                            setErrorMessage("Registration failed. Please try again.");
+                        }
+                    })
+                    .catch(error => console.error(error));
                   event.target.reset();
                 })
                 .catch((error) => console.error(error));
@@ -184,20 +210,20 @@ const registration = () => {
                 />
               </div>
             </form>}
-            <label className="label text-sm flex justify-center items-center ">
+            <label className="label text-sm flex justify-center items-center h-28">
               <span className="label-text text-center">
-                Already Have a Account
+                Want to Register as a Doctor?
                 <Link
-                  href={"/"}
+                  href={"/doctorRegistrationForm"}
                   className="text-[#4791ff] pl-2 hover:text-yellow-500 font-bold text-xl"
                 >
-                  Sign In !
+                  Doctor Registration
                 </Link>
               </span>
             </label>
-            <div className="flex flex-col w-full border-opacity-50">
+            {/* <div className="flex flex-col w-full border-opacity-50">
               <div className="divider">OR</div>
-            </div>
+            </div> */}
 
           </div>
         </div>

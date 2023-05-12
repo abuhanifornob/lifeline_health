@@ -191,6 +191,48 @@ const DoctorRegistrationForm = () => {
                                     const user = result.user;
                                     console.log("user", user);
                                     // reset();
+
+                                    // gfiudsfuhgdf
+                                    const doctor = {
+                                        name: data.name,
+                                        email: data.email,
+                                        timeSlot: timeSlot,
+                                        imgUrl: imgUrl,
+                                        phone: data.phone,
+                                        studyingInstitute: data.studyingInstitute,
+                                        degrees:data.degree,
+                                        specialization: data.specialization,
+                                        serviceDatails: serviceDatails,
+                                        workplace: data.workplace,
+                                        about: data.about,
+                                        experience: data.experience,
+                                        fees: "300",
+                
+                
+                                    }
+                                    console.log('doctor', JSON.stringify(doctor))
+                
+                
+                                    fetch(' /api/doctors', {
+                                        method: 'POST',
+                                        headers: {
+                                            'content-type': 'application/json'
+                                        },
+                                        body: JSON.stringify(doctor)
+                                    })
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            console.log(data)
+                                            if (data) {
+                                                // setSuccessMessage("Registration successful!");
+                                                console.log(data)
+                                            }
+                                            else {
+                                                setErrorMessage("Registration failed. Please try again.");
+                                            }
+                                        })
+                                        .catch(error => console.error(error));
+                                    // post request doctor data
                                 })
                                 .catch((error) => console.error(error));
 
@@ -205,49 +247,46 @@ const DoctorRegistrationForm = () => {
                     const timeSlot = allTimeSlot.slice(indexFrom, indexTo)
 
 
-                    const doctor = {
-                        name: data.name,
-                        email: data.email,
-                        timeSlot: timeSlot,
-                        imgUrl: imgUrl,
-                        phone: data.phone,
-                        studyingInstitute: data.studyingInstitute,
-                        degrees:data.degree,
-                        specialization: data.specialization,
-                        serviceDatails: serviceDatails,
-                        workplace: data.workplace,
-                        about: data.about,
-                        experience: data.experience,
-                        fees: "300",
+                    // const doctor = {
+                    //     name: data.name,
+                    //     email: data.email,
+                    //     timeSlot: timeSlot,
+                    //     imgUrl: imgUrl,
+                    //     phone: data.phone,
+                    //     studyingInstitute: data.studyingInstitute,
+                    //     degrees:data.degree,
+                    //     specialization: data.specialization,
+                    //     serviceDatails: serviceDatails,
+                    //     workplace: data.workplace,
+                    //     about: data.about,
+                    //     experience: data.experience,
+                    //     fees: "300",
 
 
-                    }
-                    console.log('doctor', JSON.stringify(doctor))
+                    // }
+                    // console.log('doctor', JSON.stringify(doctor))
 
 
-                    fetch(' /api/doctors', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(doctor)
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data)
-                            if (data) {
-                                // setSuccessMessage("Registration successful!");
-                                console.log(data)
-                            }
-                            else {
-                                setErrorMessage("Registration failed. Please try again.");
-                            }
-
-
-
-                        })
-                        .catch(error => console.error(error));
-                    // post request doctor data
+                    // fetch(' /api/doctors', {
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'content-type': 'application/json'
+                    //     },
+                    //     body: JSON.stringify(doctor)
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(data => {
+                    //         console.log(data)
+                    //         if (data) {
+                    //             // setSuccessMessage("Registration successful!");
+                    //             console.log(data)
+                    //         }
+                    //         else {
+                    //             setErrorMessage("Registration failed. Please try again.");
+                    //         }
+                    //     })
+                    //     .catch(error => console.error(error));
+                    // // post request doctor data
                 }
             })
 

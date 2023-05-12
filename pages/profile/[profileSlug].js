@@ -20,7 +20,7 @@ const ProfileSlug = () => {
         <div className=" flex justify-center ">
           <div className="avatar online ">
             <div className="w-64 rounded-full border-2 border-[#4791ff]">
-              <Image height={500} width={1000} src={profile} alt="profile" />
+              <Image height={500} width={1000} src={user?.photoURL} alt="profile" />
             </div>
           </div>
         </div>

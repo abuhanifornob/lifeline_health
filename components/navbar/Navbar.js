@@ -78,6 +78,7 @@ function Navbar() {
             <li><Link className="text-lg  " href={'/'}>Home</Link></li>
             <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
+            <li><Link className="text-lg  " href={'/calculator'}>HealthCheck</Link></li>
             <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
             <li><Link className="text-lg  " href={'/healthplans'}>Health Plan</Link></li>
             <li><Link className="text-lg  " href={'/doctorRegistrationForm'}>For Doctor</Link></li>
@@ -143,15 +144,19 @@ function Navbar() {
           {user && <>
             <div className="form-control">
             </div>
-            <div className="dropdown dropdown-end">
+            <div className="flex dropdown dropdown-end">
+              <h1 className="mt-3 mr-2 font-semibold">{user.displayName}</h1>
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full border-2 border-blue-400">
-                  <img src={user?.photoUrl ? user?.photoUrl : "https://i.ibb.co/2Z3HNtT/usg.jpg"} width={100} height={100} alt="dfdfd" />
+                  <img src={user?.photoURL} width={100} height={100} alt="dfdfd" />
                 </div>
               </label>
 
               <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-                <li><a>{user?.displayName ? user?.displayName : "username"}</a></li>
+                <li><Link href={`/profile/${user.uid}`}>profile</Link></li>
+                {user?.email==="lifeline@health.com"&&<li><Link href={`/alldoctors`}>All Doctors</Link></li>}
+                {user?.email==="lifeline@health.com"&&<li><Link href={`/allusers`}>All Users</Link></li>}
+                
                 <li><a>My Appoinment</a></li>
                 <li><a>Settings</a></li>
                 <li onClick={() => handleLogOut()}><a>Logout</a></li>
@@ -163,7 +168,7 @@ function Navbar() {
             !user && <>
               <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
 
-                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>
+                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"/registration"} className="text-lg font-medium">Register</Link></li></ul>
 
             </>
           }

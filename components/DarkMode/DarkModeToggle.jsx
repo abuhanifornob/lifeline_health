@@ -12,7 +12,7 @@ const DarkModeToggle = () => {
 
 <Head>
 {/* <!--font awsome cnd link --> */}
-  <script src="https://kit.fontawesome.com/77ce313bde.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/77ce313bde.js" crossOrigin="anonymous"></script>
   
          </Head>
       <div className="dark-mode-toggle">
