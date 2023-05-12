@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import AppointmentModal from '../booking/AppiontmentModal';
 
-const DoctorCard = ({service},{ image, name, title, specialty, experience, rating, numberOfRatings, fees },) => {
+const DoctorCard = ({imgUrl, name,}) => {
     // console.log(service);
-    // console.log(DocInfo);
+    // console.log(docInfo);
     return (
         <div className="   rounded-lg  my-4 p-4 lg:p-0 grid justify-center">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:w-[1100px] justify-center justify-items-center  bg-blue-100  border-2 border-gray-300 shadow-md">
                 <div className=" p-4 lg:p-8 flex gap-3 items-center">
-                    <img src='https://doctime-core-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/persons/73771/profile_photos/dlRSNss3ELcRYe4O0n7GzOXquTjw9DWtTyF1QAnY.jpg' alt={name} className="rounded-full h-32 w-32 mx-auto lg:mx-0 lg:float-left mr-6" />
+                    <img src={imgUrl} alt={name} className="rounded-full h-32 w-32 mx-auto lg:mx-0 lg:float-left mr-6" />
                     <div className="text-center lg:text-left  ">
-                        <h2 className="text-xl font-semibold">{name} Name of Doctor</h2>
+                        <h2 className="text-xl font-semibold">{name}</h2>
                         <p className="text-gray-600">{title}MBBS</p>
                         <p className="text-gray-600"> specialist</p>
                         <p className="text-black font-semibold">{specialty}Medicine</p>

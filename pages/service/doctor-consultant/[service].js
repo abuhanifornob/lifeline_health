@@ -13,15 +13,15 @@ const ServiceDetails = ({ doctors }) => {
     const [expert, setExpert] = useState(null)
     const { user } = useContext(AuthContext);
 
-    console.log(expert);
+    console.log(doctors);
 
     const { service } = router.query;
     console.log(service);
 
     useEffect(() => {
 
-        const expertData = doctors.filter((expt) => expt.serviceDatails.slug === service);
-        setExpert(expertData)
+        const selectedDoctor = doctors.filter((expt) => expt?.serviceDatails?.slug === service);
+        setExpert(selectedDoctor)
         console.log(expert);
     }, [router])
 
@@ -39,8 +39,8 @@ const ServiceDetails = ({ doctors }) => {
             </div>
             <h2 className="text-5xl text-center py-10 font-bold">{service}</h2>
 
-            <div>{expert && expert.map((DocInfo, idx) => (
-                <DoctorCard service={service} key={idx} info={DocInfo}></DoctorCard>
+            <div>{expert && expert.map((docInfo, idx) => (
+                <DoctorCard key={idx} info={docInfo}></DoctorCard>
             ))}
 
             </div>

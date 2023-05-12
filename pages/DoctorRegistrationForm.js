@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Await } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const service = [
@@ -118,7 +119,6 @@ const service = [
 
 
 ]
-
 const degrees = [
     "MD",
     "DO",
@@ -130,6 +130,7 @@ const degrees = [
     "PharmD",
 ];
 const allTimeSlot = ['12:00 AM', '12:20 AM', '12:40 AM', '1:00 AM', '1:20 AM', '2:40 AM', '3:00 AM', '3:20 AM', '3:40 AM', '4:00 AM', '4:20 AM', '4:40 AM', '5:00 AM', '5:20 AM', '5:40 AM', '6:00 AM', '6:20 AM', '6:40 AM', , '7:00 AM', '7:20 AM', '7:40 AM', '8:00 AM', '8:20 AM', '8:40 AM', '09:00 AM', '09:20 AM ', '09:40 AM ', '10:00 AM', '10:20 AM', '10:40 AM', '11:00 AM', '11:20 AM', '11:40 AM', '12:00 PM', '12:20 PM', '12:40 PM', '1:00 PM', '1:20 PM', '2:40 PM', '3:00 PM', '3:20 PM', '3:40 PM', '4:00 PM', '4:20 PM', '4:40 PM', '5:00 PM', '5:20 PM', '5:40 PM', '6:00 PM', '6:20 PM', '6:40 PM', , '7:00 PM', '7:20 PM', '7:40 PM', '8:00 PM', '8:20 PM', '8:40 PM', '09:00 PM', '09:20 PM ', '09:40 PM ', '10:00 PM', '10:20 PM', '10:40 PM', '11:00 PM', '11:20 PM', '11:40 PM',]
+
 const DoctorRegistrationForm = () => {
     const router = useRouter();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -138,20 +139,26 @@ const DoctorRegistrationForm = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const { createUser, userProfileUpdate, user } = useContext(AuthContext);
 
-     
+
 
     const onSubmit = async (data) => {
+
+
+
+
+
+
+
         console.log(data);
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
         const img = data.img[0]
-        const indexFrom = allTimeSlot.indexOf(data.availabilityfrom)
-        const indexTo = allTimeSlot.indexOf(data.availabilityto)
-        const timeSlot = allTimeSlot.slice(indexFrom,indexTo)
+
         // console.log(data.availabilityfrom, data.availabilityto, timeSlot);
         const password = data.password;
         const email = data.email;
+
         // console.log(timeSlot);
         const serviceDatails = service.find(sName => sName.slug === data.service)
         const formData = new FormData();
@@ -172,28 +179,31 @@ const DoctorRegistrationForm = () => {
                     const userInfo = {
                         displayName: data.name,
                         photoURL: imgUrl,
-                        phoneNumber: data.phone
                     };
-                    console.log('doctor', userInfo)
-                    createUser(email, password)
-                        .then((result) => {
+                    // console.log('doctor', userInfo)
+                    // createUser(email, password)
+                    //     .then((result) => {
 
-                            userProfileUpdate(userInfo)
-                                .then(() => {
-                                    toast("Registration Successfull");
-                                    //   router.push("/");
-                                    const user = result.user;
-                                    console.log("jkdshjuhsdfguih", user);
-                                    reset();
-                                })
-                                .catch((error) => console.error(error));
+                    //         userProfileUpdate(userInfo)
+                    //             .then(() => {
+                    //                 toast("Registration Successfull");
+                    //                 //   router.push("/");
+                    //                 const user = result.user;
+                    //                 console.log("user", user);
+                    //                 // reset();
+                    //             })
+                    //             .catch((error) => console.error(error));
 
-                            //   router.push("/");
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
+                    //         //   router.push("/");
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error);
+                    //     });
                     //  firebase auth
+                    const indexFrom = allTimeSlot.indexOf(data.availabilityfrom)
+                    const indexTo = allTimeSlot.indexOf(data.availabilityto)
+                    const timeSlot = allTimeSlot.slice(indexFrom, indexTo)
+
 
                     const doctor = {
                         name: data.name,
@@ -202,19 +212,20 @@ const DoctorRegistrationForm = () => {
                         imgUrl: imgUrl,
                         phone: data.phone,
                         studyingInstitute: data.studyingInstitute,
-                        degree: data.degree,
+                        degrees:data.degree,
                         specialization: data.specialization,
                         serviceDatails: serviceDatails,
                         workplace: data.workplace,
                         about: data.about,
                         experience: data.experience,
-                        fees: "300"
+                        fees: "300",
+
 
                     }
-                    console.log('doctorsss', JSON.stringify(doctor))
+                    console.log('doctor', JSON.stringify(doctor))
 
 
-                    fetch('http://localhost:3000/api/doctors', {
+                    fetch(' /api/doctors', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -224,8 +235,8 @@ const DoctorRegistrationForm = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log(data)
-                            if (data.acknowledged) {
-                                setSuccessMessage("Registration successful!");
+                            if (data) {
+                                // setSuccessMessage("Registration successful!");
                                 console.log(data)
                             }
                             else {
@@ -329,8 +340,9 @@ const DoctorRegistrationForm = () => {
                     <select
                         id="degree"
                         name="degree"
+
                         {...register("degree", { required: true })}
-                        className={`appearance-none border-2 ${errors.experience ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.degree ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     >
                         <option value="">Select a degree</option>
@@ -367,7 +379,7 @@ const DoctorRegistrationForm = () => {
 
                         {...register("service", { required: true })}
 
-                        className={`appearance-none border-2 ${errors.experience ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.service ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     >
                         <option value="">Select a specialty</option>
@@ -413,7 +425,7 @@ const DoctorRegistrationForm = () => {
                     >
                         <option value="">Select a time</option>
                         {allTimeSlot.map((time, i) => (
-                            
+
                             <option value={time} key={i}>
                                 {time}
                             </option>

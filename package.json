@@ -13,6 +13,7 @@
     "agora-react-uikit": "^1.2.0",
     "agora-rtc-sdk-ng": "^4.17.2",
     "axios": "^1.4.0",
+    "cors": "^2.8.5",
     "daisyui": "^2.51.5",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
