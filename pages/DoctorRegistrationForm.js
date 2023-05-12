@@ -153,7 +153,7 @@ const DoctorRegistrationForm = () => {
         const img = data.img[0]
         const password=data.password;
         const email=data.email;
-        // const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
+        const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
         const serviceDatails =   service.find(sName=> sName.slug===data.service)
         const formData = new FormData();
         formData.append('image', img);
@@ -199,10 +199,14 @@ const DoctorRegistrationForm = () => {
         const doctor = {
             name: data.name,
             email:data.email,
+<<<<<<< HEAD
             timeSlot:[{
                 availabilityFrom : availabilityFromLocalDate ,
                 availabilityTo : availabilityToLocalDate, 
             }],
+=======
+            timeSlot:timeSlot,
+>>>>>>> bb192b4e74a5449582a47435cee2f958139128e4
             imgUrl:imgUrl,
             phone:data.phone,
             studyingInstitute:data.studyingInstitute,
@@ -217,18 +221,7 @@ const DoctorRegistrationForm = () => {
         }
         console.log('doctorsss',JSON.stringify(doctor))
 
-        // post request doctor data
-        // axios
-        // .post('http://localhost:3000/api/doctors', JSON.stringify(doctor) )
-        // .then((response) => {
-        //   // Assuming the API response contains the saved comment
-        //   const savedComment = response.data;
-        //     console.log('ddddd',savedComment)
-          
-        // })
-        // .catch((error) => {
-        //   console.error('Error submitting comment:', error);
-        // });
+        
         fetch('http://localhost:3000/api/doctors', {
                         method: 'POST',
                         headers: {
@@ -255,38 +248,18 @@ const DoctorRegistrationForm = () => {
                 }
             })
 
-        // function createTimeSlots(startTime, endTime, interval) {
-        //     const timeSlots = [];
-        //     let currentTime = startTime;
-
-        //     while (currentTime < endTime) {
-        //         timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-        //         currentTime += interval;
-        //     }
-
-        //     return timeSlots;
-        // }
+            function createTimeSlots(startTime, endTime, interval) {
+                const timeSlots = [];
+                for (let currentTime = startTime; currentTime < endTime; currentTime += interval) {
+                  timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+                }
+                return timeSlots;
+              }
+              
 
         
 
-        // Send data to server and handle success/failure
-        // try {
-        //     const response = await fetch("/api/doctor-registration", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(doctor),
-        //     });
-
-        //     if (response.ok) {
-        //         setSuccessMessage("Registration successful!");
-        //     } else {
-        //         setErrorMessage("Registration failed. Please try again.");
-        //     }
-        // } catch (error) {
-        //     setErrorMessage("An error occurred. Please try again.");
-        // }
+         
 
         setIsLoading(false);
     };
