@@ -56,7 +56,6 @@ const registration = () => {
                   toast("Registration Successfull");
                   router.push("/");
                   const user = result.user;
-                  console.log("jkdshjuhsdfguih", user);
                   event.target.reset();
                 })
                 .catch((error) => console.error(error));

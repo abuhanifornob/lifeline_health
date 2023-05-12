@@ -17,9 +17,10 @@ function Navbar() {
         <Navigate to="/login"></Navigate>
       })
   }
+  console.log(user);
   return (
     <>
-      <div className="navbar shadow-md  sticky top-0 z-10">
+      <div className="navbar shadow-md  sticky top-0 z-10 bg-primary text-white">
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">
@@ -146,7 +147,7 @@ function Navbar() {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full border-2 border-blue-400">
-                  <img src={user?.photoUrl ? user?.photoUrl : "https://i.ibb.co/2Z3HNtT/usg.jpg"} width={100} height={100} alt="dfdfd" />
+                  <img src={user?.photoUrl ? user?.photoURL : "https://i.ibb.co/2Z3HNtT/usg.jpg"} width={100} height={100} alt="dfdfd" />
                 </div>
               </label>
 

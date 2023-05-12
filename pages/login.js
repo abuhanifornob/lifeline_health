@@ -15,8 +15,6 @@ const login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginError, setLoginError] = useState("");
   const router = useRouter();
-  const navigate = useNavigate
-
   const handleLoginForm = (event) => {
     event.preventDefault();
     setLoginError("");
@@ -26,7 +24,7 @@ const login = () => {
     const password = data.password.value;
     singInEmailPassword(email, password)
       .then((result) => {
-       <Navigate to="/"></Navigate>
+        router.push("/") ;
         toast.success("Login Success!!");
         console.log(result.user);
       })
@@ -41,7 +39,6 @@ const login = () => {
   const handleOnBluerEmail = (event) => {
     setLoginEmail("");
     const email = event.target.value;
-    console.log(email);
     setLoginEmail(email);
   };
   const handleGoogleLogin = () => {
@@ -49,8 +46,6 @@ const login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        router.push("/");
-
         const userInformation = {
           name: user.displayName,
           email: user.email,

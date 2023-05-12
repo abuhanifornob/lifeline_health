@@ -1,11 +1,11 @@
 
- .light-mode , .navbar , .footer {
+ .light-mode  , .footer {
     background-color: #fff;
     color: #333;
     transition: background-color 0.3s ease;
   }
 
-.dark-mode , .navbar   , .footer{
+.dark-mode    , .footer{
     background-color: #1b2938;
     color: white;
   }

@@ -1,19 +1,24 @@
+
+import Head from "next/head";
 import withAuth from "../withAuth/withAuth";
 
-
 const AboutUs = () => {
+
+
   return (
     <div>
       <div className="container mx-auto p-8">
-        <h1 className="text-4xl font-bold mb-8">About Us</h1>
+ 
         <div className="flex flex-wrap md:flex-nowrap">
-          <div className="md:w-1/2 md:pr-8">
+          <div className="md:w-1/2 md:pr-8 mt-14">
+          <h1 className="text-4xl font-bold mb-8">About Us</h1>
             <p className="text-lg mb-4">We are a healthcare support website dedicated to helping people get the care and resources they need to live healthy and happy lives.</p>
             <p className="text-lg mb-4">Our team is made up of healthcare professionals, patient advocates, and tech experts who are passionate about making healthcare more accessible and affordable for everyone.</p>
           </div>
-          <div className="md:w-1/2">
-            <img src="/team-photo.jpg" alt="Team photo" className="rounded-lg h-64 w-full object-cover object-center" />
-          </div>
+          <div className="md:w-1/2 rounded-xl shadow-lg">
+            <script type="module"  className="h-86 w-86 rounded-lg" src="https://unpkg.com/@splinetool/viewer@0.9.330/build/spline-viewer.js"></script>
+              <spline-viewer   style={{height: "400px", width: "100%" , margin: "auto"}}  url="https://prod.spline.design/EGvc09uky7py5xLP/scene.splinecode"></spline-viewer>
+            </div>
         </div>
         <div className="mt-12">
           <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
