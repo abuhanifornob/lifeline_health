@@ -74,7 +74,7 @@ function Navbar() {
 
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
-          <ul className={`menu menu-horizontal flex gap-3 px-1 ${styles.customMenu}`}>
+          <ul className={`menu menu-horizontal flex gap-1 px-1 ${styles.customMenu}`}>
             <li><Link className="text-lg  " href={'/'}>Home</Link></li>
             <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
@@ -145,7 +145,7 @@ function Navbar() {
             <div className="form-control">
             </div>
             <div className="flex dropdown dropdown-end">
-              <h1 className="mt-3 mr-2 font-semibold">{user.displayName}</h1>
+              {/* <h1 className="mt-3 mr-2 font-semibold">{user.displayName}</h1> */}
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full border-2 border-blue-400">
                   <img src={user?.photoURL} width={100} height={100} alt="dfdfd" />
