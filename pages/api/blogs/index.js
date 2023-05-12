@@ -21,7 +21,7 @@ const handler = nc()
     const newBlog=new Blogmodel({userpostInfo,postId,headline,image,Author,genre,datePublished,description,comments})
     try {
         await newBlog.save();
-        res.send("new blog created")
+        res.send(newBlog)
     } catch (error) {
         console.log(error)
     }

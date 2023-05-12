@@ -1,10 +1,15 @@
 import Image from "next/image";
 import blog1 from "../../public/blog1.png"
 import Link from "next/link";
+import { useState } from "react";
 
 const BlogsCards = ({ blog}) => {
+    // const [loading, setLoading]=useState(false)
     const { headline, image, Author, datePublished, description,_id,postId } = blog
     // console.log(headline)
+    // if(!blog){
+
+    // }
     return (
         <div>
             
@@ -12,11 +17,11 @@ const BlogsCards = ({ blog}) => {
         
                         <div className="p-4 ">
                             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                <Image className="lg:h-48 md:h-36 w-full object-cover object-center" width={600} height={400} src={blog1} alt="blog" />
+                                <Image className="lg:h-48 md:h-36 w-full object-cover object-center" width={600} height={400} src={image} alt="blog" />
                                 <div className="p-6">
                                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{datePublished}</h2>
                                     <h1 className="title-font text-lg font-medium  mb-3 text-[#4791ff]">{headline}</h1>
-                                    <p className="leading-relaxed mb-3">{description.substring(0, 100)}...</p>
+                                    <p className="leading-relaxed mb-3">{description?.substring(0, 100)}...</p>
                                     <div className="flex items-center flex-wrap ">
                                         <Link href={`/blogs/${_id}`} legacyBehavior>
                                         <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"> Learn More..
