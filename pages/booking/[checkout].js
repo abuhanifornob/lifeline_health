@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { AuthContext } from '@/context/AuthProvider';
 
 
 function Checkout({bookings}) {
@@ -11,13 +12,38 @@ function Checkout({bookings}) {
 
 
     const bookod =   bookings.find(booked=> booked?.user?.uid===checkout)
-    console.log(bookod);
+    console.log("booking check",bookod);
 
     const handlePaymentMethodChange = (event) => {
         setPaymentMethod(event.target.value);
     };
 
     return (
+        <>
+        {/* hdsfhjhf */}
+        <div>
+        <div className='w-3/4 mx-auto my-24 '
+            >
+                <div className='w-2/4 mx-auto bg-blue-100 p-6 flex rounded-md'>
+                {/* <Image src={data} height={200} width={200}
+                className='w-20 mr-4 rounded-md'
+                ></Image> */}
+                <div>
+                <h1>{bookod.data.name}</h1>
+                <h1>{bookod.data.time}</h1>
+                <h1>{bookod.data.service}</h1>
+                <h1>{bookod.date}</h1> 
+                </div>
+                <div className='inline ml-6'>
+                    <button className='bg-orange-600 rounded-md px-3 text-lg text-white mb-4'>{bookod.payment}</button>
+                    <br/>
+                    <button className='bg-blue-500 rounded-md px-3 text-lg text-white'>Make Payment</button>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        {/* hdsfhjhf */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="max-w-xl mx-auto">
                 <h1 className="text-2xl font-bold mb-4">Checkout</h1>
@@ -166,6 +192,8 @@ function Checkout({bookings}) {
                 </form>
             </div>
         </div>
+        </>
+        
     );
 }
 
