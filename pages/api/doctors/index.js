@@ -2,9 +2,11 @@
 import DoctorsModel from "@/models/DoctorsModel";
 import connectDb from "@/utils/connectDb";
 import nextConnect from "next-connect";
+import cors from 'cors'
 connectDb();
 
 const handler = nextConnect()
+handler.use(cors())
 
   .get(async(req, res) => {
     try {
@@ -12,12 +14,13 @@ const handler = nextConnect()
         res.send(doctor)
         // res.status(200).json(JSON.parse(blogs))
     } catch (error) {
-        
+        console.log(error);
     }
   })
   .post(async(req, res) => {
-    const {name,email,timeSlot,imgUrl,phone,studyingInstitute,degree,specialization,serviceDatails,workplace,about,experience,fees}=req.body;
-    const newDoctor= new DoctorsModel({name,email,timeSlot,imgUrl,phone,studyingInstitute,degree,specialization,serviceDatails,workplace,about,experience,fees})
+    const doctor =req.body;
+    console.log(doctor);
+    const newDoctor= new DoctorsModel(doctor)
     // console.log('req',newDoctor)
     try {
         await newDoctor.save();

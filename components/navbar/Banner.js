@@ -1,121 +1,54 @@
-import React from 'react';
 
 const Banner = () => {
-    return (
-        <div>
-           
+    return <>
 
-    {/* <!-- Testimonial Start --> */}
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="text-primary text-uppercase">// Testimonial //</h6>
-                <h1 class="mb-5">Our Clients Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg"
-                        style="width: 80px; height: 80px;"/>
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
+        <div id="default-carousel" className="relative w-full" data-carousel="slide">
+            {/* <!-- Carousel wrapper --> */}
+            <div className="relative h-56 overflow-hidden rounded-lg md:h-86">
+                {/* <!-- Item 1 --> */}
+                <div className="hidden duration-700 ease-in-out w-full" data-carousel-item>
+                    <img src="/docs/images/carousel/carousel-1.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="slider" />
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg"
-                        style="width: 80px; height: 80px;"/>
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
+                {/* <!-- Item 2 --> */}
+                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/docs/images/carousel/carousel-2.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="slider" />
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg"
-                        style="width: 80px; height: 80px;"/>
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
+                {/* <!-- Item 3 --> */}
+                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/docs/images/carousel/carousel-3.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="slider" />
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg"
-                        style="width: 80px; height: 80px;"/>
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
+                {/* <!-- Item 4 --> */}
+                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/docs/images/carousel/carousel-4.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="slider" />
+                </div>
+                {/* <!-- Item 5 --> */}
+                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/docs/images/carousel/carousel-5.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="slider" />
                 </div>
             </div>
+            {/* <!-- Slider indicators --> */}
+            <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+            </div>
+            {/* <!-- Slider controls --> */}
+            <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span className="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span className="sr-only">Next</span>
+                </span>
+            </button>
         </div>
-    </div>
-    {/* <!-- Testimonial End -->  */}
-        </div>
-    );
-};
 
+    </>
+}
 export default Banner;
-
-// import React from "react";
-
-// import AnimatedText from "react-animated-text-content";
-
-// import { useState } from "react";
-
-// import bannewrlogo from "../../public/bannerlogo1.png";
-
-// const Banner = () => {
-//   return (
-//     <div className=" max-w-screen-xl mx-auto ">
-//       <div className="grid grid-cols-1 md:grid-cols-2 content-center min-h-screen">
-//         <div className=" self-center">
-//           <AnimatedText
-//             type="words" // animate words or chars
-//             animation={{
-//               x: "200px",
-//               y: "-20px",
-//               scale: 1.1,
-//               ease: "ease-in-out",
-//             }}
-//             animationType="lights"
-//             interval={0.06}
-//             duration={0.8}
-//             tag="p"
-//             className={`animated-paragraph text-center lg:text-start text-5xl font-bold flex text-blue-500 mb-4`}
-//             includeWhiteSpaces
-//             threshold={0.1}
-//             rootMargin="20%"
-//           >
-//             Lifeline Health
-//           </AnimatedText>
-//           <h1 className="text-4xl font-bold   text-justify">
-//             "Health is Wealth" The Complete Health Solution.We provide{" "}
-//             <span className="text-blue-500">any</span> kind of{" "}
-//             <span className="text-blue-500">Health</span> solution{" "}
-//           </h1>{" "}
-//           <br />
-//           <Link href={"/"} className="btn btn-primary ">
-//             Get Starte
-//           </Link>
-//         </div>
-//         <div className="place-self-center">
-//           <Image
-//             src={bannewrlogo}
-//             alt="health logo"
-//             width={1000}
-//             className={styles.animate}
-//           ></Image>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Banner;

@@ -1,25 +1,27 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Image from 'next/image';
 import 'react-day-picker/dist/style.css';
 import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { AuthContext } from '@/context/AuthProvider';
 
-const ServiceDetails = ({ experts }) => {
+const ServiceDetails = ({ doctors }) => {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
     const [expert, setExpert] = useState(null)
-    const user = {};
-    console.log(expert);
+    const { user } = useContext(AuthContext);
+
+    console.log(doctors);
 
     const { service } = router.query;
     console.log(service);
 
     useEffect(() => {
 
-        const expertData = experts.filter((expt) => expt.doctors.doctor[0].slug === service);
-        setExpert(expertData)
+        const selectedDoctor = doctors.filter((expt) => expt?.serviceDatails?.slug === service);
+        setExpert(selectedDoctor)
         console.log(expert);
     }, [router])
 
@@ -37,8 +39,8 @@ const ServiceDetails = ({ experts }) => {
             </div>
             <h2 className="text-5xl text-center py-10 font-bold">{service}</h2>
 
-            <div>{expert && expert.map((DocInfo, idx) => (
-                <DoctorCard service={service} key={idx} info={DocInfo}></DoctorCard>
+            <div>{expert && expert.map((docInfo, idx) => (
+                <DoctorCard key={idx} info={docInfo}></DoctorCard>
             ))}
 
             </div>
@@ -51,21 +53,21 @@ export default ServiceDetails;
 export async function getServerSideProps() {
     try {
         const response = await axios.get(
-            'https://lifeline-health-rakibul181.vercel.app/api/expert'
+            'https://lifeline-health-rakibul181.vercel.app/api/doctors'
         );
-        const experts = response.data;
-        console.log(experts);
+        const doctors = response.data;
+        console.log(doctors);
 
         return {
             props: {
-                experts,
+                doctors,
             },
         };
     } catch (error) {
         console.error(error);
         return {
             props: {
-                experts: [],
+                doctors: [],
             },
         };
     }
