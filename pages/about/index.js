@@ -1,9 +1,7 @@
 
-import Head from "next/head";
 import withAuth from "../withAuth/withAuth";
-import Script from "next/script";
-
 const AboutUs = () => {
+
 
   return (
     <div>
@@ -16,7 +14,7 @@ const AboutUs = () => {
             <p className="text-lg mb-4">Our team is made up of healthcare professionals, patient advocates, and tech experts who are passionate about making healthcare more accessible and affordable for everyone.</p>
           </div>
           <div className="md:w-1/2 rounded-xl shadow-lg">
-            <Script type="module" strategy="lazyOnLoad"   className="h-86 w-86 rounded-lg" src="https://unpkg.com/@splinetool/viewer@0.9.330/build/spline-viewer.js"></Script>
+            <script type="module"   className="h-86 w-86 rounded-lg" src="https://unpkg.com/@splinetool/viewer@0.9.330/build/spline-viewer.js"></script>
               <spline-viewer   style={{height: "400px", width: "100%" , margin: "auto"}}  url="https://prod.spline.design/EGvc09uky7py5xLP/scene.splinecode"></spline-viewer>
             </div>
         </div>
