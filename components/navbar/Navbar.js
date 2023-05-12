@@ -75,11 +75,13 @@ function Navbar() {
 
         {/* menu for large device & navbar center part*/}
         <div className="navbar-center hidden lg:flex">
-          <ul className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
-            <li><Link className="text-lg font-medium" href={'/'}>Home</Link></li>
-            <li><Link className="text-lg font-medium" href={'/contact'}>Contact</Link></li>
-            <li><Link className="text-lg font-medium" href={'/about'}>About Us</Link></li>
-            <li><Link className="text-lg font-medium" href={'/blog'}>Blog</Link></li>
+          <ul className={`menu menu-horizontal flex gap-3 px-1 ${styles.customMenu}`}>
+            <li><Link className="text-lg  " href={'/'}>Home</Link></li>
+            <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
+            <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
+            <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg  " href={'/healthplans'}>Health Plan</Link></li>
+            <li><Link className="text-lg  " href={'/doctorRegistrationForm'}>For Doctor</Link></li>
 
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">

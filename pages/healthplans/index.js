@@ -5,7 +5,7 @@ import withAuth from '../withAuth/withAuth';
 const HealthPlanCards = () => {
     const datas = [
         {
-          name: "DocTime Care",
+          name: "Life Line Care",
           price: 180,
           id: "01",
           img: "",
@@ -14,7 +14,7 @@ const HealthPlanCards = () => {
           des2: "Upto 40% discount on home diagnostic tests.",
         },
         {
-          name: "DocTime Family Care",
+          name: "Life Line Family Care",
           price: 315,
           id: "02",
           img: "",
@@ -23,7 +23,7 @@ const HealthPlanCards = () => {
           des2: "Upto 40% discount on home diagnostic tests.",
         },
         {
-          name: "DocTime Family Care +",
+          name: "Life Line Family Care +",
           price: 405,
           id: "03",
           img: "",
@@ -32,7 +32,7 @@ const HealthPlanCards = () => {
           des2: "Upto 40% discount on home diagnostic tests.",
         },
         {
-          name: "DocTime Family Care ++",
+          name: "Life Line Family Care ++",
           price: 495,
           id: "04",
           img: "",

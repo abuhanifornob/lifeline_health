@@ -11,6 +11,7 @@
     "@stripe/stripe-js": "^1.52.1",
     "@zegocloud/zego-uikit-prebuilt": "^1.8.1",
     "axios": "^1.4.0",
+    "cors": "^2.8.5",
     "daisyui": "^2.51.5",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",

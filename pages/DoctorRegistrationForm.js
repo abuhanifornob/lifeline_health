@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Await } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const service = [
@@ -118,7 +119,6 @@ const service = [
 
 
 ]
-
 const degrees = [
     "MD",
     "DO",
@@ -129,12 +129,15 @@ const degrees = [
     "DVM",
     "PharmD",
 ];
+const allTimeSlot = ['12:00 AM', '12:20 AM', '12:40 AM', '1:00 AM', '1:20 AM', '2:40 AM', '3:00 AM', '3:20 AM', '3:40 AM', '4:00 AM', '4:20 AM', '4:40 AM', '5:00 AM', '5:20 AM', '5:40 AM', '6:00 AM', '6:20 AM', '6:40 AM', , '7:00 AM', '7:20 AM', '7:40 AM', '8:00 AM', '8:20 AM', '8:40 AM', '09:00 AM', '09:20 AM ', '09:40 AM ', '10:00 AM', '10:20 AM', '10:40 AM', '11:00 AM', '11:20 AM', '11:40 AM', '12:00 PM', '12:20 PM', '12:40 PM', '1:00 PM', '1:20 PM', '2:40 PM', '3:00 PM', '3:20 PM', '3:40 PM', '4:00 PM', '4:20 PM', '4:40 PM', '5:00 PM', '5:20 PM', '5:40 PM', '6:00 PM', '6:20 PM', '6:40 PM', , '7:00 PM', '7:20 PM', '7:40 PM', '8:00 PM', '8:20 PM', '8:40 PM', '09:00 PM', '09:20 PM ', '09:40 PM ', '10:00 PM', '10:20 PM', '10:40 PM', '11:00 PM', '11:20 PM', '11:40 PM',]
+
 const DoctorRegistrationForm = () => {
     const router = useRouter();
-    const { register, handleSubmit, formState: { errors },reset } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+<<<<<<< HEAD
     const [availabilityFrom , setAvailabilityFrom] = useState("") ;
     const [availabilityTo , setAvailabilityTo] = useState("") ;
     //
@@ -147,14 +150,32 @@ const DoctorRegistrationForm = () => {
     const { googleLongin, createUser, userProfileUpdate, user } = useContext(AuthContext);
     const onSubmit = async (data) => {
         console.log("data => " , );
+=======
+    const { createUser, userProfileUpdate, user } = useContext(AuthContext);
+
+
+
+    const onSubmit = async (data) => {
+
+
+
+
+
+
+
+        console.log(data);
+>>>>>>> origin
         setIsLoading(true);
         setSuccessMessage("");
         setErrorMessage("");
         const img = data.img[0]
-        const password=data.password;
-        const email=data.email;
-        const timeSlot = createTimeSlots(data.availabilityFrom, data.availabilityTo, 20)
-        const serviceDatails =   service.find(sName=> sName.slug===data.service)
+
+        // console.log(data.availabilityfrom, data.availabilityto, timeSlot);
+        const password = data.password;
+        const email = data.email;
+
+        // console.log(timeSlot);
+        const serviceDatails = service.find(sName => sName.slug === data.service)
         const formData = new FormData();
         formData.append('image', img);
         const url = `https://api.imgbb.com/1/upload?key=fa48313b438b840b4b3a809ce90982e6`
@@ -163,39 +184,42 @@ const DoctorRegistrationForm = () => {
             body: formData
         })
             .then(res => res.json())
-            .then(imgData=>{
+            .then(imgData => {
                 console.log(imgData);
-                if(imgData.success){
+                if (imgData.success) {
                     const imgUrl = imgData.data.url
-                    
 
-                //  firebase auth
-                const userInfo = {
-                    displayName: data.name,
-                    photoURL: imgUrl,
-                    phoneNumber: data.phone
-                  };
-                  console.log('doctor',userInfo)
-                createUser(email, password)
-                    .then((result) => {
-        
-                      userProfileUpdate(userInfo)
-                        .then(() => {
-                          toast("Registration Successfull");
-                        //   router.push("/");
-                          const user = result.user;
-                          console.log("jkdshjuhsdfguih", user);
-                          reset();
+
+                    //  firebase auth
+                    const userInfo = {
+                        displayName: data.name,
+                        photoURL: imgUrl,
+                    };
+                    // console.log('doctor', userInfo)
+                    createUser(email, password)
+                        .then((result) => {
+
+                            userProfileUpdate(userInfo)
+                                .then(() => {
+                                    toast("Registration Successfull");
+                                    //   router.push("/");
+                                    const user = result.user;
+                                    console.log("user", user);
+                                    // reset();
+                                })
+                                .catch((error) => console.error(error));
+
+                            //   router.push("/");
                         })
-                        .catch((error) => console.error(error));
-        
-                    //   router.push("/");
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                //  firebase auth
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                    //  firebase auth
+                    const indexFrom = allTimeSlot.indexOf(data.availabilityfrom)
+                    const indexTo = allTimeSlot.indexOf(data.availabilityto)
+                    const timeSlot = allTimeSlot.slice(indexFrom, indexTo)
 
+<<<<<<< HEAD
         const doctor = {
             name: data.name,
             email:data.email,
@@ -217,12 +241,30 @@ const DoctorRegistrationForm = () => {
             about:data.about,
             experience:data.experience,
             fees:"300"
+=======
+>>>>>>> origin
 
-        }
-        console.log('doctorsss',JSON.stringify(doctor))
+                    const doctor = {
+                        name: data.name,
+                        email: data.email,
+                        timeSlot: timeSlot,
+                        imgUrl: imgUrl,
+                        phone: data.phone,
+                        studyingInstitute: data.studyingInstitute,
+                        degrees:data.degree,
+                        specialization: data.specialization,
+                        serviceDatails: serviceDatails,
+                        workplace: data.workplace,
+                        about: data.about,
+                        experience: data.experience,
+                        fees: "300",
 
-        
-        fetch('http://localhost:3000/api/doctors', {
+
+                    }
+                    console.log('doctor', JSON.stringify(doctor))
+
+
+                    fetch(' /api/doctors', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -232,34 +274,23 @@ const DoctorRegistrationForm = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log(data)
-                            if (data.acknowledged) {
-                                setSuccessMessage("Registration successful!");
+                            if (data) {
+                                // setSuccessMessage("Registration successful!");
                                 console.log(data)
                             }
-                            else{
-                                setErrorMessage("Registration failed. Please try again.");  
+                            else {
+                                setErrorMessage("Registration failed. Please try again.");
                             }
 
 
 
                         })
                         .catch(error => console.error(error));
-        // post request doctor data
+                    // post request doctor data
                 }
             })
 
-            function createTimeSlots(startTime, endTime, interval) {
-                const timeSlots = [];
-                for (let currentTime = startTime; currentTime < endTime; currentTime += interval) {
-                  timeSlots.push(new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-                }
-                return timeSlots;
-              }
-              
 
-        
-
-         
 
         setIsLoading(false);
     };
@@ -312,13 +343,13 @@ const DoctorRegistrationForm = () => {
                     )}
                 </div>
                 <div className="mb-4">
-                    
-                        <label  htmlFor="img" className="block font-bold mb-2">
-                             Your Photo 
-                        </label>
-                        <input type="file" {...register('img', { required: 'file is requird' })} className={`appearance-none border-2 ${errors.img ? "border-red-500" : "border-gray-200"
-                            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`} />
-                        {errors.img && <p className="text-error">{errors.img?.message}</p>}
+
+                    <label htmlFor="img" className="block font-bold mb-2">
+                        Your Photo
+                    </label>
+                    <input type="file" {...register('img', { required: 'file is requird' })} className={`appearance-none border-2 ${errors.img ? "border-red-500" : "border-gray-200"
+                        } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`} />
+                    {errors.img && <p className="text-error">{errors.img?.message}</p>}
                 </div>
 
                 <div className="mb-4">
@@ -348,8 +379,9 @@ const DoctorRegistrationForm = () => {
                     <select
                         id="degree"
                         name="degree"
+
                         {...register("degree", { required: true })}
-                        className={`appearance-none border-2 ${errors.experience ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.degree ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     >
                         <option value="">Select a degree</option>
@@ -386,7 +418,7 @@ const DoctorRegistrationForm = () => {
 
                         {...register("service", { required: true })}
 
-                        className={`appearance-none border-2 ${errors.experience ? "border-red-500" : "border-gray-200"
+                        className={`appearance-none border-2 ${errors.service ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     >
                         <option value="">Select a specialty</option>
@@ -421,31 +453,63 @@ const DoctorRegistrationForm = () => {
                     <label className="block font-bold mb-2" htmlFor="availabilityFrom">
                         Available time slot for appointment from
                     </label>
+<<<<<<< HEAD
                     <input
                         id="availabilityFrom"
+=======
+                    <select
+                        id="availabilityfrom"
+>>>>>>> origin
                         className={`appearance-none border-2 ${errors.availabilityfrom ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
+<<<<<<< HEAD
                         onChange={(e) => setAvailabilityFrom(e.target.value)}
                     />
                     {errors.availabilityFrom && (
+=======
+                        {...register("availabilityfrom", { required: true })}
+                    >
+                        <option value="">Select a time</option>
+                        {allTimeSlot.map((time, i) => (
+
+                            <option value={time} key={i}>
+                                {time}
+                            </option>
+                        ))}
+                    </select>
+                    {errors.availabilityfrom && (
+>>>>>>> origin
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
-                    <label className="block font-bold mb-2" htmlFor="availabilityTo">
+                    <label className="block font-bold mb-2" htmlFor="availabilityto">
                         Available time slot appointment to
                     </label>
-                    <input
+                    <select
                         id="availabilityTo"
                         className={`appearance-none border-2 ${errors.availabilityto ? "border-red-500" : "border-gray-200"
                             } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                         type="time"
                         step="3600"
                         placeholder="Enter your available time for appointment"
+<<<<<<< HEAD
                        onChange={(e) => setAvailabilityTo(e.target.value)}
                     />
                     {errors.availabilityTo && (
+=======
+                        {...register("availabilityto", { required: true })}
+                    >
+                        <option value="">Select a time</option>
+                        {allTimeSlot.map((time, i) => (
+                            <option value={time} key={i}>
+                                {time}
+                            </option>
+                        ))}
+                    </select>
+                    {errors.availabilityto && (
+>>>>>>> origin
                         <span className="text-red-500 text-sm">This field is required</span>
                     )}
                 </div>

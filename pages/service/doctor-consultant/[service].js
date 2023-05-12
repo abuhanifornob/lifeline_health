@@ -1,35 +1,38 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import 'react-day-picker/dist/style.css';
+import React, { useContext, useState } from 'react';
 import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
+<<<<<<< HEAD
 import withAuth from '@/pages/withAuth/withAuth';
+=======
+import { AuthContext } from '@/context/AuthProvider';
+>>>>>>> origin
 
 const ServiceDetails = ({ doctors }) => {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
-    const [expert, setExpert] = useState(null)
-    const user = {};
-    console.log(expert);
+    const [sDoctors, setSDoctors] = useState(null)
+    const { user } = useContext(AuthContext);
+
+    console.log(sDoctors);
 
     const { service } = router.query;
     console.log(service);
 
     useEffect(() => {
 
-        const expertData = experts.filter((expt) => expt.doctors.doctor[0].slug === service);
-        setExpert(expertData)
-        console.log(expert);
-    }, [router])
+        const selectedDoctor = doctors.filter((expt) => expt?.serviceDatails?.slug === service);
+        setSDoctors(selectedDoctor)
+        console.log(sDoctors);
+    }, [router.query])
 
 
 
-   
+
 
     if (isLoading) return <p>Loading...</p>;
-    if (!expert) return <p>No data</p>;
+    if (!sDoctors) return <p className='tex-center, text-5xl font-bold '>No doctor In this services</p>;;
     return (
         <div>
             <div className="relative">
@@ -38,8 +41,8 @@ const ServiceDetails = ({ doctors }) => {
             </div>
             <h2 className="text-5xl text-center py-10 font-bold">{service}</h2>
 
-            <div>{expert && expert.map((DocInfo, idx) => (
-                <DoctorCard service={service} key={idx} info={DocInfo}></DoctorCard>
+            <div>{sDoctors && sDoctors.map((docInfo, idx) => (
+                <DoctorCard key={idx} info={docInfo}></DoctorCard>
             ))}
 
             </div>
@@ -66,7 +69,7 @@ export async function getServerSideProps() {
         console.error(error);
         return {
             props: {
-                doctors: [],
+                doctors: [null],
             },
         };
     }
