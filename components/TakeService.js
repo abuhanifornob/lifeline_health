@@ -6,7 +6,8 @@ import React from "react";
 
 const TakeService = () => {
   return (
-    <section className="text-gray-600 body-font max-w-screen-xl mx-auto">
+    <section className="text-gray-600 body-font max-w-screen-xl mx-auto" data-aos="zoom-in"
+      data-aos-offset="500">
       <div className="w-[500px] mx-auto">
         <h1 className=" text-4xl text-[#254747] font-bold mt-24 mb-2  ">
           Get the service?

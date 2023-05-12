@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import Head from "next/head";
 import { AuthContext } from "@/context/AuthProvider";
+import { toast } from "react-hot-toast";
 const AuthPage = (props) => {
   const [redirectLoading, setRedirectLoading] = useState(false);
   const { user } = useContext(AuthContext);
@@ -12,34 +13,19 @@ const AuthPage = (props) => {
     setRedirectLoading(true);
     const { value } = e.target[0];
     //check account user name 
-    if(user.displayName !== value){
-      setRedirectLoading(false) ;
-     alert("Your account name not matched please try again !!") ;
-     return ;
-    } 
+    if (user.displayName !== value) {
+      setRedirectLoading(false);
+      toast.error("Your account name not matched please try again !!");
+      return;
+    }
     //end check account user name 
 
     axios
-      .post(" https://scholar-net-subrota.vercel.app/authenticate", { username: value })
+      .post("/api/chat_user", { username: value })
       .then((r) => {
         setRedirectLoading(false);
         return props.onAuth({ ...r.data, secret: value });
       })
-      .catch((e) => {
-        setRedirectLoading(false);
-        return console.log("Auth Error", e)
-      });
-    axios
-      .post(" https://scholar-net-subrota.vercel.app/chat-users", { username: value, email: user?.email })
-      .then((res) => {
-        if (res.data.message === "welcome") {
-          return toast.success("Welcome to back");
-        } else {
-          toast.success("Welcome to chat board");
-          return res.data;
-        }
-      }
-      )
       .catch((e) => {
         setRedirectLoading(false);
         return console.log("Auth Error", e)
@@ -54,10 +40,11 @@ const AuthPage = (props) => {
         <link rel="stylesheet" href="css/chatPage.css" />
       </Head>
 
-      <div className="hero min-h-screen">
+      <div className="hero h-screen" data-aos="zoom-in-up"
+            data-aos-offset="500">
         <div className="hero-content  h-full flex flex-col-reverse lg:flex-row">
           <div className="text-center lg:text-left">
-            <iframe style={{width:"465px", height:"258px"}} className="rounded-md mt-3" src="https://www.youtube.com/embed/LIFY4JdZ2UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            <iframe style={{ width: "465px", height: "258px" }} className="rounded-md mt-3" src="https://www.youtube.com/embed/LIFY4JdZ2UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen="allowfullscreen"
               mozallowfullscreen="mozallowfullscreen"
               msallowfullscreen="msallowfullscreen"

@@ -55,6 +55,9 @@ const registration = () => {
                 .then(() => {
                   toast("Registration Successfull");
                   router.push("/");
+<<<<<<< HEAD
+                  const user = result.user;
+=======
                   // const user = result.user;
                   const userInfo={
                     userName:name,
@@ -83,6 +86,7 @@ const registration = () => {
                         }
                     })
                     .catch(error => console.error(error));
+>>>>>>> f9b33a168aa7d9c4b4a6684845a4b5bfe7a63524
                   event.target.reset();
                 })
                 .catch((error) => console.error(error));
@@ -120,7 +124,8 @@ const registration = () => {
     console.log("role", role)
   }
   return (
-    <div className="hero  z-50 min-h-screen" >
+    <div className="hero  z-50 min-h-screen" data-aos="zoom-in-up"
+    data-aos-offset="500">
       <ToastContainer />
       <div className="hero-content p-10 flex-col lg:flex-row">
         <div className="p-0 lg:r-20 mr-20">

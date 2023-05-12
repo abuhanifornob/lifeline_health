@@ -4,7 +4,7 @@ import React from 'react';
 const ServicesHome = ({service}) => {
     const{name, slug,icon , title} =service
     return (
-        <div className="bg-blue-100 w-full shadow-lg rounded-md grid justify-items-center">
+        <div className="bg-blue-100 w-full shadow-lg rounded-md grid justify-items-center" data-aos="zoom-in" data-aos-delay="500">
             <figure className="px-10 pt-10 text-8xl grid justify-center text-center text-[#4791ff]">
                  {icon}
             </figure>

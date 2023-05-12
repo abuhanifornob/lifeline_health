@@ -8,7 +8,7 @@ const siginsignupselect = () => {
     backgroundImage: `url(${"/loginBack.jpg"})`,
   };
   return (
-    <div className="hero bg-slate-500 bg-cover" style={backgroundStyle}>
+    <div className="hero bg-slate-500 bg-cover" style={backgroundStyle} data-aos="zoom-in" >
       <div className="hero-content my-10 flex-col lg:flex-row-reverse">
         <div className="card flex w-4/5 shadow-2xl bg-base-100">
           <div className="card-body p-5">
@@ -43,7 +43,7 @@ const siginsignupselect = () => {
             </div>
           </div>
         </div>
-        <div className="card flex w-4/5 shadow-2xl bg-base-100">
+        <div className="card flex w-4/5 shadow-2xl bg-base-100" >
           <div className="card-body p-5">
             <div className="card card-side bg-base-100 shadow-xl">
               <figure className="w-1/3 relative">

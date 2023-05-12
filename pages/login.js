@@ -1,16 +1,11 @@
 import { AuthContext } from "@/context/AuthProvider";
-
-import { GoogleAuthProvider } from "firebase/auth";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
-
-const provider = new GoogleAuthProvider();
-
+import { Navigate, useNavigate } from "react-router-dom";
 const login = () => {
   const backgroundStyle = {
     backgroundImage: `url(${"/loginBack.jpg"})`,
@@ -20,7 +15,6 @@ const login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginError, setLoginError] = useState("");
   const router = useRouter();
-
   const handleLoginForm = (event) => {
     event.preventDefault();
     setLoginError("");
@@ -30,29 +24,28 @@ const login = () => {
     const password = data.password.value;
     singInEmailPassword(email, password)
       .then((result) => {
-        router.push("/");
+        router.push("/") ;
         toast.success("Login Success!!");
         console.log(result.user);
       })
       .catch((error) => {
         setLoginError(error.message);
+        toast.error(error.message) ;
         console.error(error);
+        return ;
       });
   };
 
   const handleOnBluerEmail = (event) => {
     setLoginEmail("");
     const email = event.target.value;
-    console.log(email);
     setLoginEmail(email);
   };
   const handleGoogleLogin = () => {
-    googleLongin(provider)
+    googleLongin()
       .then((result) => {
         const user = result.user;
         console.log(user);
-        router.push("/");
-
         const userInformation = {
           name: user.displayName,
           email: user.email,
@@ -62,7 +55,8 @@ const login = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="hero bg-base-200 " style={backgroundStyle}>
+    <div className="hero bg-base-200 " style={backgroundStyle} data-aos="zoom-in-up"
+    data-aos-offset="500">
       <div className="hero-content p-0 lg:p-10 my-11 flex-col lg:flex-row">
         <div className="p-0 lg:r-20">
           <img src="/login.jpg" className=" rounded-lg shadow-2xl h-full" />

@@ -1,5 +1,6 @@
 import HealthplanCard from '@/components/HealthPlan/HealthplanCard';
 import React from 'react';
+import withAuth from '../withAuth/withAuth';
 
 const HealthPlanCards = () => {
     const datas = [
@@ -58,4 +59,4 @@ const HealthPlanCards = () => {
     );
 };
 
-export default HealthPlanCards;
+export default withAuth(HealthPlanCards);

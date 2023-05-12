@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import DoctorLists from './DoctorLists';
+import React from 'react';
+import withAuth from '../withAuth/withAuth';
 
 const DoctorList = () => {
     const [doctorInfo, setDoctorInfo] = useState([]);
@@ -30,4 +30,4 @@ const DoctorList = () => {
     );
 };
 
-export default DoctorList;
+export default withAuth(DoctorList);

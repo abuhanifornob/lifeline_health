@@ -6,20 +6,24 @@ import { toast } from "react-hot-toast";
 import { Navigate } from "react-router-dom";
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
-import DarkModeToggle from "../DarkMode/DarkModeToggle";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthProvider";
+import { toast } from "react-hot-toast";
+import { Navigate } from "react-router-dom";
+import DarkModeToggle from "@/pages/DarkMode/DarkModeToggle";
 
 function Navbar() {
-  const { user , logoutUser} = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
   function handleLogOut() {
     logoutUser()
-   .then(() =>{
-    toast.success("Your profile log out successfully !!");
-    <Navigate to=""></Navigate>
-   } )
+      .then(() => {
+        toast.success("Your profile log out successfully !!");;
+        <Navigate to="/login"></Navigate>
+      })
   }
   return (
     <>
-      <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
+      <div className="navbar shadow-md  sticky top-0 z-10  text-white">
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">
@@ -94,7 +98,7 @@ function Navbar() {
                 <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/health-plane"}>
+                <Link className="text-lg font-medium" href={"/healthplans"}>
                   <li>health Plane</li>
                 </Link>
               </ul>
@@ -106,11 +110,34 @@ function Navbar() {
             
 
 
-      {
-     user &&   <>
-           <li tabIndex={1}>
+            {
+              user && <>
+                <li tabIndex={2}>
+                  <Link href={""} className="text-lg font-medium">
+                    Go live
+                    <svg
+                      className="fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                    </svg>
+                  </Link>
+                  <ul className="p-2 bg-[#254747] absolute z-10 text-white">
+                    {
+                      user.uid !== "" && <>
+                        <li>  <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
+                        <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+
+                      </>
+                    }
+                  </ul>
+                </li>
+                <li tabIndex={3}>
               <Link href={""} className="text-lg font-medium">
-                Go live
+                Show more 
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,17 +149,15 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <li>  <a href="https://life-line-health.netlify.app/videoCall.html" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
+                <li>  <a href="https://life-line-health-conference.firebaseapp.com" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
                 <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
 
               </ul>
             </li>
 
-        </>
-      }
-
-
-            <li tabIndex={5}> <DarkModeToggle></DarkModeToggle> </li>
+              </>
+            }
+            <li tabIndex={4}> <DarkModeToggle></DarkModeToggle> </li>
           </ul>
         </div>
 
@@ -151,14 +176,10 @@ function Navbar() {
                 </div>
               </label>
 
-              <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-                <li><Link href={`/profile/${user.uid}`}>profile</Link></li>
-                {user?.email==="lifeline@health.com"&&<li><Link href={`/alldoctors`}>All Doctors</Link></li>}
-                {user?.email==="lifeline@health.com"&&<li><Link href={`/allusers`}>All Users</Link></li>}
-                
+              <ul tabIndex={6} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
+                <li><a>{user?.displayName ? user?.displayName : "username"}</a></li>
                 <li><a>My Appoinment</a></li>
-                <li><Link href={`./Settings/ChangedPassword`}>Settings</Link></li>
-                <li><Link href={`./Dashboard/Dashboard`}>Dashboard</Link></li>
+                <li><Link href={"Settings/ChangedPassword"}>Settings</Link></li>
                 <li onClick={() => handleLogOut()}><a>Logout</a></li>
               </ul>
             </div>
@@ -166,9 +187,10 @@ function Navbar() {
           </>}
           {
             !user && <>
-              <ul tabIndex={0} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
+              <ul tabIndex={7} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
 
-                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"/registration"} className="text-lg font-medium">Register</Link></li></ul>
+                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li>
+                 <li> <Link  href="/siginsignupselect" className="text-lg font-medium">Register</Link></li></ul>
 
             </>
           }

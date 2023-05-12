@@ -14,7 +14,7 @@ const DoctorCard = ({info}) => {
         timeSlot:timeSlot
     }
     return (
-        <div className="   rounded-lg  my-4 p-4 lg:p-0 grid justify-center">
+        <div className="   rounded-lg  my-4 p-4 lg:p-0 grid justify-center" data-aos="zoom-in" data-aos-delay="500">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:w-[1100px] justify-center justify-items-center  bg-blue-100  border-2 border-gray-300 shadow-md">
                 <div className=" p-4 lg:p-8 flex gap-3 items-center">
                     <img src= { imgUrl} alt={name} className="rounded-full h-32 w-32 mx-auto lg:mx-0 lg:float-left mr-6" />

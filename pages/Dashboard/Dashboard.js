@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import React from 'react';
+import withAuth from '../withAuth/withAuth';
 
 const Dashboard = () => {
     return (
@@ -66,4 +68,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default withAuth(Dashboard);
