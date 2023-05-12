@@ -93,7 +93,7 @@ function creatChatUser() {
       secret: user?.uid,
       email: user?.email,
     },
-    { headers: { "Private-Key": process.env.NEXT_PUBLIC_CHAT_ENGINE_PRIVATE_KEY } }
+    { headers: { "Private-Key": "88609bd9-d0dd-43ac-b081-100b98ce5aea"} }
   );
 } 
 

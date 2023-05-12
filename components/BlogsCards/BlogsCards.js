@@ -13,7 +13,8 @@ const BlogsCards = ({ blog}) => {
     return (
         <div>
             
-         <div className="">
+         <div className="" data-aos="zoom-in"
+            data-aos-offset="500">
         
                         <div className="p-4 ">
                             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">

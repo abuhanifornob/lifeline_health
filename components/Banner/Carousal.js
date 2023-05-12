@@ -8,7 +8,7 @@ import Image from "next/image";
 const Carousal = () => {
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef(null);
-    const colors = [image1, image2, image1,image3];
+    const colors = [image1, image2, image1, image3];
     const delay = 2500;
     function resetTimeout() {
         if (timeoutRef.current) {
@@ -31,7 +31,8 @@ const Carousal = () => {
         };
     }, [index]);
     return (
-        <div className={`${ss.slideshow} w-full h-86 mt-3`}>
+        <div className={`${ss.slideshow} w-full h-86 mt-3`} data-aos="zoom-in"
+            data-aos-offset="500">
             <div
                 className={ss.slideshowSlider}
                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
@@ -40,7 +41,7 @@ const Carousal = () => {
                     <Image
                         className={`${ss.slide} `}
                         key={index}
-                        src={ backgroundColor }
+                        src={backgroundColor}
                         height={200}
                         width={800}
                     ></Image>

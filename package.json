@@ -10,6 +10,7 @@
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.1",
     "@zegocloud/zego-uikit-prebuilt": "^1.8.1",
+    "aos": "^2.3.4",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "daisyui": "^2.51.5",

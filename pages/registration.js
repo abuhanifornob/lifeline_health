@@ -124,7 +124,8 @@ const registration = () => {
     console.log("role", role)
   }
   return (
-    <div className="hero  z-50 min-h-screen" >
+    <div className="hero  z-50 min-h-screen" data-aos="zoom-in-up"
+    data-aos-offset="500">
       <ToastContainer />
       <div className="hero-content p-10 flex-col lg:flex-row">
         <div className="p-0 lg:r-20 mr-20">

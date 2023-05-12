@@ -37,7 +37,8 @@ export default function Home({ blogs, Component, pageProps  }) {
       <Service></Service>
      
       <TakeService></TakeService>
-      <div>
+      <div data-aos="zoom-in"
+            data-aos-offset="500">
         <h1
           className="text-center text-4xl font-bold mt-24"
           style={{ color: "#254747" }}

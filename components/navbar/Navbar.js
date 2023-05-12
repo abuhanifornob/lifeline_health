@@ -17,10 +17,9 @@ function Navbar() {
         <Navigate to="/login"></Navigate>
       })
   }
-  console.log(user);
   return (
     <>
-      <div className="navbar shadow-md  sticky top-0 z-10 bg-primary text-white">
+      <div className="navbar shadow-md  sticky top-0 z-10  text-white">
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">
@@ -77,16 +76,7 @@ function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className={`menu menu-horizontal flex gap-3 px-1 ${styles.customMenu}`}>
             <li><Link className="text-lg  " href={'/'}>Home</Link></li>
-<<<<<<< HEAD
     
-=======
-            <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
-            <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
-            <li><Link className="text-lg  " href={'/calculator'}>HealthCheck</Link></li>
-            <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
-            <li><Link className="text-lg  " href={'/healthplans'}>Health Plan</Link></li>
-            <li><Link className="text-lg  " href={'/doctorRegistrationForm'}>For Doctor</Link></li>
->>>>>>> f9b33a168aa7d9c4b4a6684845a4b5bfe7a63524
 
             <li tabIndex={1}>
               <Link href={""} className="text-lg font-medium">
@@ -173,31 +163,15 @@ function Navbar() {
           {user && <>
             <div className="form-control">
             </div>
-<<<<<<< HEAD
             <div className="dropdown dropdown-end">
               <label tabIndex={5} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full border-2 border-blue-400">
-                  <img src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/2Z3HNtT/usg.jpg"} width={100} height={100} alt="dfdfd" />
-                </div>
-              </label>
-
-              <ul tabIndex={6} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-                <li><a>{user?.displayName ? user?.displayName : "username"}</a></li>
-=======
-            <div className="flex dropdown dropdown-end">
-              <h1 className="mt-3 mr-2 font-semibold">{user.displayName}</h1>
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full border-2 border-blue-400">
                   <img src={user?.photoURL} width={100} height={100} alt="dfdfd" />
                 </div>
               </label>
 
-              <ul tabIndex={0} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
-                <li><Link href={`/profile/${user.uid}`}>profile</Link></li>
-                {user?.email==="lifeline@health.com"&&<li><Link href={`/alldoctors`}>All Doctors</Link></li>}
-                {user?.email==="lifeline@health.com"&&<li><Link href={`/allusers`}>All Users</Link></li>}
-                
->>>>>>> f9b33a168aa7d9c4b4a6684845a4b5bfe7a63524
+              <ul tabIndex={6} className={`mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#254747] text-white rounded-box w-52 ${styles.customMenu}`}>
+                <li><a>{user?.displayName ? user?.displayName : "username"}</a></li>
                 <li><a>My Appoinment</a></li>
                 <li><a>Settings</a></li>
                 <li onClick={() => handleLogOut()}><a>Logout</a></li>
@@ -209,7 +183,8 @@ function Navbar() {
             !user && <>
               <ul tabIndex={7} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
 
-                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"/registration"} className="text-lg font-medium">Register</Link></li></ul>
+                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li>
+                 <li> <Link  href="/siginsignupselect" className="text-lg font-medium">Register</Link></li></ul>
 
             </>
           }
