@@ -181,24 +181,24 @@ const DoctorRegistrationForm = () => {
                         photoURL: imgUrl,
                     };
                     // console.log('doctor', userInfo)
-                    // createUser(email, password)
-                    //     .then((result) => {
+                    createUser(email, password)
+                        .then((result) => {
 
-                    //         userProfileUpdate(userInfo)
-                    //             .then(() => {
-                    //                 toast("Registration Successfull");
-                    //                 //   router.push("/");
-                    //                 const user = result.user;
-                    //                 console.log("user", user);
-                    //                 // reset();
-                    //             })
-                    //             .catch((error) => console.error(error));
+                            userProfileUpdate(userInfo)
+                                .then(() => {
+                                    toast("Registration Successfull");
+                                    //   router.push("/");
+                                    const user = result.user;
+                                    console.log("user", user);
+                                    // reset();
+                                })
+                                .catch((error) => console.error(error));
 
-                    //         //   router.push("/");
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error);
-                    //     });
+                            //   router.push("/");
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
                     //  firebase auth
                     const indexFrom = allTimeSlot.indexOf(data.availabilityfrom)
                     const indexTo = allTimeSlot.indexOf(data.availabilityto)
