@@ -17,10 +17,9 @@ function Navbar() {
         <Navigate to="/login"></Navigate>
       })
   }
-  console.log(user);
   return (
     <>
-      <div className="navbar shadow-md  sticky top-0 z-10 bg-primary text-white">
+      <div className="navbar shadow-md  sticky top-0 z-10  text-white">
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">

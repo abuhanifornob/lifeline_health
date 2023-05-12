@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-
-import profile from "../../public/profiiledemo.png";
 import { AuthContext } from "@/context/AuthProvider";
 import { useContext } from "react";
 import withAuth from "../withAuth/withAuth";
@@ -10,7 +8,6 @@ const ProfileSlug = () => {
   const router = useRouter();
   const { profileSlug } = router.query;
   const {user}=useContext(AuthContext)
-  console.log("user",user)
 
   return (
     <>

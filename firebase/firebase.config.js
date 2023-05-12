@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_apiKey,
-  authDomain:  process.env.NEXT_PUBLIC_authDomain,
-  projectId:  process.env.NEXT_PUBLIC_projectId,
-  storageBucket:  process.env.NEXT_PUBLIC_storageBucket,
-  messagingSenderId:  process.env.NEXT_PUBLIC_messagingSenderId,
-  appId:  process.env.NEXT_PUBLIC_appId
+  apiKey: "AIzaSyAaMvLCTIVJnVti8pV4VtLC7DiYhpNi58Y",
+  authDomain: "life-line-health-conference.firebaseapp.com",
+  projectId:  "life-line-health-conference",
+  storageBucket: "life-line-health-conference.appspot.com",
+  messagingSenderId:  "531155964298",
+  appId:  "1:531155964298:web:6fe12666ba46a974b67873"
 };
 
 // Initialize Firebase
