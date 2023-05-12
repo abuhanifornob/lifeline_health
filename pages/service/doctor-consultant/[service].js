@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useContext, useState } from 'react';
-import Image from 'next/image';
-import 'react-day-picker/dist/style.css';
 import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
@@ -10,10 +8,10 @@ import { AuthContext } from '@/context/AuthProvider';
 const ServiceDetails = ({ doctors }) => {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
-    const [expert, setExpert] = useState(null)
+    const [sDoctors, setSDoctors] = useState(null)
     const { user } = useContext(AuthContext);
 
-    console.log(doctors);
+    console.log(sDoctors);
 
     const { service } = router.query;
     console.log(service);
@@ -21,16 +19,16 @@ const ServiceDetails = ({ doctors }) => {
     useEffect(() => {
 
         const selectedDoctor = doctors.filter((expt) => expt?.serviceDatails?.slug === service);
-        setExpert(selectedDoctor)
-        console.log(expert);
-    }, [router])
+        setSDoctors(selectedDoctor)
+        console.log(sDoctors);
+    }, [router.query])
 
 
 
-   
+
 
     if (isLoading) return <p>Loading...</p>;
-    if (!expert) return <p>No data</p>;
+    if (!sDoctors) return <p className='tex-center, text-5xl font-bold '>No doctor In this services</p>;;
     return (
         <div>
             <div className="relative">
@@ -39,7 +37,7 @@ const ServiceDetails = ({ doctors }) => {
             </div>
             <h2 className="text-5xl text-center py-10 font-bold">{service}</h2>
 
-            <div>{expert && expert.map((docInfo, idx) => (
+            <div>{sDoctors && sDoctors.map((docInfo, idx) => (
                 <DoctorCard key={idx} info={docInfo}></DoctorCard>
             ))}
 
@@ -67,7 +65,7 @@ export async function getServerSideProps() {
         console.error(error);
         return {
             props: {
-                doctors: [],
+                doctors: [null],
             },
         };
     }
