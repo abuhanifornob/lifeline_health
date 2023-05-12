@@ -94,7 +94,7 @@ function Navbar() {
                 <Link className="text-lg font-medium" href={"/service/doctor-consultant"}>
                   <li>Doctor Consultation</li>
                 </Link>
-                <Link className="text-lg font-medium" href={"/service/health-plane"}>
+                <Link className="text-lg font-medium" href={"/healthplans"}>
                   <li>health Plane</li>
                 </Link>
               </ul>

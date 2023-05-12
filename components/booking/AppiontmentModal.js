@@ -32,25 +32,25 @@ const AppointmentModal = ({ serviceInfo }) => {
         }
         console.log(JSON.stringify(booking));
     };
-    // fetch(' /api/bookings', {
-    //     method: 'POST',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(booking)
-    // })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         if (data) {
-    //             // setSuccessMessage("Registration successful!");
-    //             console.log(data)
-    //         }
-    //         else {
-    //             setErrorMessage("Registration failed. Please try again.");
-    //         }
-    //     })
-    //     .catch(error => console.error(error));
+    fetch(' /api/bookings', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(booking)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data) {
+                // setSuccessMessage("Registration successful!");
+                console.log(data)
+            }
+            else {
+                setErrorMessage("Registration failed. Please try again.");
+            }
+        })
+        .catch(error => console.error(error));
 
     const today = new Date();
     const disabledDays = {

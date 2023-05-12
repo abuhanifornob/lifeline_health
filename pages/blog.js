@@ -2,7 +2,7 @@
 import BlogsCards from "@/components/BlogsCards/BlogsCards";
 import { AuthContext } from "@/context/AuthProvider";
 import axios from "axios";
-import { useAxios } from 'use-axios-client';
+// import { useAxios } from 'use-axios-client';
 import Link from "next/link";
 import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
