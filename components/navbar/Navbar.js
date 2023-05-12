@@ -122,7 +122,7 @@ function Navbar() {
                 </svg>
               </Link>
               <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-                <li>  <a href="https://life-line-health.netlify.app/videoCall.html" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
+                <li>  <a href="https://life-line-health-conference.firebaseapp.com" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
                 <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
 
               </ul>

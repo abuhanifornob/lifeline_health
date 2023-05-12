@@ -4,6 +4,7 @@ import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '@/context/AuthProvider';
+import Link from 'next/link';
 
 
 
@@ -30,27 +31,28 @@ const AppointmentModal = ({ serviceInfo }) => {
             serviceDatails,
             payment:"unpaid"
         }
-        console.log(JSON.stringify(booking));
-    };
-    fetch(' /api/bookings', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(booking)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if (data) {
-                // setSuccessMessage("Registration successful!");
-                console.log(data)
-            }
-            else {
-                setErrorMessage("Registration failed. Please try again.");
-            }
+        // console.log(JSON.stringify(booking));
+        fetch(' /api/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
         })
-        .catch(error => console.error(error));
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data) {
+                    // setSuccessMessage("Registration successful!");
+                    console.log(data)
+                }
+                else {
+                    setErrorMessage("Registration failed. Please try again.");
+                }
+            })
+            .catch(error => console.error(error));
+    };
+    
 
     const today = new Date();
     const disabledDays = {
@@ -90,7 +92,7 @@ const AppointmentModal = ({ serviceInfo }) => {
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="name"
                                         type="text"
-                                        placeholder={user ? user.name : "Name"}
+                                        placeholder={user ? user.displayName : "Name"}
                                         {...register('name', { required: true })}
                                     />
                                 </div>
@@ -128,12 +130,13 @@ const AppointmentModal = ({ serviceInfo }) => {
                                         }
                                     </select>
                                 </div>
-                                <button
+                                <Link
+                                href={`/booking/${user?.uid}`}
                                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                     type="submit"
                                 >
                                     Book Now
-                                </button>
+                                </Link>
                             </form>
                         </div>
                     </div>

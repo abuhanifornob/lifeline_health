@@ -1,7 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
-function Checkout() {
+
+function Checkout({bookings}) {
     const [paymentMethod, setPaymentMethod] = useState('credit-card');
+    const router = useRouter();
+    const { user } = useContext(AuthContext);
+    const { checkout } = router.query;
+
+
+    const bookod =   bookings.find(booked=> booked?.user?.uid===checkout)
+    console.log(bookod);
 
     const handlePaymentMethodChange = (event) => {
         setPaymentMethod(event.target.value);
@@ -15,7 +25,7 @@ function Checkout() {
                     <h2 className="text-lg font-bold mb-4">Billing Information</h2>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
-                            Full Name
+                           {}
                         </label>
                         <input
                             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -160,3 +170,25 @@ function Checkout() {
 }
 
 export default Checkout;
+export async function getServerSideProps() {
+    try {
+        const response = await axios.get(
+            'https://lifeline-health-rakibul181.vercel.app/api/bookings'
+        );
+        const bookings = response.data;
+        console.log(bookings);
+  
+        return {
+            props: {
+                bookings,
+            },
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            props: {
+                bookings: [],
+            },
+        };
+    }
+  }
