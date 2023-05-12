@@ -76,13 +76,7 @@ function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className={`menu menu-horizontal flex gap-1 px-1 ${styles.customMenu}`}>
             <li><Link className="text-lg  " href={'/'}>Home</Link></li>
-            <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
             <li><Link className="text-lg  " href={'/about'}>About Us</Link></li>
-            <li><Link className="text-lg  " href={'/calculator'}>HealthCheck</Link></li>
-            <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
-            <li><Link className="text-lg  " href={'/healthplans'}>Health Plan</Link></li>
-            <li><Link className="text-lg  " href={'/doctorRegistrationForm'}>For Doctor</Link></li>
-
             <li tabIndex={0}>
               <Link href={""} className="text-lg font-medium">
                 Services
@@ -101,10 +95,15 @@ function Navbar() {
                   <li>Doctor Consultation</li>
                 </Link>
                 <Link className="text-lg font-medium" href={"/service/health-plane"}>
-                  <li>Fitness expert</li>
+                  <li>health Plane</li>
                 </Link>
               </ul>
             </li>
+            <li><Link className="text-lg  " href={'/calculator'}>HealthCheck</Link></li>
+            <li><Link className="text-lg  " href={'/blog'}>Blog</Link></li>
+            <li><Link className="text-lg  " href={'/contact'}>Contact</Link></li>
+            <li><Link className="text-lg  " href={'/DoctorRegistrationForm'}>For Doctor</Link></li>
+            
 
 
       {
