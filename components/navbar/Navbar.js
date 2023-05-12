@@ -157,7 +157,7 @@ function Navbar() {
                 {user?.email==="lifeline@health.com"&&<li><Link href={`/allusers`}>All Users</Link></li>}
                 
                 <li><a>My Appoinment</a></li>
-                <li><a>Settings</a></li>
+                <li><Link href={"Settings/ChangedPassword"}>Settings</Link></li>
                 <li onClick={() => handleLogOut()}><a>Logout</a></li>
               </ul>
             </div>
