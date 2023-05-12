@@ -212,7 +212,7 @@ const DoctorRegistrationForm = () => {
                         imgUrl: imgUrl,
                         phone: data.phone,
                         studyingInstitute: data.studyingInstitute,
-                        degrees:data.degree,
+                        degrees: data.degree,
                         specialization: data.specialization,
                         serviceDatails: serviceDatails,
                         workplace: data.workplace,
@@ -225,7 +225,7 @@ const DoctorRegistrationForm = () => {
                     console.log('doctor', JSON.stringify(doctor))
 
 
-                    fetch(' /api/doctors', {
+                    fetch(' http://localhost:3000/api/doctors', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -237,8 +237,11 @@ const DoctorRegistrationForm = () => {
                             console.log(data)
                             if (data) {
                                 // setSuccessMessage("Registration successful!");
+                            
                                 console.log(data)
+                                // reset()
                             }
+
                             else {
                                 setErrorMessage("Registration failed. Please try again.");
                             }
