@@ -3,7 +3,7 @@ import withAuth from "../withAuth/withAuth";
 
 const AboutUs = () => {
   return (
-    <div className="bg-gray-100">
+    <div>
       <div className="container mx-auto p-8">
         <h1 className="text-4xl font-bold mb-8">About Us</h1>
         <div className="flex flex-wrap md:flex-nowrap">

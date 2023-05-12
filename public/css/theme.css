@@ -1,30 +1,28 @@
 
-#body.light-mode , .navbar , .footer {
+ .light-mode , .navbar , .footer {
     background-color: #fff;
     color: #333;
     transition: background-color 0.3s ease;
   }
-  #body.dark-mode {
-    background-color:#1b2938;
-    color: #dfdfdf;
-  }
-  #body.dark-mode , .navbar , .footer{
+
+.dark-mode , .navbar   , .footer{
     background-color: #1b2938;
+    color: white;
   }
-  #body .dark-mode , .dark-mode-toggle > button {
+ .dark-mode , .dark-mode-toggle > button {
     color: #999;
   }
-  #body.dark-mode , .dark-mode-toggle > button:last-child {
-    color: lightblue;
+ .dark-mode , .dark-mode-toggle > button:last-child {
+    color: rgb(91, 21, 188);
   }
   
-  #body.dark-mode  , .content code {
+ .dark-mode  , .content code {
     background-color: #1b2938;
   }
-  #body , .dark-mode , .content a {
+.dark-mode , .content a {
     color: #ee0 9;
   }
-  #body , .dark-mode m  .content button {
+ .dark-mode m  .content button {
     color: #ee0 9;
   }
   .dark-mode-toggle {
@@ -86,3 +84,11 @@
   
   /* chat styles  */
   
+  .scrollBar::-webkit-scrollbar{
+    width: 12px;
+    background-color: rgb(131, 131, 204);
+  }
+  .scrollBar::-webkit-scrollbar-thumb{
+    border-radius: 12px;
+    background-color: rgb(3, 3, 26);
+  }

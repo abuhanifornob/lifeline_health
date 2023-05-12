@@ -2,25 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo1.png";
 import styles from "../../styles/Navbar.module.css";
-import DarkModeToggle from "../DarkMode/DarkModeToggle";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { Navigate } from "react-router-dom";
-import ThemeSwitch from "../ThemeSwitch/ThemeSwitich";
+import DarkModeToggle from "@/pages/DarkMode/DarkModeToggle";
 
 function Navbar() {
-  const { user , logoutUser} = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
   function handleLogOut() {
     logoutUser()
-   .then(() =>{
-    toast.success("Your profile log out successfully !!");;
-    <Navigate to="/login"></Navigate>
-   } )
+      .then(() => {
+        toast.success("Your profile log out successfully !!");;
+        <Navigate to="/login"></Navigate>
+      })
   }
   return (
     <>
-      <div className="navbar shadow-md  sticky top-0 z-10 bg-base-100">
+      <div className="navbar shadow-md  sticky top-0 z-10">
         {/* menu for small device &  navbar start*/}
         <div className="navbar-start">
           <div className="dropdown">
@@ -105,37 +104,35 @@ function Navbar() {
             </li>
 
 
-      {
-     user &&   <>
-           <li tabIndex={1}>
-              <Link href={""} className="text-lg font-medium">
-                Go live
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </Link>
-              <ul className="p-2 bg-[#254747] absolute z-10 text-white">
-             {
-              user.uid !== "" && <>
-              <li>  <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
-              <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+            {
+              user && <>
+                <li tabIndex={1}>
+                  <Link href={""} className="text-lg font-medium">
+                    Go live
+                    <svg
+                      className="fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                    </svg>
+                  </Link>
+                  <ul className="p-2 bg-[#254747] absolute z-10 text-white">
+                    {
+                      user.uid !== "" && <>
+                        <li>  <a href="https://life-line-health-conference.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-white float-right">Live video call</a> </li>
+                        <li><Link className="text-lg font-medium" href={'/chatpage'}>Live Chat </Link></li>
+
+                      </>
+                    }
+                  </ul>
+                </li>
 
               </>
-             }
-              </ul>
-            </li>
-
-        </>
-      }
-
-
-            <li tabIndex={5}> <ThemeSwitch></ThemeSwitch> </li>
+            }
+            <li tabIndex={5}> <DarkModeToggle></DarkModeToggle> </li>
           </ul>
         </div>
 
