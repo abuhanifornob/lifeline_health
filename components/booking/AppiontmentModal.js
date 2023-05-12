@@ -8,23 +8,30 @@ import { AuthContext } from '@/context/AuthProvider';
 
 
 
-const AppointmentModal = ({service}) => {
+const AppointmentModal = ({ serviceInfo }) => {
+    const { timeSlot, fees, doctorID, serviceDatails } = serviceInfo
     const [selectedDate, setSelectedDate] = useState(new Date())
     const { register, handleSubmit } = useForm();
     const date = format(selectedDate, 'PP')
 
-  const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    console.log(date);
 
 
     const onSubmit = (data) => {
         console.log(data);
 
         const booking = {
+            date,
             data,
             user,
+            fees,
+            doctorID,
+            serviceDatails
         }
+        console.log(booking);
     };
-    
+
     const today = new Date();
     const disabledDays = {
         before: today,
@@ -63,7 +70,7 @@ const AppointmentModal = ({service}) => {
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="name"
                                         type="text"
-                                        placeholder={user? user.name: "Name"}
+                                        placeholder={user ? user.name : "Name"}
                                         {...register('name', { required: true })}
                                     />
                                 </div>
@@ -77,10 +84,10 @@ const AppointmentModal = ({service}) => {
                                     <input
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="service"
-                                        value={service}
+                                        value={serviceDatails.name}
                                         {...register('service', { required: true })}
-                                    
-                                        
+
+
                                     />
                                 </div>
                                 <div className="mb-4">
@@ -95,13 +102,10 @@ const AppointmentModal = ({service}) => {
                                         id="time"
                                         {...register('time', { required: true })}
                                     >
-                                        <option>Select a time slot</option>
-                                        <option>9:00 AM - 10:00 AM</option>
-                                        <option>10:00 AM - 11:00 AM</option>
-                                        <option>11:00 AM - 12:00 PM</option>
-                                        <option>1:00 PM - 2:00 PM</option>
-                                        <option>2:00 PM - 3:00 PM</option>
-                                        <option>3:00 PM - 4:00 PM</option>
+                                        <option >Select a time slot</option>
+                                        {
+                                            timeSlot && timeSlot.map((slot, idx) => <option key={idx} value={slot}>{slot}</option>)
+                                        }
                                     </select>
                                 </div>
                                 <button
