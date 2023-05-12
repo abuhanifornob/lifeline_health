@@ -16,8 +16,8 @@ const handler = nextConnect()
     }
   })
   .post(async(req, res) => {
-    const {name,email,timeslot,imgUrl,phone,studyingInstitute,specialization,serviceDatails,workplace,about,experience,fees}=req.body;
-    const newDoctor= new DoctorsModel({name,email,timeslot,imgUrl,phone,studyingInstitute,specialization,serviceDatails,workplace,about,experience,fees})
+    const {name,email,timeSlot,imgUrl,phone,studyingInstitute,degree,specialization,serviceDatails,workplace,about,experience,fees}=req.body;
+    const newDoctor= new DoctorsModel({name,email,timeSlot,imgUrl,phone,studyingInstitute,degree,specialization,serviceDatails,workplace,about,experience,fees})
     // console.log('req',newDoctor)
     try {
         await newDoctor.save();

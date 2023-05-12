@@ -162,30 +162,30 @@ const DoctorRegistrationForm = () => {
                     
 
                 //  firebase auth
-                const userInfo = {
-                    displayName: data.name,
-                    photoURL: imgUrl,
-                    phoneNumber: data.phone
-                  };
-                  console.log('doctor',userInfo)
-                createUser(email, password)
-                    .then((result) => {
+                // const userInfo = {
+                //     displayName: data.name,
+                //     photoURL: imgUrl,
+                //     phoneNumber: data.phone
+                //   };
+                //   console.log('doctor',userInfo)
+                // createUser(email, password)
+                //     .then((result) => {
         
-                      userProfileUpdate(userInfo)
-                        .then(() => {
-                          toast("Registration Successfull");
-                        //   router.push("/");
-                          const user = result.user;
-                          console.log("jkdshjuhsdfguih", user);
-                          reset();
-                        })
-                        .catch((error) => console.error(error));
+                //       userProfileUpdate(userInfo)
+                //         .then(() => {
+                //           toast("Registration Successfull");
+                //         //   router.push("/");
+                //           const user = result.user;
+                //           console.log("jkdshjuhsdfguih", user);
+                //           reset();
+                //         })
+                //         .catch((error) => console.error(error));
         
-                    //   router.push("/");
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
+                //     //   router.push("/");
+                //     })
+                //     .catch((error) => {
+                //       console.error(error);
+                //     });
                 //  firebase auth
 
         const doctor = {
