@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import SettingNav from './SettingNav';
 import { AuthContext } from '@/context/AuthProvider';
-import { getAuth, sendEmailVerification } from 'firebase/auth';
 import app from '@/firebase/firebase.config';
+import { getAuth, sendEmailVerification } from 'firebase/auth';
+import { useContext } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import SettingNav from './SettingNav';
 
 const auth = getAuth(app);
 
@@ -21,6 +21,7 @@ const EmailVerify = () => {
     }
 
 
+
     return (
         <div className='text-gray-600 body-font max-w-screen-xl mx-auto'>
             <SettingNav></SettingNav>
@@ -28,7 +29,7 @@ const EmailVerify = () => {
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-12">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Verify Your Email</h1>
-
+                        
                     </div>
                     <div className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
                         <div className="relative flex-grow w-full">
