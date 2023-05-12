@@ -55,9 +55,6 @@ const registration = () => {
                 .then(() => {
                   toast("Registration Successfull");
                   router.push("/");
-<<<<<<< HEAD
-                  const user = result.user;
-=======
                   // const user = result.user;
                   const userInfo={
                     userName:name,
@@ -86,7 +83,6 @@ const registration = () => {
                         }
                     })
                     .catch(error => console.error(error));
->>>>>>> f9b33a168aa7d9c4b4a6684845a4b5bfe7a63524
                   event.target.reset();
                 })
                 .catch((error) => console.error(error));

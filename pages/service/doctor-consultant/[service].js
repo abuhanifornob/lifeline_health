@@ -3,11 +3,8 @@ import React, { useContext, useState } from 'react';
 import DoctorCard from '@/components/service/doctor-card';
 import axios from 'axios';
 import { useEffect } from 'react';
-<<<<<<< HEAD
 import withAuth from '@/pages/withAuth/withAuth';
-=======
 import { AuthContext } from '@/context/AuthProvider';
->>>>>>> origin
 
 const ServiceDetails = ({ doctors }) => {
     const router = useRouter();
