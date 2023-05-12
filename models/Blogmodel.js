@@ -6,7 +6,7 @@ const blogSchema=new mongoose.Schema({
             type: Object
         },
         postId:{
-            type: Number
+            type: String
         },
         headline: {
             type: String
