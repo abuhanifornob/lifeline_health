@@ -4,7 +4,8 @@ const ChatsPage = (props) => {
   return (
 <>
 <Head> <title>Chat page</title> </Head>
-<div style={{backgroundColor:"#1b2938"}} className="h-screen">
+<div style={{backgroundColor:"#1b2938"}} className="h-screen" data-aos="zoom-in-up"
+            data-aos-offset="500">
         <PrettyChatWindow
         projectId={process.env.NEXT_PUBLIC_CHAT_ENGINE_PROJECT_ID}
         username={props.user.username}

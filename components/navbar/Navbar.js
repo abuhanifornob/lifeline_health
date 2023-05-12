@@ -184,7 +184,8 @@ function Navbar() {
             !user && <>
               <ul tabIndex={7} className={`menu menu-horizontal flex gap-6 px-1 ${styles.customMenu}`}>
 
-                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li> <li> <Link href={"login"} className="text-lg font-medium">Register</Link></li></ul>
+                <li> <Link href={"login"} className="text-lg font-medium">Login</Link></li>
+                 <li> <Link  href="/siginsignupselect" className="text-lg font-medium">Register</Link></li></ul>
 
             </>
           }

@@ -6,7 +6,8 @@ import React from "react";
 const ReviewCard = ({ review }) => {
   const { reviewDetails, name, image } = review;
   return (
-    <div className="bg-base-100 shadow-xl grid justify-items-center">
+    <div className="bg-base-100 shadow-xl grid justify-items-center" data-aos="zoom-in"
+    data-aos-offset="500" data-aos-delay="100">
       <Image
         src={image}
         height={150}

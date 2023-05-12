@@ -55,7 +55,8 @@ const login = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="hero bg-base-200 " style={backgroundStyle}>
+    <div className="hero bg-base-200 " style={backgroundStyle} data-aos="zoom-in-up"
+    data-aos-offset="500">
       <div className="hero-content p-0 lg:p-10 my-11 flex-col lg:flex-row">
         <div className="p-0 lg:r-20">
           <img src="/login.jpg" className=" rounded-lg shadow-2xl h-full" />

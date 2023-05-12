@@ -27,11 +27,12 @@ const Service = () => {
 
     ]
     return (
-        <div className=' max-w-screen-xl md:mx-auto mx-4'>
+        <div className=' max-w-screen-xl md:mx-auto mx-4' data-aos="zoom-in" data-aos-delay="500" >
             <h1 className='text-4xl py-5 text-center font-extrabold'>OUR SERVICES</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 justify-items-center '>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 justify-items-center ' data-aos="zoom-in"
+            data-aos-offset="500">
                 {
-                    services.map((service, id) => <ServicesHome key={id} service={service}></ServicesHome>)
+                    services.map((service, id) => <ServicesHome  key={id} service={service}></ServicesHome>)
                 }
             </div>
         </div>
