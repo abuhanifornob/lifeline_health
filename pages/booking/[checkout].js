@@ -11,7 +11,7 @@ function Checkout({bookings}) {
     const { checkout } = router.query;
 
 
-    const bookod =   bookings.find(booked=> booked?.user?.uid===checkout)
+    const bookod =   bookings?.find(booked=> booked?.user?.uid===checkout)
     console.log("booking check",bookod);
 
     const handlePaymentMethodChange = (event) => {

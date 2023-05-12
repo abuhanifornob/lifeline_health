@@ -18,7 +18,7 @@ const Blog = ({ blogs }) => {
 //   setData(blogs)
   console.log("data",datas)
   useEffect(() => {
-   axios.get('http://localhost:3000/api/blogs')
+   axios.get('https://lifeline-health-rakibul181.vercel.app/api/blogs')
    .then((res)=>setDatas(res.data))
   }, []);
 //   const { refetch } = useAxios({
@@ -88,7 +88,7 @@ const Blog = ({ blogs }) => {
         // }
         //   useEffect(() => {
             axios
-        .post('http://localhost:3000/api/blogs', blogInfo )
+        .post(' https://lifeline-health-rakibul181.vercel.app/api/blogs', blogInfo )
         .then((response) => {
           // Assuming the API response contains the saved comment
           setDatas([blogInfo, ...datas])

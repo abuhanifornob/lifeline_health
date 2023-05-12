@@ -38,7 +38,7 @@ const AllDoctors = ({users}) => {
 export default AllDoctors;
 export async function getServerSideProps() {
 
-    const res = await fetch('http://localhost:3000/api/doctors')
+    const res = await fetch('/api/doctors')
     const users = await res.json()
   
     return {
