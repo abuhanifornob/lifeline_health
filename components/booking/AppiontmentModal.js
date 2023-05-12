@@ -31,7 +31,7 @@ const AppointmentModal = ({ serviceInfo }) => {
             serviceDatails,
             payment:"unpaid"
         }
-        // console.log(JSON.stringify(booking));
+        console.log(JSON.stringify(booking));
         fetch(' /api/bookings', {
             method: 'POST',
             headers: {
